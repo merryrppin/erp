@@ -1,0 +1,35 @@
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Data.Administration.Entities
+{
+    [Table("tblUser", Schema = "dbo")]
+    public class User
+    {
+        public User()
+        {
+            Active = true;
+
+        }
+        [Key]
+        [Required]
+        public string UserId { get; set; }
+        [Required]
+        public bool Active { get; set; }
+        [MaxLength(200)]
+        [Required]
+        public string UserFirstName { get; set; }
+        [MaxLength(200)]
+        [Required]
+        public string UserLastName { get; set; }
+        [MaxLength(200)]
+        [Required]
+        public string UserMail { get; set; }
+        [MaxLength(250)]
+        [Required]
+        public string Login { get; set; }
+        [MaxLength(250)]
+        [Required]
+        public string Password { get; set; }
+    }
+}

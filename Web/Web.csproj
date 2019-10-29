@@ -130,6 +130,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AdministrationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1599,7 +1600,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\" />
     <Folder Include="Libs\metronic_v6.0.9\assets\plugins\general\ion-rangeslider\img\" />
   </ItemGroup>
   <ItemGroup>
