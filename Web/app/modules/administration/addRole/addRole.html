@@ -1,0 +1,16 @@
+﻿
+<center>{{titlePage}}</center>
+<br />
+    roleSelected : {{ roleSelected }}
+<br />
+<label ng-if="roleSelected.roleName != ''">
+    {{ roleSelected.roleId }} - {{ roleSelected.roleName }}
+</label>
+<br />
+<select ng-if="enabledRole" ng-model="roleSelected" ng-options="role.RoleName for role in roles track by role.RoleId"></select>
+<br />
+<input ng-disabled="true" ng-model="roleSelected.RoleId" />
+<br />
+<input placeholder="{{aLanguage.placeholderRoleName}}" ng-model="roleSelected.RoleName" />
+<br />
+<textarea placeholder="{{aLanguage.placeholderDescriptionName}}" ng-model="roleSelected.RoleDescription"></textarea>
