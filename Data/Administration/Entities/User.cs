@@ -27,8 +27,8 @@ namespace Data.Administration.Entities
         [MaxLength(250)]
         [Required]
         public string Login { get; set; }
-        //[MaxLength(250)]
-        //[Required]
-        //public string Password { get; set; }
+        [MaxLength(250)]
+        [Required]
+        public string Password { get; set; }
     }
 }
