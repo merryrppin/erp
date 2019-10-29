@@ -19,38 +19,6 @@
                 }]
             }
         })
-        .state('addRole', {
-            url: "/addRole",
-            templateUrl: "app/modules/administration/addRole/addRole.html",
-            controller: "addRoleController",
-            resolve: {
-                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
-                    return $ocLazyLoad.load({
-                        name: aLanguage.appName,
-                        files: [
-                            'app/modules/administration/administrationSvc.js',
-                            'app/modules/administration/addRole/addRoleCtrl.js'
-                        ]
-                    });
-                }]
-            }
-        })
-        .state('editRole', {
-            url: "/editRole",
-            templateUrl: "app/modules/administration/addRole/addRole.html",
-            controller: "editRoleController",
-            resolve: {
-                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
-                    return $ocLazyLoad.load({
-                        name: aLanguage.appName,
-                        files: [
-                            'app/modules/administration/administrationSvc.js',
-                            'app/modules/administration/editRole/editRoleCtrl.js'
-                        ]
-                    });
-                }]
-            }
-        })
         .state('404', {
             url: "/404",
             templateUrl: "app/modules/general/error/404.html",

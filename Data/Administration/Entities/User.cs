@@ -9,7 +9,6 @@ namespace Data.Administration.Entities
         public User()
         {
             Active = true;
-
         }
         [Key]
         [Required]
@@ -24,12 +23,12 @@ namespace Data.Administration.Entities
         public string UserLastName { get; set; }
         [MaxLength(200)]
         [Required]
-        public string UserMail { get; set; }
+        public string UserEmail { get; set; }
         [MaxLength(250)]
         [Required]
         public string Login { get; set; }
-        [MaxLength(250)]
-        [Required]
-        public string Password { get; set; }
+        //[MaxLength(250)]
+        //[Required]
+        //public string Password { get; set; }
     }
 }

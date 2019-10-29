@@ -141,10 +141,7 @@
     <Content Include="app\config.js" />
     <Content Include="app\directives.js" />
     <Content Include="app\interceptors.js" />
-    <Content Include="app\modules\administration\addRole\addRole.html" />
-    <Content Include="app\modules\administration\addRole\addRoleCtrl.js" />
     <Content Include="app\modules\administration\administrationSvc.js" />
-    <Content Include="app\modules\administration\editRole\editRoleCtrl.js" />
     <Content Include="app\modules\general\error\404.html" />
     <Content Include="app\modules\general\error\errorCtrl.js" />
     <Content Include="app\modules\general\generalCtrl.js" />

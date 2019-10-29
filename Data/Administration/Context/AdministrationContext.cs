@@ -8,8 +8,6 @@ namespace Data.Administration.Context
     {
         public DbSet<User> Users { get; set; }
 
-
-
         public AdministrationContext() : base("AppContext")
         {
             Database.SetInitializer(new CreateDatabaseIfNotExists<AdministrationContext>());
