@@ -11,7 +11,6 @@ namespace Data.Administration.Entities
             Active = true;
         }
         [Key]
-        [Required]
         public string UserId { get; set; }
         [Required]
         public bool Active { get; set; }

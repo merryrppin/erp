@@ -52,7 +52,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administration\Context\AdministrationContext.cs" />
+    <Compile Include="Administration\Entities\GeneralList.cs" />
+    <Compile Include="Administration\Entities\GeneralListOption.cs" />
     <Compile Include="Administration\Entities\User.cs" />
+    <Compile Include="Administration\Entities\ValueType.cs" />
     <Compile Include="Migrations\201910290132596_FirstMigration.cs" />
     <Compile Include="Migrations\201910290132596_FirstMigration.designer.cs">
       <DependentUpon>201910290132596_FirstMigration.cs</DependentUpon>
@@ -62,6 +65,8 @@
       <DependentUpon>201910290135094_AddPasswordToUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Product\Context\ProductContext.cs" />
+    <Compile Include="Product\Entities\ProductFeature.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

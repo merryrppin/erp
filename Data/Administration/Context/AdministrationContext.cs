@@ -7,7 +7,10 @@ namespace Data.Administration.Context
     public class AdministrationContext : DbContext
     {
         public DbSet<User> Users { get; set; }
-
+        public DbSet<GeneralList> GeneralLists { get; set; }
+        public DbSet<GeneralListOption> GeneralListOptions { get; set; }
+        public DbSet<ValueType> ValueTypes { get; set; }
+        
         public AdministrationContext() : base("AppContext")
         {
             Database.SetInitializer(new CreateDatabaseIfNotExists<AdministrationContext>());
