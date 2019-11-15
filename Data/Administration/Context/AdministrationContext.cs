@@ -1,4 +1,5 @@
 ﻿using Data.Administration.Entities;
+using Data.Product.Entities;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
@@ -10,7 +11,8 @@ namespace Data.Administration.Context
         public DbSet<GeneralList> GeneralLists { get; set; }
         public DbSet<GeneralListOption> GeneralListOptions { get; set; }
         public DbSet<ValueType> ValueTypes { get; set; }
-        
+        public DbSet<ProductFeature> ProductFeatures { get; set; }
+
         public AdministrationContext() : base("AppContext")
         {
             Database.SetInitializer(new CreateDatabaseIfNotExists<AdministrationContext>());
