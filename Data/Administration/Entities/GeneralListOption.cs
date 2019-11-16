@@ -17,6 +17,8 @@ namespace Data.Administration.Entities
         public string Description { get; set; }
         [Required]
         public int Order { get; set; }
+        public FieldValueType FieldValueType { get; set; }
+        public int FieldValueTypeId { get; set; }
         public string TextValue { get; set; }
         public double? NumValue { get; set; }
         public bool? LogicValue { get; set; }

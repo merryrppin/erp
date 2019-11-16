@@ -13,8 +13,8 @@ namespace Data.Administration.Entities
         public string ListName { get; set; }
         [MaxLength(500)]
         public string Description { get; set; }
-        public ValueType ValueType { get; set; }
-        public int ValueTypeId { get; set; }
+        public FieldValueType FieldValueType { get; set; }
+        public int FieldValueTypeId { get; set; }
         [Required]
         public bool Active { get; set; }
     }

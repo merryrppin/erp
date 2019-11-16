@@ -55,7 +55,7 @@
     <Compile Include="Administration\Entities\GeneralList.cs" />
     <Compile Include="Administration\Entities\GeneralListOption.cs" />
     <Compile Include="Administration\Entities\User.cs" />
-    <Compile Include="Administration\Entities\ValueType.cs" />
+    <Compile Include="Administration\Entities\FieldValueType.cs" />
     <Compile Include="Documents\Entities\TransactionDocument.cs" />
     <Compile Include="Documents\Entities\TransactionDocumentDets.cs" />
     <Compile Include="Migrations\201910290132596_FirstMigration.cs" />
@@ -67,6 +67,12 @@
       <DependentUpon>201910290135094_AddPasswordToUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Product\Entities\Form.cs" />
+    <Compile Include="Product\Entities\FormProductFeature.cs" />
+    <Compile Include="Product\Entities\FormField.cs" />
+    <Compile Include="Product\Entities\FormProductFeature_FormField.cs" />
+    <Compile Include="Product\Entities\Form_FormProductFeature.cs" />
+    <Compile Include="Product\Entities\Products.cs" />
     <Compile Include="Product\Entities\ProductFeature.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

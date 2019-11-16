@@ -3,12 +3,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Data.Administration.Entities
 {
-    [Table("tblValueType", Schema = "param")]
-    public class ValueType
+    [Table("tblFieldValueType", Schema = "param")]
+    public class FieldValueType
     {
         [Key]
-        [Required]
-        public int ValueTypeId { get; set; }
+        public int FieldValueTypeId { get; set; }
         [MaxLength(100)]
         public string TextValue { get; set; }
         [MaxLength(500)]
