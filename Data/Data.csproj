@@ -54,8 +54,11 @@
     <Compile Include="Administration\Context\AdministrationContext.cs" />
     <Compile Include="Administration\Entities\GeneralList.cs" />
     <Compile Include="Administration\Entities\GeneralListOption.cs" />
+    <Compile Include="Administration\Entities\Menu.cs" />
     <Compile Include="Administration\Entities\User.cs" />
     <Compile Include="Administration\Entities\FieldValueType.cs" />
+    <Compile Include="Administration\Entities\UserGroup.cs" />
+    <Compile Include="Administration\Entities\UserGroup_User.cs" />
     <Compile Include="Documents\Entities\TransactionDocument.cs" />
     <Compile Include="Documents\Entities\TransactionDocumentDets.cs" />
     <Compile Include="Migrations\201910290132596_FirstMigration.cs" />
