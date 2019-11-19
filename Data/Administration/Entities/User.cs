@@ -11,9 +11,7 @@ namespace Data.Administration.Entities
             Active = true;
         }
         [Key]
-        public string UserId { get; set; }
-        [Required]
-        public bool Active { get; set; }
+        public int UserId { get; set; }
         [MaxLength(200)]
         [Required]
         public string UserFirstName { get; set; }
@@ -29,5 +27,7 @@ namespace Data.Administration.Entities
         [MaxLength(250)]
         [Required]
         public string Password { get; set; }
+        [Required]
+        public bool Active { get; set; }
     }
 }

@@ -18,6 +18,9 @@ namespace Data.Administration.Context
         public DbSet<FormField> FormFields { get; set; }
         public DbSet<Products> Products { get; set; }
         public DbSet<ProductFeature> ProductFeatures { get; set; }
+        public DbSet<Menu> Menus { get; set; }
+        public DbSet<UserGroup> UserGroups { get; set; }
+        public DbSet<UserGroup_User> User_UserGroups { get; set; }
 
         public AdministrationContext() : base("AppContext")
         {
