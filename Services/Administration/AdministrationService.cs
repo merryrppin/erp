@@ -36,7 +36,7 @@ namespace Services.Administration
             }
         }
 
-        public User GetUser(string id)
+        public User GetUser(int id)
         {
             try
             {
