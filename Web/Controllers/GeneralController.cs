@@ -5,10 +5,10 @@ using System.Web.Http;
 
 namespace Web.Controllers
 {
-    public class AdministrationController : ApiController
+    public class GeneralController : ApiController
     {
         public AdministrationService _administrationService;
-        public AdministrationController()
+        public GeneralController()
         {
             _administrationService = new AdministrationService();
         }
