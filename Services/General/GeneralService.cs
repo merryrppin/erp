@@ -1,12 +1,24 @@
 ﻿using Data.General.Context;
+using Services.Domain.Interfaces;
 using System;
 using System.Transactions;
 
 namespace Services.General
 {
-    public class GeneralService<T>
+    public class GeneralService<E, T>
+        where E : ILogic<T>
         where T : class, new()
     {
+
+        private E _entidad;
+        protected ILogic<T> Entidad
+        {
+            get
+            {
+                return (ILogic<T>)_entidad;
+            }
+        }
+
         public GeneralContext _generalContext;
 
         public GeneralService()
@@ -30,8 +42,8 @@ namespace Services.General
                     //using (TransactionScope scope = new TransactionScope())
                     using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required, transactionOptions))
                     {
-                        
-                        _generalContext.SaveChanges();
+                        Entidad.Agregar(item);
+                        Entidad.GuardarCambios();
                         scope.Complete();
                         success = true;
                     }

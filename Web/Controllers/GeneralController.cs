@@ -1,4 +1,6 @@
 ﻿using Data.General.Entities;
+using Services.Domain.Interfaces;
+using Services.Domain.Logic;
 using Services.General;
 using System.Collections.Generic;
 using System.Web.Http;
@@ -7,7 +9,7 @@ namespace Web.Controllers
 {
     public class GeneralController : ApiController
     {
-        public GeneralService<BaseEntity> _generalService;
+        public GeneralService<BaseEntity, Base<BaseEntity>> _generalService;
         public GeneralController()
         {
             _generalService = new GeneralService<BaseEntity>();
