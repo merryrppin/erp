@@ -1,22 +1,17 @@
-﻿using Data.Administration.Context;
+﻿using Data.General.Context;
 using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Transactions;
 
 namespace Services.General
 {
-    public abstract class GeneralServices<T>
+    public class GeneralService<T>
         where T : class, new()
     {
-        public AdministrationContext _administrationContext;
+        public GeneralContext _generalContext;
 
-        public GeneralServices()
+        public GeneralService()
         {
-            _administrationContext = new AdministrationContext();
+            _generalContext = new GeneralContext();
         }
         public bool AddNew(T item)
         {
@@ -26,20 +21,17 @@ namespace Services.General
             {
                 try
                 {
-
-
                     // AntesDeEjecutarTransaccion(item, null);
-
-
-                    TransactionOptions transactionOptions = new TransactionOptions();
-                    transactionOptions.IsolationLevel = System.Transactions.IsolationLevel.ReadCommitted;
-                    transactionOptions.Timeout = TransactionManager.MaximumTimeout;
-
+                    TransactionOptions transactionOptions = new TransactionOptions
+                    {
+                        IsolationLevel = System.Transactions.IsolationLevel.ReadCommitted,
+                        Timeout = TransactionManager.MaximumTimeout
+                    };
                     //using (TransactionScope scope = new TransactionScope())
                     using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required, transactionOptions))
                     {
-
-                        _administrationContext.SaveChanges();
+                        
+                        _generalContext.SaveChanges();
                         scope.Complete();
                         success = true;
                     }

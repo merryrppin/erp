@@ -1,11 +1,11 @@
-﻿using Data.Administration.Entities;
+﻿using Data.General.Entities;
 using Data.Product.Entities;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
-namespace Data.Administration.Context
+namespace Data.General.Context
 {
-    public class AdministrationContext : DbContext
+    public class GeneralContext : DbContext
     {
         public DbSet<User> Users { get; set; }
         public DbSet<GeneralList> GeneralLists { get; set; }
@@ -22,14 +22,14 @@ namespace Data.Administration.Context
         public DbSet<UserGroup> UserGroups { get; set; }
         public DbSet<UserGroup_User> User_UserGroups { get; set; }
 
-        public AdministrationContext() : base("AppContext")
+        public GeneralContext() : base("AppContext")
         {
-            Database.SetInitializer(new CreateDatabaseIfNotExists<AdministrationContext>());
+            Database.SetInitializer(new CreateDatabaseIfNotExists<GeneralContext>());
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            Database.SetInitializer<AdministrationContext>(null);
+            Database.SetInitializer<GeneralContext>(null);
             base.OnModelCreating(modelBuilder);
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
         }

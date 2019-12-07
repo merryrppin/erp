@@ -1,4 +1,4 @@
-﻿using Data.Administration.Entities;
+﻿using Data.General.Entities;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 

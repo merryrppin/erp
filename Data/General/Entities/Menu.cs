@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Data.Administration.Entities
+namespace Data.General.Entities
 {
     [Table("tblMenu", Schema = "param")]
-    public class Menu
+    public class Menu : BaseEntity
     {
         [Key]
         public int MenuId { get; set; }
@@ -16,8 +16,8 @@ namespace Data.Administration.Entities
         public string Description { get; set; }
         [MaxLength(100)]
         public string Icon { get; set; }
-        public Menu ParentMenu { get; set; }
-        [ForeignKey("MenuId")]
+        //public Menu ParentMenu { get; set; }
+        //[ForeignKey("MenuId")]
         public int? ParentMenuId { get; set; }
         public int Order { get; set; }
         [Required]

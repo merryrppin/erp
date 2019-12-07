@@ -1,5 +1,5 @@
-﻿using Data.Administration.Entities;
-using Services.Administration;
+﻿using Data.General.Entities;
+using Services.General;
 using System.Collections.Generic;
 using System.Web.Http;
 
@@ -7,31 +7,31 @@ namespace Web.Controllers
 {
     public class GeneralController : ApiController
     {
-        public AdministrationService _administrationService;
+        public GeneralService<BaseEntity> _generalService;
         public GeneralController()
         {
-            _administrationService = new AdministrationService();
+            _generalService = new GeneralService<BaseEntity>();
         }
 
         [HttpPost]
         [Route("api/getAllUsers")]
         public List<User> GetAllUsers()
         {
-            return _administrationService.GetAllUsers();
+            return null;// _generalService.GetAllUsers();
         }
 
         [HttpPost]
         [Route("api/addUser")]
         public bool AddUser(User user)
         {
-            return _administrationService.AddUser(user);
+            return _generalService.AddNew(user);
         }
 
         [HttpPost]
         [Route("api/getUser")]
         public User GetUser(User user)
         {
-            return _administrationService.GetUser(user.UserId);
+            return null;// _generalService.GetUser(user.UserId);
         }
     }
 }

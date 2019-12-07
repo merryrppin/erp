@@ -1,18 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Data.Administration.Entities
+namespace Data.General.Entities
 {
-    [Table("tblUserGroup", Schema = "dbo")]
-    public class UserGroup
+    [Table("tblFieldValueType", Schema = "param")]
+    public class FieldValueType : BaseEntity
     {
         [Key]
-        public int UserGroupId { get; set; }
+        public int FieldValueTypeId { get; set; }
         [MaxLength(100)]
-        [Required]
-        public string Name { get; set; }
+        public string TextValue { get; set; }
         [MaxLength(500)]
-        [Required]
         public string Description { get; set; }
         [Required]
         public bool Active { get; set; }

@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Data.Administration.Entities
+namespace Data.General.Entities
 {
     [Table("tblUser", Schema = "dbo")]
-    public class User
+    public class User : BaseEntity
     {
         public User()
         {

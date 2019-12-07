@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Data.Administration.Entities
+namespace Data.General.Entities
 {
     [Table("tblGeneralList", Schema = "param")]
-    public class GeneralList
+    public class GeneralList : BaseEntity
     {
         [Key]
         public int GeneralListId { get; set; }
