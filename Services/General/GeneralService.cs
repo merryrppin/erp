@@ -5,25 +5,26 @@ using System.Transactions;
 
 namespace Services.General
 {
-    public class GeneralService<E, T>
-        where E : ILogic<T>
+    public class GeneralService<T>
         where T : class, new()
     {
-
-        private E _entidad;
-        protected ILogic<T> Entidad
-        {
-            get
-            {
-                return (ILogic<T>)_entidad;
-            }
-        }
+        public Domain.Logic.Base<T> Operations = new Domain.Logic.Base<T>();
+        
+        //private T _entidad;
+        //protected<T> Entidad
+        //{
+        //    get
+        //    {
+        //        return ()_entidad;
+        //    }
+        //}
 
         public GeneralContext _generalContext;
 
         public GeneralService()
         {
             _generalContext = new GeneralContext();
+            Operations.Context.Set<GeneralContext>();
         }
         public bool AddNew(T item)
         {
@@ -42,8 +43,8 @@ namespace Services.General
                     //using (TransactionScope scope = new TransactionScope())
                     using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required, transactionOptions))
                     {
-                        Entidad.Agregar(item);
-                        Entidad.GuardarCambios();
+                        Operations.Agregar(item);
+                        Operations.GuardarCambios();
                         scope.Complete();
                         success = true;
                     }

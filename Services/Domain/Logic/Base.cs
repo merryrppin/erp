@@ -12,13 +12,13 @@ using System.Threading.Tasks;
 
 namespace Services.Domain.Logic
 {
-    public class Base<E> : ILogic<E>, IDisposable where E : class
+    public class Base<E>  where E : class
     {
 
         protected GeneralContext db;
         protected DbSet<E> entidad;
 
-        public Base(string contextName)
+        public Base()
         {
             db = new GeneralContext();
             entidad = db.Set<E>(); //establecer la entidad especifica (genéricamente hablando)

@@ -9,7 +9,7 @@ namespace Web.Controllers
 {
     public class GeneralController : ApiController
     {
-        public GeneralService<BaseEntity, Base<BaseEntity>> _generalService;
+        public GeneralService<BaseEntity> _generalService;
         public GeneralController()
         {
             _generalService = new GeneralService<BaseEntity>();
