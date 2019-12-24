@@ -19,22 +19,23 @@ namespace Services.General
         //    }
         //}
 
-        public GeneralContext _generalContext;
+        //public GeneralContext _generalContext;
 
         public GeneralService()
         {
-            _generalContext = new GeneralContext();
-            Operations.Context.Set<GeneralContext>();
+            //_generalContext = new GeneralContext();
+            //Operations.Context.Set<GeneralContext>();
         }
         public bool AddNew(T item)
         {
+           
+            //Operations.Context.Entry(item);
             bool success = false;
             string error = string.Empty;
             //if (ModelState.IsValid)
             {
                 try
                 {
-                    // AntesDeEjecutarTransaccion(item, null);
                     TransactionOptions transactionOptions = new TransactionOptions
                     {
                         IsolationLevel = System.Transactions.IsolationLevel.ReadCommitted,
@@ -60,5 +61,8 @@ namespace Services.General
 
             return success;
         }
+
+
+
     }
 }

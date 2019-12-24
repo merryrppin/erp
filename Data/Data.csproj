@@ -52,7 +52,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="General\Context\GeneralContext.cs" />
-    <Compile Include="General\Entities\BaseEntity.cs" />
     <Compile Include="General\Entities\GeneralList.cs" />
     <Compile Include="General\Entities\GeneralListOption.cs" />
     <Compile Include="General\Entities\Menu.cs" />

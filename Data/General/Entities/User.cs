@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Data.General.Entities
 {
     [Table("tblUser", Schema = "dbo")]
-    public class User : BaseEntity
+    public class User
     {
         public User()
         {
