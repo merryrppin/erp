@@ -4,6 +4,21 @@
         //debug: true
     });
     $stateProvider
+        //.state('login', {
+        //    url: "/home",
+        //    templateUrl: "app/modules/general/home/home.html",
+        //    controller: "homeController",
+        //    resolve: {
+        //        deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+        //            return $ocLazyLoad.load({
+        //                name: aLanguage.appName,
+        //                files: [
+        //                    'app/modules/general/home/homeCtrl.js'
+        //                ]
+        //            });
+        //        }]
+        //    }
+        //})
         .state('home', {
             url: "/home",
             templateUrl: "app/modules/general/home/home.html",
