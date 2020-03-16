@@ -7,23 +7,23 @@ function generalController($scope, $timeout, $location, GeneralService) {
     };
 
     $scope.verificarAutenticacion = function () {
-        GeneralService.executeAjax({
-            method: 'GET',
-            url: 'api/pingToServer',
-            confirmation: false,
-            success: function (response) {
-                if (response) {
-                    GeneralService.autentication.isAuthenticated = true;
-                    GeneralService.showPanels('Home');//test
-                    $scope.loadDataFromGeneralService();//test   
-                } else {
-                    GeneralService.autentication.isAuthenticated = false;
-                    GeneralService.hidePanels();//test     
-                    $scope.loadDataFromGeneralService();    //test              
-                    $location.path("/login");
-                }
-            }
-        });
+        //GeneralService.executeAjax({
+        //    method: 'GET',
+        //    url: 'api/pingToServer',
+        //    confirmation: false,
+        //    success: function (response) {
+        //        if (response) {
+        //            GeneralService.autentication.isAuthenticated = true;
+        //            GeneralService.showPanels('Home');//test
+        //            $scope.loadDataFromGeneralService();//test   
+        //        } else {
+        //            GeneralService.autentication.isAuthenticated = false;
+        //            GeneralService.hidePanels();//test     
+        //            $scope.loadDataFromGeneralService();    //test              
+        //            $location.path("/login");
+        //        }
+        //    }
+        //});
     };
 
     $scope.loadDataFromGeneralService();//test   

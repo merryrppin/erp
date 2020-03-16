@@ -131,9 +131,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\GeneralController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -149,10 +156,11 @@
     <Content Include="app\modules\general\generalSvc.js" />
     <Content Include="app\modules\general\home\Home.html" />
     <Content Include="app\modules\general\home\homeCtrl.js" />
+    <Content Include="app\modules\general\login\loginCtrl.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="index.aspx" />
     <Content Include="indexMetronic.html" />
-    <Content Include="index.html" />
     <Content Include="Layout\General.html" />
     <Content Include="Libs\AngularJS\angular-route.1.7.8.min.js" />
     <Content Include="Libs\AngularJS\Angular-sanitize.1.7.8\angular-sanitize.js" />
@@ -1599,6 +1607,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Libs\metronic_v6.0.9\assets\plugins\general\ion-rangeslider\img\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Libs\AngularJS\Angular-sanitize.1.7.8\angular-sanitize.min.js.map" />

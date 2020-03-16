@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Data.General.Entities
 {
     [Table("tblGeneralList", Schema = "param")]
-    public class GeneralList : BaseEntity
+    public class GeneralList
     {
         [Key]
         public int GeneralListId { get; set; }

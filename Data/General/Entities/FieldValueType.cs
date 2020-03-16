@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Data.General.Entities
 {
     [Table("tblFieldValueType", Schema = "param")]
-    public class FieldValueType : BaseEntity
+    public class FieldValueType
     {
         [Key]
         public int FieldValueTypeId { get; set; }

@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Services.Domain.Logic
 {
-    public class Base<E>  where E : class
+    public  class  Base<E>  where E : class 
     {
 
         protected GeneralContext db;
@@ -23,7 +23,7 @@ namespace Services.Domain.Logic
             db = new GeneralContext();
             entidad = db.Set<E>(); //establecer la entidad especifica (genéricamente hablando)
         }
-        
+
         public DbSet<E> Entidad
         {
             get
@@ -155,7 +155,6 @@ namespace Services.Domain.Logic
         {
             throw new NotImplementedException();
         }
-
 
         ///// <summary>
         ///// Cantidad de Registros

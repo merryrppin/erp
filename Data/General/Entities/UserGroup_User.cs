@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Data.General.Entities
 {
     [Table("tblUserGroup_User", Schema = "dbo")]
-    public class UserGroup_User : BaseEntity
+    public class UserGroup_User
     {
         [Key]
         public int UserGroup_UserId { get; set; }

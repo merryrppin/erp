@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Data.General.Entities
 {
     [Table("tblMenu", Schema = "param")]
-    public class Menu : BaseEntity
+    public class Menu
     {
         [Key]
         public int MenuId { get; set; }
