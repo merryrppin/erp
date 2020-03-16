@@ -83,7 +83,7 @@
     <Compile Include="Product\Entities\FormField.cs" />
     <Compile Include="Product\Entities\FormProductFeature_FormField.cs" />
     <Compile Include="Product\Entities\Form_FormProductFeature.cs" />
-    <Compile Include="Product\Entities\Products.cs" />
+    <Compile Include="Product\Entities\Product.cs" />
     <Compile Include="Product\Entities\ProductFeature.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
