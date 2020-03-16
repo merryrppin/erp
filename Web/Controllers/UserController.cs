@@ -8,33 +8,47 @@ namespace Web.Controllers
 {
     public class UserController : ApiController
     {
-        public GeneralService<User> _generalService;
+        private AdministrationService _administrationService;
         public UserController()
         {
-            _generalService = new GeneralService<User>();
+            _administrationService = new AdministrationService();
         }
 
         [HttpPost]
         [Route("api/getAllUsers")]
         public List<User> GetAllUsers()
         {
-            return null;// _generalService.GetAllUsers();
+            return _administrationService.GetAllUsers();
         }
 
         [HttpPost]
         [Route("api/addUser")]
         public bool AddUser(User user)
         {
-
-            return _generalService.AddNew(user);
+            return _administrationService.AddUser(user);
         }
 
         [HttpPost]
         [Route("api/getUser")]
         public User GetUser(User user)
         {
-            return null;// _generalService.GetUser(user.UserId);
+            return _administrationService.GetUser(user.UserId);
         }
+
+        [HttpPost]
+        [Route("api/addUser")]
+        public bool UpdateUser(User user)
+        {
+            return _administrationService.UpdateUser(user);
+        }
+
+        [HttpPost]
+        [Route("api/addUser")]
+        public bool UpdateUsers(User user)
+        {
+            return false;// _administrationService.AddUser(user);
+        }
+
 
     }
 }

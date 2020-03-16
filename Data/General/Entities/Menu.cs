@@ -16,6 +16,8 @@ namespace Data.General.Entities
         public string Description { get; set; }
         [MaxLength(100)]
         public string Icon { get; set; }
+        [MaxLength(300)]
+        public string Ruta { get; set; }
         //public Menu ParentMenu { get; set; }
         //[ForeignKey("MenuId")]
         public int? ParentMenuId { get; set; }
