@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Data.Product.Entities
 {
-    [Table("tblProducts", Schema = "dbo")]
-    public class Products
+    [Table("tblProduct", Schema = "dbo")]
+    public class Product
     {
         [Key]
         public int ProductId { get; set; }
