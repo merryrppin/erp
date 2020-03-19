@@ -16,7 +16,7 @@ namespace Data.General.Context
         public DbSet<FormProductFeature_FormField> FormProductFeature_FormFields { get; set; }
         public DbSet<FormProductFeature> FormProductFeatures { get; set; }
         public DbSet<FormField> FormFields { get; set; }
-        public DbSet<Products> Products { get; set; }
+        public DbSet<Data.Product.Entities.Product> Products { get; set; }
         public DbSet<ProductFeature> ProductFeatures { get; set; }
         public DbSet<Menu> Menus { get; set; }
         public DbSet<UserGroup> UserGroups { get; set; }

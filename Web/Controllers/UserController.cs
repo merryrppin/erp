@@ -1,7 +1,9 @@
 ﻿using Data.General.Entities;
 using Services.General;
+using Services.General.Entities;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace Web.Controllers
@@ -48,7 +50,12 @@ namespace Web.Controllers
         {
             return false;// _administrationService.AddUser(user);
         }
-
-
+        
+        [HttpPost]
+        [Route("api/executeStoredProcedure")]
+        public StoredObjectResponse ExecuteStoredProcedure(StoredObjectParams StoredObjectParams)
+        {
+            return _administrationService.ExecuteStoredProcedure(StoredObjectParams);
+        }
     }
 }
