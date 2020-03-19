@@ -158,6 +158,7 @@
     <Content Include="app\modules\general\home\homeCtrl.js" />
     <Content Include="app\modules\general\login\loginCtrl.js" />
     <Content Include="favicon.ico" />
+    <Content Include="General.html" />
     <Content Include="Global.asax" />
     <Content Include="index.aspx" />
     <Content Include="indexMetronic.html" />

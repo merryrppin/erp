@@ -1,12 +1,13 @@
 ﻿angular.module(aLanguage.appName).controller('generalController', ["$scope", "$timeout", "$location", "GeneralService", generalController]);
 function generalController($scope, $timeout, $location, GeneralService) {
-    $scope.aLanguage = aLanguage;
+    var ctrl = this;
+    ctrl.aLanguage = aLanguage;
 
-    $scope.loadDataFromGeneralService = function () {
+    ctrl.loadDataFromGeneralService = function () {
         //$scope.contentTitle = GeneralService.contentTitle;
     };
 
-    $scope.verificarAutenticacion = function () {
+    ctrl.verificarAutenticacion = function () {
         //GeneralService.executeAjax({
         //    method: 'GET',
         //    url: 'api/pingToServer',
@@ -26,6 +27,26 @@ function generalController($scope, $timeout, $location, GeneralService) {
         //});
     };
 
-    $scope.loadDataFromGeneralService();//test   
-    $timeout($scope.verificarAutenticacion());
+    ctrl.loadMenus = function () {
+        var dataSP = {
+            "StoredProcedureName": "GetActiveMenus",
+            "StoredParams": []
+        };
+        GeneralService.executeAjax({
+            url: 'api/executeStoredProcedure',
+            confirmation: false,
+            data: dataSP,
+            success: function (response) {
+                console.log(response);
+            }
+        });
+    };
+
+    angular.element(document).ready(init);
+
+    function init() {
+        ctrl.verificarAutenticacion();
+        ctrl.loadDataFromGeneralService();
+        ctrl.loadMenus();
+    }
 }

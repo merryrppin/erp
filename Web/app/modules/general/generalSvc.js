@@ -3,7 +3,7 @@ function GeneralService($http) {
     var generalService = {};
 
     generalService.autentication = { isAuthenticated: true };//false por defecto
-    
+
     generalService.executeAjax = function (data) {
         var options = angular.extend({}, {
             'method': "POST",

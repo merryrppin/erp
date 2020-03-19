@@ -11,8 +11,8 @@ namespace Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Response.Redirect("/Pages/General/Login.html#home");
-            //Response.Redirect("/Layout/General.html#home");
+            //Response.Redirect("/Pages/General/Login.html#home");
+            Response.Redirect("/General.html#home");
         }
     }
 }

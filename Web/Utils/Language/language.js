@@ -1,5 +1,5 @@
 ﻿var aLanguage = {
-    'appName': 'erp',
+    'appName': 'erpApp',
     'sign_in_app': 'Ingresar a ERP',
 
 
