@@ -17,7 +17,7 @@ function GeneralService($http) {
             'funcionCorrecto': function () { },
             'funcionIncorrecto': function () { },
             'spinner': true,
-            'tablaDataTable': ""
+            'mapData': true
         }, data);
         $http({
             method: options.method,
@@ -26,30 +26,45 @@ function GeneralService($http) {
             params: options.params,
             data: options.data
         }).then(function (response) {
-            if (options.confirmation) {
-                if (response.data === true) {
-                    generalService.showToastR({
-                        body: aLanguage.generalSuccess
-                    });
-                    options.funcionCorrecto(response.data);
-                }
-                else {
-                    generalService.showToastR({
-                        body: aLanguage.generalError,
-                        type: 'error'
-                    });
-                    options.funcionIncorrecto();
+            if (typeof response.data.Exception !== 'undefined' && response.data.Exception !== null) {
+                GeneralService.showToastR({
+                    body: response.data.Exception.Message,
+                    type: 'error'
+                });
+            } else {
+                if (options.confirmation) {
+                    if (response.data === true) {
+                        generalService.showToastR({
+                            body: aLanguage.generalSuccess
+                        });
+                        options.funcionCorrecto(response.data);
+                    }
+                    else {
+                        generalService.showToastR({
+                            body: aLanguage.generalError,
+                            type: 'error'
+                        });
+                        options.funcionIncorrecto();
+                    }
                 }
             }
-
-            if (options.tablaDataTable !== "") {
-                var oTable = $(options.tablaDataTable).dataTable();
-                oTable.fnClearTable();
-                if (response !== null && response.data.length > 0) {
-                    oTable.fnAddData(response.data);
-                    oTable.fnDraw();
-                    $("[data-toggle='tooltip']").tooltip();
-                }
+            if (options.mapData && response.data.Value !== null) {
+                var dataResponseMapped = [];
+                $.each(response.data.Value, function (i, objValue) {
+                    var objValueMapped = angular.copy(objValue);
+                    objValueMapped.DataMapped = [];
+                    var aColumns = objValue.Columns;
+                    var aRows = objValue.Rows;
+                    $.each(aRows, function (j, objRow) {
+                        var objRowMapped = {};
+                        $.each(aColumns, function (k, objColumn) {
+                            objRowMapped[objColumn] = objRow[k];
+                        });
+                        objValueMapped.DataMapped.push(objRowMapped);
+                    });
+                    dataResponseMapped.push(objValueMapped);
+                });
+                response.data.Value = angular.copy(dataResponseMapped);
             }
             options.success(response.data);
         }), function (response) {
@@ -63,25 +78,36 @@ function GeneralService($http) {
     generalService.showToastR = function (data) {
         var options = angular.extend({}, {
             'type': 'success',
-            'showCloseButton': true,
             'title': '',
             'body': aLanguage.generalSuccess,
-            'closeButton': true,
             'timeOut': '3000',
-            'newestOnTop': false,
-            'progressBar': true,
-            'position-class': "toast-top-right",
+            'escapeHtml': false,
+            'closeButton': true,
+            'closeMethod': 'fadeOut',
+            'closeDuration': 300,
+            'closeEasing': 'swing',
+            'onShown': function () { },
+            'onHidden': function () { },
+            'onclick': function () { },
+            'onCloseClick': function () { },
             'preventDuplicates': true,
-            'onclick': null,
-            'showDuration': '300',
-            'hideDuration': '1000',
-            'extendedTimeOut': '1000',
-            'showEasing': 'swing',
-            'hideEasing': 'linear',
-            'showMethod': 'fadeIn',
-            'hideMethod': 'fadeOut',
+            'progressBar': false
         }, data);
-        toaster.pop(options);
+        toastr.clear();
+        switch (options.type) {
+            case 'success':
+                toastr.success(options.body, options.title, options);
+                break;
+            case 'error':
+                toastr.error(options.body, options.title, options);
+                break;
+            case 'warning':
+                toastr.warning(options.body, options.title, options);
+                break;
+            case 'info':
+                toastr.info(options.body, options.title, options);
+                break;
+        }
     };
 
     return generalService;

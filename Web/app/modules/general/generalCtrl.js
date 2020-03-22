@@ -37,7 +37,10 @@ function generalController($scope, $timeout, $location, GeneralService) {
             confirmation: false,
             data: dataSP,
             success: function (response) {
-                console.log(response);
+                if (response.Exception === null) {
+                    debugger;
+                    console.log(response);
+                }
             }
         });
     };

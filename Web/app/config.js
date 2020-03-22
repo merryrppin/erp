@@ -34,6 +34,21 @@
                 }]
             }
         })
+        .state('listUsers', {
+            url: "/listUsers",
+            templateUrl: "app/modules/general/user/listUsers.html",
+            controller: "userController",
+            resolve: {
+                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: aLanguage.appName,
+                        files: [
+                            'app/modules/general/user/userCtrl.js'
+                        ]
+                    });
+                }]
+            }
+        })
         .state('404', {
             url: "/404",
             templateUrl: "app/modules/general/error/404.html",
