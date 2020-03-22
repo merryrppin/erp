@@ -59,11 +59,11 @@
     <Folder Include="Properties" />
     <Folder Include="Schema Objects" />
     <Folder Include="Schema Objects\Schemas" />
-    <Folder Include="Schema Objects\Schemas\param" />
-    <Folder Include="Schema Objects\Schemas\param\Programmability" />
-    <Folder Include="Schema Objects\Schemas\param\Programmability\Stored Procedures" />
+    <Folder Include="Schema Objects\Schemas\dbo" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Schema Objects\Schemas\param\Programmability\Stored Procedures\GetActiveMenus.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\GetActiveMenus.sql" />
   </ItemGroup>
 </Project>

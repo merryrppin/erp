@@ -79,6 +79,14 @@
     <Compile Include="Migrations\202003162238365_Column_Menu_Ruta.designer.cs">
       <DependentUpon>202003162238365_Column_Menu_Ruta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003220707502_AddColumnLevelMenu.cs" />
+    <Compile Include="Migrations\202003220707502_AddColumnLevelMenu.designer.cs">
+      <DependentUpon>202003220707502_AddColumnLevelMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003220841036_RenameUrlMenuColumns.cs" />
+    <Compile Include="Migrations\202003220841036_RenameUrlMenuColumns.designer.cs">
+      <DependentUpon>202003220841036_RenameUrlMenuColumns.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Product\Entities\Form.cs" />
     <Compile Include="Product\Entities\FormProductFeature.cs" />
@@ -105,6 +113,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003162238365_Column_Menu_Ruta.resx">
       <DependentUpon>202003162238365_Column_Menu_Ruta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003220707502_AddColumnLevelMenu.resx">
+      <DependentUpon>202003220707502_AddColumnLevelMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003220841036_RenameUrlMenuColumns.resx">
+      <DependentUpon>202003220841036_RenameUrlMenuColumns.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

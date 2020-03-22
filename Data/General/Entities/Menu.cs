@@ -17,12 +17,14 @@ namespace Data.General.Entities
         [MaxLength(100)]
         public string Icon { get; set; }
         [MaxLength(300)]
-        public string Ruta { get; set; }
+        public string Url { get; set; }
         //public Menu ParentMenu { get; set; }
         //[ForeignKey("MenuId")]
         public int? ParentMenuId { get; set; }
         public int Order { get; set; }
         [Required]
         public bool Active { get; set; }
+        [Required]
+        public int Level { get; set; }
     }
 }

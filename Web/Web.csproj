@@ -135,12 +135,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="index.aspx.cs">
-      <DependentUpon>index.aspx</DependentUpon>
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="index.aspx.designer.cs">
-      <DependentUpon>index.aspx</DependentUpon>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -163,7 +163,7 @@
     <Content Include="favicon.ico" />
     <Content Include="General.html" />
     <Content Include="Global.asax" />
-    <Content Include="index.aspx" />
+    <Content Include="default.aspx" />
     <Content Include="indexMetronic.html" />
     <Content Include="Layout\General.html" />
     <Content Include="Libs\AngularJS\angular-route.1.7.8.min.js" />
@@ -172,6 +172,7 @@
     <Content Include="Libs\AngularJS\Angular-sanitize.1.7.8\index.js" />
     <Content Include="Libs\AngularJS\angular-ui-router.1.0.22.min.js" />
     <Content Include="Libs\AngularJS\angular.1.7.8.min.js" />
+    <Content Include="Libs\General\GeneralScripts.js" />
     <Content Include="Libs\metronic_v6.0.9\assets\css\pages\error\error-1.css" />
     <Content Include="Libs\metronic_v6.0.9\assets\css\pages\error\error-1.min.css" />
     <Content Include="Libs\metronic_v6.0.9\assets\css\pages\error\error-1.rtl.css" />
