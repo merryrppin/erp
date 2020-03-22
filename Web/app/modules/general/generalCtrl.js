@@ -82,20 +82,6 @@ function generalController($scope, $timeout, $filter, $location, GeneralService)
 
 
         });
-        console.log(ctrl.menus);
-        //$.each(ctrl.allLevels, function (i, levelMenu) {
-
-
-        //    objMenu.subMenus = [];
-        //    var currentLevel = $filter('filter')(ctrl.menusByLevel, { 'Level': objMenu.Level });
-        //    var menusByCurrentLevel = $filter('filter')(ctrl.menusByLevel, { 'Level': objMenu.Level });
-        //    if (currentLevel.length === 0) {
-        //        ctrl.menusByLevel.push();
-        //    }
-        //    if (objMenu.Level === 0) {
-        //        ctrl.menus.push(objMenu);
-        //    }
-        //});
     };
 
     ctrl.recursiveMenus = function (objMenu) {
