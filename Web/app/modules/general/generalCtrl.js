@@ -46,7 +46,6 @@ function generalController($scope, $timeout, $filter, $location, GeneralService)
         };
         GeneralService.executeAjax({
             url: 'api/executeStoredProcedure',
-            confirmation: false,
             data: dataSP,
             success: function (response) {
                 if (response.Exception === null) {

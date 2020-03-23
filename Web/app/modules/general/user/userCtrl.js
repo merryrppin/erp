@@ -5,6 +5,7 @@ var module = angular.module(aLanguage.appName, ["agGrid"]);
 module.controller('userController', ["$scope", "GeneralService", userController]);
 function userController($scope, GeneralService) {
     $scope.aLanguage = aLanguage;
+    $scope.userIdSelected = typeof GeneralService.userId !== 'undefined' ? GeneralService.userId : -1;
 
     var columnDefs = [
         { headerName: "Make", field: "make" },
@@ -29,6 +30,10 @@ function userController($scope, GeneralService) {
             filter: true,
             resize: true
         }
+    };
+
+    $scope.modUserId = function () {
+        GeneralService.userId = $scope.userIdSelected;
     };
 
     //$scope.listUsersGrid = {
