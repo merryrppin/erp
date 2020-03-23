@@ -71,6 +71,13 @@
     <!--begin::Layout Skins(used by all pages) -->
     <!--end::Layout Skins -->
     <link rel="shortcut icon" href="/Libs/metronic_v6.0.9/assets/media/logos/favicon.ico" />
+    <!--begin::AgGrid-->
+    <link href="Libs/ag-grid.v22.0.0/styles/ag-grid.min.css" rel="stylesheet" />
+    <link href="Libs/ag-grid.v22.0.0/styles/agGridMaterialFont.min.css" rel="stylesheet" />
+    <!--end::AgGrid-->
+    <!--begin::Core-->
+    <link href="Libs/General/General.css" rel="stylesheet" />
+    <!--end::Core-->
 </head>
 <!-- end::Head -->
 <!-- begin::Body -->
@@ -93,7 +100,7 @@
     <div class="kt-grid kt-grid--hor kt-grid--root">
         <!-- begin:: Aside -->
         <button class="kt-aside-close " id="kt_aside_close_btn"><i class="la la-close"></i></button>
-        <div class="kt-aside  kt-aside--fixed  kt-grid__item kt-grid kt-grid--desktop kt-grid--hor-desktop" id="kt_aside" data-ng-if="ctrl.autentication.showPanel">
+        <div class="kt-aside  kt-aside--fixed  kt-grid__item kt-grid kt-grid--desktop kt-grid--hor-desktop" id="kt_aside" data-ng-show="ctrl.autentication.showPanel">
             <!-- begin:: Aside -->
             <div class="kt-aside__brand kt-grid__item " id="kt_aside_brand">
                 <div class="kt-aside__brand-logo">
@@ -142,7 +149,7 @@
         <!-- end:: Aside -->
         <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor kt-wrapper" id="kt_wrapper">
             <!-- begin:: Header -->
-            <div id="kt_header" class="kt-header kt-grid__item  kt-header--fixed " data-ng-if="ctrl.autentication.showPanel">
+            <div id="kt_header" class="kt-header kt-grid__item  kt-header--fixed " data-ng-show="ctrl.autentication.showPanel">
                 <!-- begin: Header Menu -->
                 <button class="kt-header-menu-wrapper-close" id="kt_header_menu_mobile_close_btn"><i class="la la-close"></i></button>
                 <div class="kt-header-menu-wrapper" id="kt_header_menu_wrapper">
@@ -317,7 +324,7 @@
             <!-- end:: Header -->
             <div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
                 <!-- begin:: Subheader -->
-                <div class="kt-subheader   kt-grid__item" id="kt_subheader" data-ng-if="ctrl.autentication.showPanel">
+                <div class="kt-subheader   kt-grid__item" id="kt_subheader" data-ng-show="ctrl.autentication.showPanel">
                     <div class="kt-container  kt-container--fluid ">
                         <div class="kt-subheader__main">
                             <h3 class="kt-subheader__title">
@@ -346,12 +353,16 @@
                 <!-- end:: Subheader -->
                 <!-- begin:: Content -->
                 <div class="kt-container kt-container--fluid  kt-grid__item kt-grid__item--fluid">
-                    <ng-view ui-view></ng-view>
+                    <div class="row kt-portlet" style="height:71vh">
+                        <div class="col-md-12 paddingDivNgView">
+                            <ng-view ui-view></ng-view>
+                        </div>
+                    </div>
                 </div>
                 <!-- end:: Content -->
             </div>
             <!-- begin:: Footer -->
-            <div class="kt-footer  kt-grid__item kt-grid kt-grid--desktop kt-grid--ver-desktop" id="kt_footer" data-ng-if="ctrl.autentication.showPanel">
+            <div class="kt-footer  kt-grid__item kt-grid kt-grid--desktop kt-grid--ver-desktop" id="kt_footer" data-ng-show="ctrl.autentication.showPanel">
                 <div class="kt-container  kt-container--fluid ">
                     <div class="kt-footer__copyright">
                         2019&nbsp;&copy;&nbsp;<a href="http://keenthemes.com/metronic" target="_blank" class="kt-link">Keenthemes</a>
@@ -524,6 +535,9 @@
     <script src="/Libs/AngularJS/angular-ui-router.1.0.22.min.js"></script>
     <!--end::directives-->
     <!--end::AngularJS-->
+    <!--begin::AgGrid-->
+    <script src="Libs/ag-grid.v22.0.0/ag-grid-community.min.js"></script>
+    <!--end::AgGrid-->
     <!--begin::Core -->
     <script src="/Utils/Language/language.js"></script>
     <script src="Libs/General/GeneralScripts.js"></script>

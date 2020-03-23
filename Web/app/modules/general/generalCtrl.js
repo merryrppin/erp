@@ -19,7 +19,7 @@ function generalController($scope, $timeout, $filter, $location, GeneralService)
     ctrl.verificarAutenticacion = function () {
 
         GeneralService.autentication.isAuthenticated = true;
-        GeneralService.showPanels(ctrl.autentication);
+        GeneralService.showPanels();
         //GeneralService.executeAjax({
         //    method: 'GET',
         //    url: 'api/pingToServer',

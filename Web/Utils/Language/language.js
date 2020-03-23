@@ -10,5 +10,83 @@
     'forget_password': '¿Olvidó su contraseña?',
     'sign_in': 'Ingresar',
     'dont_have_account_yet': '¿No tiene cuenta aún?',
-    'sign_up': 'Registrarse'
+    'sign_up': 'Registrarse',
+
+    'localeTextAgGrid': {
+        // for filter panel
+        page: 'Página',
+        more: 'Máx',
+        to: 'Hasta',
+        of: 'De',
+        next: 'Siguiente',
+        last: 'Última',
+        first: 'Primera',
+        previous: 'Anterior',
+        loadingOoo: 'Cargando...',
+
+        // for set filter
+        selectAll: 'Seleccionar todas',
+        searchOoo: 'Buscar...',
+        blanks: 'Blancas',
+
+        // for number filter and text filter
+        filterOoo: 'Flitradas...',
+        equals: 'Iguales',
+        notEqual: 'Diferentes',
+
+        // for the date filter
+        dateFormatOoo: 'YYYY-mm-dd',
+
+        // for number filter
+        lessThan: 'Menores que',
+        greaterThan: 'Mayores que',
+        lessThanOrEqual: 'Menores o iguales',
+        greaterThanOrEqual: 'Mayores o iguales',
+        inRange: 'En el rango',
+        inRangeStart: 'Rango inicio',
+        inRangeEnd: 'Rango fin',
+
+        // for text filter
+        contains: 'Contiene',
+        notContains: 'No contiene',
+        startsWith: 'Inicia con',
+        endsWith: 'Finaliza con',
+
+        // filter conditions
+        andCondition: 'Y',
+        orCondition: 'O',
+
+        // filter buttons
+        applyFilter: 'Aplicar',
+        resetFilter: 'Resetear',
+        clearFilter: 'Limpiar',
+
+        // the header of the default group column
+        group: 'Agrupar',
+
+        // tool panel
+        columns: 'Columnas',
+        filters: 'Filtros',
+        rowGroupColumns: 'Pivotear columnas',
+        rowGroupColumnsEmptyMessage: 'la drag cols to group',
+        valueColumns: 'Valor columnas',
+        pivotMode: 'Pivot-Mode',
+        groups: 'Grupos',
+        values: 'Valores',
+        pivots: 'Pivotes',
+        valueColumnsEmptyMessage: 'la drag cols to aggregate',
+        pivotColumnsEmptyMessage: 'la drag here to pivot',
+        toolPanelButton: 'Panel de herramientas',
+
+        // other
+        noRowsToShow: 'Sin filas',
+        enabled: 'Habilitado',
+        
+        // standard menu
+        copy: 'Copiar',
+        copyWithHeaders: 'Copiar con encabezados',
+        ctrlC: 'Ctrl + C',
+        paste: 'Pegar',
+        ctrlV: 'Ctrl + V'
+    }
 };
