@@ -93,7 +93,7 @@
     <div class="kt-grid kt-grid--hor kt-grid--root">
         <!-- begin:: Aside -->
         <button class="kt-aside-close " id="kt_aside_close_btn"><i class="la la-close"></i></button>
-        <div class="kt-aside  kt-aside--fixed  kt-grid__item kt-grid kt-grid--desktop kt-grid--hor-desktop" id="kt_aside">
+        <div class="kt-aside  kt-aside--fixed  kt-grid__item kt-grid kt-grid--desktop kt-grid--hor-desktop" id="kt_aside" data-ng-if="ctrl.autentication.showPanel">
             <!-- begin:: Aside -->
             <div class="kt-aside__brand kt-grid__item " id="kt_aside_brand">
                 <div class="kt-aside__brand-logo">
@@ -142,7 +142,7 @@
         <!-- end:: Aside -->
         <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor kt-wrapper" id="kt_wrapper">
             <!-- begin:: Header -->
-            <div id="kt_header" class="kt-header kt-grid__item  kt-header--fixed ">
+            <div id="kt_header" class="kt-header kt-grid__item  kt-header--fixed " data-ng-if="ctrl.autentication.showPanel">
                 <!-- begin: Header Menu -->
                 <button class="kt-header-menu-wrapper-close" id="kt_header_menu_mobile_close_btn"><i class="la la-close"></i></button>
                 <div class="kt-header-menu-wrapper" id="kt_header_menu_wrapper">
@@ -317,7 +317,7 @@
             <!-- end:: Header -->
             <div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
                 <!-- begin:: Subheader -->
-                <div class="kt-subheader   kt-grid__item" id="kt_subheader">
+                <div class="kt-subheader   kt-grid__item" id="kt_subheader" data-ng-if="ctrl.autentication.showPanel">
                     <div class="kt-container  kt-container--fluid ">
                         <div class="kt-subheader__main">
                             <h3 class="kt-subheader__title">
@@ -346,13 +346,12 @@
                 <!-- end:: Subheader -->
                 <!-- begin:: Content -->
                 <div class="kt-container kt-container--fluid  kt-grid__item kt-grid__item--fluid">
-                    Div page
-                    <ng-view></ng-view>
+                    <ng-view ui-view></ng-view>
                 </div>
                 <!-- end:: Content -->
             </div>
             <!-- begin:: Footer -->
-            <div class="kt-footer  kt-grid__item kt-grid kt-grid--desktop kt-grid--ver-desktop" id="kt_footer">
+            <div class="kt-footer  kt-grid__item kt-grid kt-grid--desktop kt-grid--ver-desktop" id="kt_footer" data-ng-if="ctrl.autentication.showPanel">
                 <div class="kt-container  kt-container--fluid ">
                     <div class="kt-footer__copyright">
                         2019&nbsp;&copy;&nbsp;<a href="http://keenthemes.com/metronic" target="_blank" class="kt-link">Keenthemes</a>

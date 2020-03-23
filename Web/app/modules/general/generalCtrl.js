@@ -6,11 +6,21 @@ function generalController($scope, $timeout, $filter, $location, GeneralService)
     ctrl.menusByLevel = [];
     ctrl.menus = [];
 
+    ctrl.autentication = GeneralService.autentication;//false por defecto
+
+    $scope.$watch(GeneralService.autentication, function (change) { ///adding watcher on someService.getChange, it will fire when change changes value
+        debugger;
+        ctrl.autentication = GeneralService.autentication; //setting change to controller here you can put some extra logic
+    }.bind(this));
+
     ctrl.loadDataFromGeneralService = function () {
         //$scope.contentTitle = GeneralService.contentTitle;
     };
 
     ctrl.verificarAutenticacion = function () {
+
+        GeneralService.autentication.isAuthenticated = true;
+        GeneralService.showPanels(ctrl.autentication);
         //GeneralService.executeAjax({
         //    method: 'GET',
         //    url: 'api/pingToServer',
@@ -97,7 +107,9 @@ function generalController($scope, $timeout, $filter, $location, GeneralService)
 
     function init() {
         ctrl.verificarAutenticacion();
-        ctrl.loadDataFromGeneralService();
-        ctrl.loadMenus();
+        if (ctrl.autentication.isAuthenticated) {
+            ctrl.loadDataFromGeneralService();
+            ctrl.loadMenus();
+        }
     }
 }

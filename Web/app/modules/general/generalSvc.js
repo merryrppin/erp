@@ -2,7 +2,7 @@
 function GeneralService($http) {
     var generalService = {};
 
-    generalService.autentication = { isAuthenticated: true };//false por defecto
+    generalService.autentication = { isAuthenticated: false, showPanel: false };
 
     generalService.executeAjax = function (data) {
         var options = angular.extend({}, {
@@ -27,7 +27,7 @@ function GeneralService($http) {
             data: options.data
         }).then(function (response) {
             if (typeof response.data.Exception !== 'undefined' && response.data.Exception !== null) {
-                GeneralService.showToastR({
+                generalService.showToastR({
                     body: response.data.Exception.Message,
                     type: 'error'
                 });
@@ -110,5 +110,12 @@ function GeneralService($http) {
         }
     };
 
+    generalService.hidePanels = function () {
+        generalService.autentication.showPanel = false;
+    };
+
+    generalService.showPanels = function () {
+        generalService.autentication.showPanel = true;
+    };
     return generalService;
 }
