@@ -9,7 +9,6 @@ function generalController($scope, $timeout, $filter, $location, GeneralService)
     ctrl.autentication = GeneralService.autentication;//false por defecto
 
     $scope.$watch(GeneralService.autentication, function (change) { ///adding watcher on someService.getChange, it will fire when change changes value
-        debugger;
         ctrl.autentication = GeneralService.autentication; //setting change to controller here you can put some extra logic
     }.bind(this));
 

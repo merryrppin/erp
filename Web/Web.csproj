@@ -166,6 +166,43 @@
     <Content Include="default.aspx" />
     <Content Include="indexMetronic.html" />
     <Content Include="Layout\General.html" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\ag-grid-community.cjs.js" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\ag-grid-community.esm.js" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\ag-grid-community.esm.min.js" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\ag-grid-community.js" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\ag-grid-community.min.js" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\ag-grid-community.min.noStyle.js" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\ag-grid-community.noStyle.js" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\ag-grid.css" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\ag-grid.min.css" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\ag-theme-alpine-dark.css" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\ag-theme-alpine-dark.min.css" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\ag-theme-alpine.css" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\ag-theme-alpine.min.css" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\ag-theme-balham-dark.css" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\ag-theme-balham-dark.min.css" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\ag-theme-balham.css" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\ag-theme-balham.min.css" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\ag-theme-blue.css" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\ag-theme-blue.min.css" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\ag-theme-bootstrap.css" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\ag-theme-bootstrap.min.css" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\ag-theme-dark.css" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\ag-theme-dark.min.css" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\ag-theme-fresh.css" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\ag-theme-fresh.min.css" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\ag-theme-material.css" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\ag-theme-material.min.css" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\agGridAlpineFont.css" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\agGridAlpineFont.min.css" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\agGridBalhamFont.css" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\agGridBalhamFont.min.css" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\agGridClassicFont.css" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\agGridClassicFont.min.css" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\agGridMaterialFont.css" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\agGridMaterialFont.min.css" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\compiled-icons.css" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\generate-web-fonts.js" />
     <Content Include="Libs\AngularJS\angular-route.1.7.8.min.js" />
     <Content Include="Libs\AngularJS\Angular-sanitize.1.7.8\angular-sanitize.js" />
     <Content Include="Libs\AngularJS\Angular-sanitize.1.7.8\angular-sanitize.min.js" />
@@ -1612,6 +1649,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Libs\metronic_v6.0.9\assets\plugins\general\ion-rangeslider\img\" />
+    <Folder Include="Libs\metronic_v6.1.8\assets\" />
     <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
@@ -1649,6 +1687,11 @@
     <Content Include="Libs\metronic_v6.0.9\assets\plugins\general\summernote\dist\font\summernote.eot" />
     <Content Include="Libs\metronic_v6.0.9\assets\plugins\general\summernote\dist\font\summernote.ttf" />
     <Content Include="Libs\metronic_v6.0.9\assets\plugins\general\summernote\dist\font\summernote.woff" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\ag-grid.scss" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\package.json" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\scss-template.hbs" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\_ag-grid-charts.scss" />
+    <Content Include="Libs\ag-grid-enterprise.v22.0.0\styles\_ag-grid-mobile.scss" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
