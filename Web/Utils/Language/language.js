@@ -4,6 +4,7 @@
 
 
 
+    'actions': 'Acciones',
     'email': 'Email',
     'password': 'Contraseña',
     'remember_me': 'Recordarme',
@@ -11,6 +12,9 @@
     'sign_in': 'Ingresar',
     'dont_have_account_yet': '¿No tiene cuenta aún?',
     'sign_up': 'Registrarse',
+    'name': 'Nombre',
+    'surnames': 'Apellidos',
+    'add': 'Agregar',
 
     'localeTextAgGrid': {
         // for filter panel

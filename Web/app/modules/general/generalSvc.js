@@ -64,7 +64,8 @@ function GeneralService($http) {
                     });
                     dataResponseMapped.push(objValueMapped);
                 });
-                response.data.Value = angular.copy(dataResponseMapped);
+                if (typeof response.data.Value !== 'undefined')
+                    response.data.Value = angular.copy(dataResponseMapped);
             }
             options.success(response.data);
         }), function (response) {

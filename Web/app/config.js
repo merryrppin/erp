@@ -37,13 +37,13 @@
         .state('listUsers', {
             url: "/listUsers",
             templateUrl: "app/modules/general/user/listUsers.html",
-            controller: "userController",
+            controller: "listUsesrController",
             resolve: {
                 deps: ['$ocLazyLoad', function ($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         name: aLanguage.appName,
                         files: [
-                            'app/modules/general/user/userCtrl.js'
+                            'app/modules/general/user/listUsersCtrl.js'
                         ]
                     });
                 }]
@@ -58,7 +58,7 @@
                     return $ocLazyLoad.load({
                         name: aLanguage.appName,
                         files: [
-                            'app/modules/general/user/userCtrl.js'
+                            'app/modules/general/user/addUserCtrl.js'
                         ]
                     });
                 }]

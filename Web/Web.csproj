@@ -158,8 +158,9 @@
     <Content Include="app\modules\general\home\homeCtrl.js" />
     <Content Include="app\modules\general\login\loginCtrl.js" />
     <Content Include="app\modules\general\user\addUser.html" />
+    <Content Include="app\modules\general\user\addUserCtrl.js" />
     <Content Include="app\modules\general\user\listUsers.html" />
-    <Content Include="app\modules\general\user\userCtrl.js" />
+    <Content Include="app\modules\general\user\listUsersCtrl.js" />
     <Content Include="favicon.ico" />
     <Content Include="General.html" />
     <Content Include="Global.asax" />
