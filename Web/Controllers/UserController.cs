@@ -38,17 +38,10 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        [Route("api/addUser")]
+        [Route("api/updateUser")]
         public bool UpdateUser(User user)
         {
             return _administrationService.UpdateUser(user);
-        }
-
-        [HttpPost]
-        [Route("api/addUser")]
-        public bool UpdateUsers(User user)
-        {
-            return false;// _administrationService.AddUser(user);
         }
         
         [HttpPost]

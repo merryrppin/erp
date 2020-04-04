@@ -37,7 +37,7 @@
         .state('listUsers', {
             url: "/listUsers",
             templateUrl: "app/modules/general/user/listUsers.html",
-            controller: "listUsesrController",
+            controller: "listUsersController",
             resolve: {
                 deps: ['$ocLazyLoad', function ($ocLazyLoad) {
                     return $ocLazyLoad.load({
@@ -52,7 +52,7 @@
         .state('addUser', {
             url: "/addUser",
             templateUrl: "app/modules/general/user/addUser.html",
-            controller: "userController",
+            controller: "addUserController",
             resolve: {
                 deps: ['$ocLazyLoad', function ($ocLazyLoad) {
                     return $ocLazyLoad.load({

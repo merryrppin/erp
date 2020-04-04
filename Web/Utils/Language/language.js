@@ -15,6 +15,27 @@
     'name': 'Nombre',
     'surnames': 'Apellidos',
     'add': 'Agregar',
+    'addUser': 'Agregar usuario',
+    'editUser': 'Editar usuario',
+    'enterName' : 'Ingrese el nombre',
+    'PleaseEnterName': 'Por favor ingrese el nombre',
+    'enterSurnames': 'Ingrese los apellidos',
+    'PleaseEnterSurnames': 'Por favor ingrese los apellidos',
+    'enterEmail': 'Ingrese Email',
+    'PleaseEnterEmail': 'Por favor ingrese Email',
+    'username': 'Usuario',
+    'enterUsername': 'Ingrese usuario',
+    'PleaseEnterUsername': 'Por favor ingrese usuario',
+    'enterPassword': 'Ingrese contraseña',
+    'PleaseEnterPassword': 'Por favor ingrese contraseña',
+    'repeatPassword': 'Repita contraseña',
+    'enterRepeatPassword': 'Ingrese contraseña nuevamente',
+    'PleaseEnterRepeatPassword': 'Por favor ingrese contraseña nuevamente',
+    'save': 'Guardar',
+    'cancel': 'Cancelar',
+    'saveSuccessful': 'Registro guardado exitosamente',
+    'fatalError': 'Ha ocurrido un error',
+    
 
     'localeTextAgGrid': {
         // for filter panel

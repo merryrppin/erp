@@ -1,7 +1,7 @@
 ﻿agGrid.initialiseAgGridWithAngular1(angular);
 var module = angular.module(aLanguage.appName, ["agGrid"]);
-module.controller('listUsesrController', ["$scope", "$location", "GeneralService", listUsesrController]);
-function listUsesrController($scope, $location, GeneralService) {
+module.controller('listUsersController', ["$scope", "$location", "GeneralService", listUsersController]);
+function listUsersController($scope, $location, GeneralService) {
     $scope.aLanguage = aLanguage;
     $scope.userIdSelected = typeof GeneralService.userId !== 'undefined' ? GeneralService.userId : -1;
 
