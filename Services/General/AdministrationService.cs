@@ -16,10 +16,12 @@ namespace Services.General
     public class AdministrationService
     {
         public GeneralContext _administrationContext;
+        private ManageExceptions ManageExceptions;
 
         public AdministrationService()
         {
             _administrationContext = new GeneralContext();
+            ManageExceptions = new ManageExceptions();
         }
         #region Stored Procedure
         public StoredObjectResponse ExecuteStoredProcedure(StoredObjectParams StoredObjectParams)
@@ -123,17 +125,28 @@ namespace Services.General
             }
         }
 
-        public bool AddUser(User user)
+        public GeneralResponse AddUser(User user)
         {
+            GeneralResponse GeneralResponse = new GeneralResponse { BooleanResponse = true, GeneralError = null };
             try
             {
-                User userInsert = _administrationContext.Users.Add(user);
-                _administrationContext.SaveChanges();
-                return true;
+                User userDb = _administrationContext.Users.Where(u => u.Login == user.Login).FirstOrDefault();
+                if (userDb != null)
+                {
+                    GeneralResponse.BooleanResponse = false;
+                    GeneralResponse.GeneralError = Constants.Constants.ListErrors[(int)EnumGeneralErrors.UserExist];
+                }
+                else
+                {
+                    User userInsert = _administrationContext.Users.Add(user);
+                    _administrationContext.SaveChanges();
+                }
+                return GeneralResponse;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return false;
+                ManageExceptions.SaveLogException(ex, GeneralResponse);
+                return GeneralResponse;
             }
         }
 

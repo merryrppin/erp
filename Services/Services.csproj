@@ -61,12 +61,15 @@
     <Compile Include="Domain\Interfaces\ILogic.cs" />
     <Compile Include="Domain\Logic\Base.cs" />
     <Compile Include="General\AdministrationService.cs" />
+    <Compile Include="General\Constants\Constants.cs" />
+    <Compile Include="General\Entities\GeneralResponse.cs" />
     <Compile Include="General\Entities\StoredObjectParams.cs" />
     <Compile Include="General\Entities\StoredObjectResponse.cs" />
     <Compile Include="General\Entities\StoredParams.cs" />
     <Compile Include="General\Entities\StoredTableResponse.cs" />
     <Compile Include="General\Enums\Enums.cs" />
     <Compile Include="General\GeneralService.cs" />
+    <Compile Include="General\ManageExceptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

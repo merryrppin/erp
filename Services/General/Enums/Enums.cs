@@ -9,5 +9,11 @@
             BoolType = 3,
             DateType = 4
         }
+
+        public enum EnumGeneralErrors
+        {
+            GeneralError,
+            UserExist
+        }
     }
 }

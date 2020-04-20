@@ -9,13 +9,12 @@ function addUserController($scope, $location, GeneralService) {
     };
 
     $scope.saveUser = function () {
-        debugger;
         var apiMethod = $scope.userIdSelected === -1 ? 'addUser' : 'updateUser';
         GeneralService.executeAjax({
             url: 'api/' + apiMethod,
             data: $scope.currentUser,
             success: function (response) {
-                if (response) {
+                if (response.BooleanResponse) {
                     GeneralService.showToastR({
                         body: aLanguage.saveSuccessful,
                         type: 'success'
@@ -23,13 +22,16 @@ function addUserController($scope, $location, GeneralService) {
                     $scope.currentUser = {};
                 } else {
                     GeneralService.showToastR({
-                        body: aLanguage.fatalError,
+                        body: aLanguage[response.GeneralError],
                         type: 'error'
                     });
                 }
-
             }
         });
+    };
+
+    $scope.returnToList = function () {
+        $location.path('/listUsers');
     };
 
     angular.element(document).ready(init);

@@ -25,7 +25,7 @@ namespace Web.Controllers
 
         [HttpPost]
         [Route("api/addUser")]
-        public bool AddUser(User user)
+        public GeneralResponse AddUser(User user)
         {
             return _administrationService.AddUser(user);
         }

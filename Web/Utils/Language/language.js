@@ -31,12 +31,15 @@
     'repeatPassword': 'Repita contraseña',
     'enterRepeatPassword': 'Ingrese contraseña nuevamente',
     'PleaseEnterRepeatPassword': 'Por favor ingrese contraseña nuevamente',
+    'errorUserExist': 'El usuario ya existe',
     'save': 'Guardar',
     'cancel': 'Cancelar',
+    'clean': 'Limpiar',
     'saveSuccessful': 'Registro guardado exitosamente',
     'fatalError': 'Ha ocurrido un error',
+    'generalError': 'Ha ocurrido un error',
     
-
+    
     'localeTextAgGrid': {
         // for filter panel
         page: 'Página',

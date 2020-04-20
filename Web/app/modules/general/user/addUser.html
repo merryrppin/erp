@@ -5,22 +5,22 @@
     </div>
 </div>
 
-<form class="kt-form kt-form--label-right">
+<form class="kt-form kt-form--label-right" autocomplete="no" ng-submit="saveUser()" id="frmUser">
     <div class="kt-portlet__body">
         <div class="form-group row">
             <div class="col-lg-4 col-md-4 col-sm-6">
-                <label>{{aLanguage.name}}:</label>
-                <input data-ng-model="currentUser.UserFirstName" type="text" class="form-control" placeholder="{{aLanguage.enterName}}">
+                <label>{{aLanguage.name}}*:</label>
+                <input data-ng-model="currentUser.UserFirstName" type="text" required class="form-control" placeholder="{{aLanguage.enterName}}">
                 <span class="form-text text-muted">{{aLanguage.pleaseEnterName}}</span>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6">
-                <label>{{aLanguage.surnames}}:</label>
-                <input data-ng-model="currentUser.UserLastName" type="text" class="form-control" placeholder="{{aLanguage.enterSurnames}}">
+                <label>{{aLanguage.surnames}}*:</label>
+                <input data-ng-model="currentUser.UserLastName" type="text" required class="form-control" placeholder="{{aLanguage.enterSurnames}}">
                 <span class="form-text text-muted">{{aLanguage.pleaseEnterSurnames}}</span>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6">
-                <label>{{aLanguage.email}}:</label>
-                <input data-ng-model="currentUser.UserEmail" type="email" class="form-control" placeholder="{{aLanguage.enterEmail}}">
+                <label>{{aLanguage.email}}*:</label>
+                <input data-ng-model="currentUser.UserEmail" type="email" required class="form-control" placeholder="{{aLanguage.enterEmail}}">
                 <span class="form-text text-muted">{{aLanguage.pleaseEnterEmail}}</span>
             </div>
         </div>
@@ -29,21 +29,21 @@
 
         <div class="form-group row">
             <div class="col-lg-4 col-md-4 col-sm-6">
-                <label>{{aLanguage.username}}:</label>
+                <label>{{aLanguage.username}}*:</label>
                 <div class="input-group">
                     <div class="input-group-prepend"><span class="input-group-text"><i class="la la-user"></i></span></div>
-                    <input data-ng-model="currentUser.Login" type="text" class="form-control" placeholder="">
+                    <input data-ng-model="currentUser.Login" type="text" required class="form-control" placeholder="">
                 </div>
                 <span class="form-text text-muted">{{aLanguage.pleaseEnterUsername}}</span>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6">
-                <label class="">{{aLanguage.password}}:</label>
-                <input data-ng-model="currentUser.Password" type="password" class="form-control" placeholder="{{aLanguage.enterPassword}}">
+                <label class="">{{aLanguage.password}}*:</label>
+                <input data-ng-model="currentUser.Password" type="password" required class="form-control" placeholder="{{aLanguage.enterPassword}}">
                 <span class="form-text text-muted">{{aLanguage.pleaseEnterPassword}}</span>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6">
-                <label class="">{{aLanguage.repeatPassword}}:</label>
-                <input data-ng-model="currentUser.Password2" type="password" class="form-control" placeholder="{{aLanguage.enterRepeatPassword}}">
+                <label class="">{{aLanguage.repeatPassword}}*:</label>
+                <input data-ng-model="currentUser.Password2" type="password" required class="form-control" placeholder="{{aLanguage.enterRepeatPassword}}">
                 <span class="form-text text-muted">{{aLanguage.pleaseEnterRepeatPassword}}</span>
             </div>
         </div>
@@ -53,8 +53,9 @@
             <div class="row">
                 <div class="col-lg-4"></div>
                 <div class="col-lg-8">
-                    <button type="button" class="btn btn-primary" data-ng-click="saveUser()">{{aLanguage.save}}</button>
-                    <button type="reset" class="btn btn-secondary">{{aLanguage.cancel}}</button>
+                    <button type="submit" class="btn btn-primary">{{aLanguage.save}}</button>
+                    <button type="reset" class="btn btn-secondary">{{aLanguage.clean}}</button>
+                    <button type="button" class="btn btn-secondary" data-ng-click="returnToList()">{{aLanguage.cancel}}</button>
                 </div>
             </div>
         </div>

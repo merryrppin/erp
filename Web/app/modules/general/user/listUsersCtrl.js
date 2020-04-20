@@ -20,6 +20,7 @@ function listUsersController($scope, $location, GeneralService) {
         rowData: $scope.rowData,
         rowSelection: 'multiple',
         suppressRowClickSelection: true,
+        enableColResize: true,
         defaultColDef: {
             sortable: true,
             filter: true,
