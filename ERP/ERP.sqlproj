@@ -62,8 +62,38 @@
     <Folder Include="Schema Objects\Schemas\dbo" />
     <Folder Include="Schema Objects\Schemas\dbo\Programmability" />
     <Folder Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables" />
+    <Folder Include="Schema Objects\Schemas\param" />
+    <Folder Include="Schema Objects\Schemas\param\Tables" />
+    <Folder Include="Schema Objects\Schemas\param\Programmability" />
+    <Folder Include="Schema Objects\Schemas\param\Programmability\Stored Procedures" />
+    <Folder Include="Schema Objects\2-Postdeployment" />
+    <Folder Include="Schema Objects\1-Predeployment" />
   </ItemGroup>
   <ItemGroup>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\tblForm.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\tblFormProductFeature.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\tblForm_FormProductFeature.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\tblFormField.sql" />
+    <Build Include="Schema Objects\Schemas\param\Tables\tblFieldValueType.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\tblFormProductFeature_FormField.sql" />
+    <Build Include="Schema Objects\Schemas\param\Tables\tblGeneralList.sql" />
+    <Build Include="Schema Objects\Schemas\param\Tables\tblGeneralListOption.sql" />
+    <Build Include="Schema Objects\Schemas\param\Tables\tblMenu.sql" />
+    <Build Include="Schema Objects\Schemas\param\Tables\tblUser.sql" />
+    <Build Include="Schema Objects\Schemas\param\Tables\tblUserGroup.sql" />
+    <Build Include="Schema Objects\Schemas\param\Tables\tblUserGroup_User.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\tblProduct.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\tblProductFeature.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\tblTransactionDocument.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\tblTransactionDocumentDets.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\GetActiveMenus.sql" />
+    <Build Include="Schema Objects\Schemas\param.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="ERP.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Schema Objects\2-Postdeployment\Postdeployment.sql" />
   </ItemGroup>
 </Project>
