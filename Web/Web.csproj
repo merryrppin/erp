@@ -131,6 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\GeneralController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1650,7 +1651,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Libs\awdl\" />
     <Folder Include="Libs\metronic_v6.0.9\assets\plugins\general\ion-rangeslider\img\" />
+    <Folder Include="Views\General\" />
     <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>

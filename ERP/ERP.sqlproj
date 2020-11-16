@@ -69,6 +69,7 @@
     <Folder Include="Schema Objects\Schemas\param\Programmability\Stored Procedures" />
     <Folder Include="Schema Objects\2-Postdeployment" />
     <Folder Include="Schema Objects\1-Predeployment" />
+    <Folder Include="Schema Objects\Schemas\dbo\Views" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schema Objects\Schemas\dbo\Tables\tblForm.sql" />

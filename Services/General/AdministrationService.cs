@@ -2,6 +2,7 @@
 using Data.General.Entities;
 using Newtonsoft.Json;
 using Services.General.Entities;
+using Services.Secure;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -92,6 +93,45 @@ namespace Services.General
         }
         #endregion
         #region User
+        public Login Login(string login, string password)
+        {
+            Login loginResp = new Login();
+            string passwordEncrypted = Encode_Decode.Encrypt(password);
+            DataTable dt = new DataTable();
+            using (SqlConnection con = new SqlConnection(_administrationContext.Database.Connection.ConnectionString))
+            {
+                string queryLogin = "SELECT [UserId], [UserFirstName], [UserLastName] FROM [dbo].[tblUser] WHERE [Login] = @login AND [Password] = @password";
+                using (SqlCommand cmd = new SqlCommand(queryLogin, con))
+                {
+                    try
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.Add("@login", SqlDbType.VarChar).Value = login;
+                        cmd.Parameters.Add("@password", SqlDbType.VarChar).Value = passwordEncrypted;
+
+                        con.Open();
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        adapter.Fill(dt);
+                        if(dt.Rows.Count > 0)
+                        {
+                            loginResp = new Login
+                            {
+                                UserId = Convert.ToInt32(dt.Rows[0].ItemArray[dt.Columns.IndexOf("UserId")].ToString()),
+                                UserFirstName = dt.Rows[0].ItemArray[dt.Columns.IndexOf("UserFirstName")].ToString(),
+                                UserLastName = dt.Rows[0].ItemArray[dt.Columns.IndexOf("UserLastName")].ToString()
+                            };
+                        }
+                    }
+                    finally
+                    {
+                        con.Dispose();
+                        cmd.Dispose();
+                    }
+                }
+            }
+            return loginResp;
+        }
+
         /// <summary>
         /// Este metodo devuelve todos los usuarios activos
         /// </summary>
