@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[tblTransactionDocumentDets]
 (
-	[IdTransactionDocumentDets] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(), 
-    [IdTransactionDocument] UNIQUEIDENTIFIER NOT NULL, 
+	[IdTransactionDocumentDets] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [IdTransactionDocument] INT NOT NULL, 
     [DocumentCode] VARCHAR(50) NOT NULL, 
     [SerieCode] VARCHAR(50) NOT NULL, 
     [NumDocument] VARCHAR(50) NOT NULL, 

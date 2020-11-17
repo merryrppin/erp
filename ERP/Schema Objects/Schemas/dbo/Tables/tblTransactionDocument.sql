@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[tblTransactionDocument]
 (
-	[IdTransactionDocument] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(), 
+	[IdTransactionDocument] INT NOT NULL PRIMARY KEY IDENTITY,
     [DocumentCode] VARCHAR(50) NOT NULL, 
     [SerieCode] VARCHAR(50) NOT NULL, 
     [NumDocument] BIGINT NOT NULL, 
