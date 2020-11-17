@@ -90,6 +90,12 @@
     <Build Include="Schema Objects\Schemas\dbo\Tables\tblTransactionDocumentDets.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\GetActiveMenus.sql" />
     <Build Include="Schema Objects\Schemas\param.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\tblProductLines.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\tblProductSubLine.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\tblPriceList.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\tblPriceByProduct.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\tblWarehouse.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\tblInventory.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="ERP.refactorlog" />

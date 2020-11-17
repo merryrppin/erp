@@ -7,12 +7,29 @@
     [Price] FLOAT NOT NULL, 
     [UnitMeasureCode] VARCHAR(50) NOT NULL, 
     [QuantityUnitMeasure] FLOAT NULL, 
-    [WareHouseCode] VARCHAR(50) NOT NULL, 
+    [WarehouseCode] VARCHAR(50) NOT NULL, 
     [Available] FLOAT NOT NULL, 
-    [SubLine] VARCHAR(50) NOT NULL, 
-    [Line] VARCHAR(50) NOT NULL, 
+    [SubLineCode] VARCHAR(50) NOT NULL, 
+    [LineCode] VARCHAR(50) NOT NULL, 
     [Provider] VARCHAR(500) NOT NULL, 
     [DuttyCode] VARCHAR(50) NOT NULL, 
     [TariffDutty] FLOAT NOT NULL, 
     [Discount] FLOAT NOT NULL
 )
+
+GO
+
+CREATE UNIQUE INDEX [IX_tblProduct_ProductCode] ON [dbo].[tblProduct] ([ProductCode])
+GO
+
+ALTER TABLE [dbo].[tblProduct]  WITH CHECK ADD  CONSTRAINT [FK_tblProduct_tblWarehouse_WarehouseCode] FOREIGN KEY([WarehouseCode])
+REFERENCES [dbo].[tblWarehouse] ([WarehouseCode])
+GO
+
+ALTER TABLE [dbo].[tblProduct]  WITH CHECK ADD  CONSTRAINT [FK_tblProduct_tblProductLines_CodLine] FOREIGN KEY([LineCode])
+REFERENCES [dbo].[tblProductLines] ([LineCode])
+GO
+
+ALTER TABLE [dbo].[tblProduct]  WITH CHECK ADD  CONSTRAINT [FK_tblProduct_tblProductSubLine_SubLineCode] FOREIGN KEY([SubLineCode])
+REFERENCES [dbo].[tblProductSubLine] ([SubLineCode])
+GO

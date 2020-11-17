@@ -45,5 +45,5 @@
     [SyncDate] DATETIME NULL, 
     [UserCode] VARCHAR(50) NULL, 
     [AdrressIp] VARCHAR(500) NULL, 
-    CONSTRAINT [FK_tblTransactionDocumentDets_tblTransactionDocument] FOREIGN KEY ([IdTransactionDocument]) REFERENCES [tblTransactionDocument]([IdTransactionDocument])
+    CONSTRAINT [FK_tblTransactionDocumentDets_tblTransactionDocument] FOREIGN KEY ([IdTransactionDocument]) REFERENCES [tblTransactionDocument]([TransactionDocumentId])
 )
