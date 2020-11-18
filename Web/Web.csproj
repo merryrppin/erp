@@ -146,6 +146,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Libs\General\fonts.googleapis.css" />
+    <Content Include="Pages\Error\404.html" />
     <Content Include="app\app.js" />
     <Content Include="app\config.js" />
     <Content Include="app\directives.js" />
@@ -162,6 +164,7 @@
     <Content Include="app\modules\general\user\addUserCtrl.js" />
     <Content Include="app\modules\general\user\listUsers.html" />
     <Content Include="app\modules\general\user\listUsersCtrl.js" />
+    <Content Include="app\modules\general\sessionSvc.js" />
     <Content Include="favicon.ico" />
     <Content Include="General.html" />
     <Content Include="Global.asax" />
@@ -1640,7 +1643,9 @@
     <Content Include="Libs\OcLazyLoad.1.0.10\ocLazyLoad.min.js" />
     <Content Include="Libs\OcLazyLoad.1.0.10\ocLazyLoad.require.js" />
     <Content Include="Libs\OcLazyLoad.1.0.10\ocLazyLoad.require.min.js" />
+    <Content Include="Login.html" />
     <Content Include="Pages\General\Login.html" />
+    <Content Include="Pages\General\Login.js" />
     <Content Include="Utils\Language\language.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

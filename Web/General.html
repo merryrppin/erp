@@ -220,7 +220,7 @@
                         <div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="0px,0px">
                             <div class="kt-header__topbar-user">
                                 <span class="kt-header__topbar-welcome kt-hidden-mobile">Hi,</span>
-                                <span class="kt-header__topbar-username kt-hidden-mobile">Sean</span>
+                                <span class="kt-header__topbar-username kt-hidden-mobile">{{ctrl.user.model.name}}</span>
                                 <img alt="Pic" class="kt-radius-100" src="/Libs/metronic_v6.0.9/assets/media/users/300_25.jpg" />
                                 <!--use below badge element instead the user avatar to display username's first letter(remove kt-hidden class to display it) -->
                                 <!--<span class="kt-badge kt-badge--username kt-badge--unified-success kt-badge--lg kt-badge--rounded kt-badge--bold">S</span>-->
@@ -539,15 +539,16 @@
     <script src="Libs/ag-grid.v22.0.0/ag-grid-community.min.js"></script>
     <!--end::AgGrid-->
     <!--begin::Core -->
-    <script src="/Utils/Language/language.js"></script>
+    <script src="Utils/Language/language.js"></script>
     <script src="Libs/General/GeneralScripts.js"></script>
-    <script src="/app/app.js"></script>
-    <script src="/app/directives.js"></script>
-    <script src="/app/config.js"></script>
-    <script src="/app/modules/general/generalSvc.js"></script>
-    <script src="/app/modules/general/generalCtrl.js"></script>
-    <script src="/app/modules/general/error/errorCtrl.js"></script>
-    <script src="/app/interceptors.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/directives.js"></script>
+    <script src="app/config.js"></script>
+    <script src="app/modules/general/sessionSvc.js"></script>
+    <script src="app/modules/general/generalSvc.js"></script>
+    <script src="app/modules/general/generalCtrl.js"></script>
+    <script src="app/modules/general/error/errorCtrl.js"></script>
+    <script src="app/interceptors.js"></script>
     <!--end::Core -->
 </body>
 <!-- end::Body -->

@@ -385,4 +385,18 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="PopulationCode" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="0a6501b7-d97e-46ea-9e57-0c6fd1b04557" ChangeDateTime="11/18/2020 21:57:02">
+    <Property Name="ElementName" Value="[param].[tblUserSession].[SessionCre]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[param].[tblUserSession]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="SessionCreated" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="590a54b9-234d-465d-b18a-c5ad316aa98b" ChangeDateTime="11/18/2020 21:58:47">
+    <Property Name="ElementName" Value="[param].[tblUserSession].[SessionCreated]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[param].[tblUserSession]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="SessionCreatedUTC" />
+  </Operation>
 </Operations>

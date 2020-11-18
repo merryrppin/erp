@@ -1,10 +1,12 @@
-﻿angular.module(aLanguage.appName).controller('generalController', ["$scope", "$timeout", "$filter", "$location", "GeneralService", generalController]);
-function generalController($scope, $timeout, $filter, $location, GeneralService) {
+﻿angular.module(aLanguage.appName).controller('generalController', ["$scope", "$timeout", "$filter", "$location", "SessionService", "GeneralService", generalController]);
+function generalController($scope, $timeout, $filter, $location, SessionService, GeneralService) {
     var ctrl = this;
     ctrl.aLanguage = aLanguage;
     ctrl.allLevels = [];
     ctrl.menusByLevel = [];
     ctrl.menus = [];
+
+    ctrl.user = SessionService;
 
     ctrl.autentication = GeneralService.autentication;//false por defecto
 
