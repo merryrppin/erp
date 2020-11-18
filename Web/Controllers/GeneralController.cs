@@ -1,5 +1,5 @@
 ﻿using Services.General;
-using Services.General.Entities;
+using Services.General.Entities.StoredEntities;
 using System.Web.Http;
 
 
