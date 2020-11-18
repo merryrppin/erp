@@ -63,11 +63,11 @@
     <Compile Include="General\AdministrationService.cs" />
     <Compile Include="General\Constants\Constants.cs" />
     <Compile Include="General\Entities\GeneralResponse.cs" />
-    <Compile Include="General\Entities\Login.cs" />
-    <Compile Include="General\Entities\StoredObjectParams.cs" />
-    <Compile Include="General\Entities\StoredObjectResponse.cs" />
-    <Compile Include="General\Entities\StoredParams.cs" />
-    <Compile Include="General\Entities\StoredTableResponse.cs" />
+    <Compile Include="General\Entities\LoginEntities\LoginEntity.cs" />
+    <Compile Include="General\Entities\StoredEntities\StoredObjectParams.cs" />
+    <Compile Include="General\Entities\StoredEntities\StoredObjectResponse.cs" />
+    <Compile Include="General\Entities\StoredEntities\StoredParams.cs" />
+    <Compile Include="General\Entities\StoredEntities\StoredTableResponse.cs" />
     <Compile Include="General\Enums\Enums.cs" />
     <Compile Include="General\GeneralService.cs" />
     <Compile Include="General\ManageExceptions.cs" />

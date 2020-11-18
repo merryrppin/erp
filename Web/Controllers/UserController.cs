@@ -1,7 +1,6 @@
 ﻿using Data.General.Entities;
 using Services.General;
-using Services.General.Entities;
-using System.Collections.Generic;
+using Services.General.Entities.LoginEntities;
 using System.Web.Http;
 
 namespace Web.Controllers
@@ -16,9 +15,9 @@ namespace Web.Controllers
 
         [HttpPost]
         [Route("api/login")]
-        public Login Login(Login login)
+        public LoginEntity Login(LoginEntity loginEntity)
         {
-            return _administrationService.Login(login.login, login.password);
+            return _administrationService.Login(loginEntity.login, loginEntity.password);
         }
 
         [HttpPost]

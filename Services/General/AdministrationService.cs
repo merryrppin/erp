@@ -2,6 +2,8 @@
 using Data.General.Entities;
 using Newtonsoft.Json;
 using Services.General.Entities;
+using Services.General.Entities.LoginEntities;
+using Services.General.Entities.StoredEntities;
 using Services.Secure;
 using System;
 using System.Collections.Generic;
@@ -24,6 +26,7 @@ namespace Services.General
             _administrationContext = new GeneralContext();
             ManageExceptions = new ManageExceptions();
         }
+
         #region Stored Procedure
         public StoredObjectResponse ExecuteStoredProcedure(StoredObjectParams StoredObjectParams)
         {
@@ -93,9 +96,9 @@ namespace Services.General
         }
         #endregion
         #region User
-        public Login Login(string login, string password)
+        public LoginEntity Login(string login, string password)
         {
-            Login loginResp = new Login();
+            LoginEntity loginResp = new LoginEntity();
             string passwordEncrypted = Encode_Decode.Encrypt(password);
             DataTable dt = new DataTable();
             using (SqlConnection con = new SqlConnection(_administrationContext.Database.Connection.ConnectionString))
@@ -114,7 +117,7 @@ namespace Services.General
                         adapter.Fill(dt);
                         if(dt.Rows.Count > 0)
                         {
-                            loginResp = new Login
+                            loginResp = new LoginEntity
                             {
                                 UserId = Convert.ToInt32(dt.Rows[0].ItemArray[dt.Columns.IndexOf("UserId")].ToString()),
                                 UserFirstName = dt.Rows[0].ItemArray[dt.Columns.IndexOf("UserFirstName")].ToString(),

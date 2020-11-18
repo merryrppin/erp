@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static Services.General.Enums.Enums;
 
-namespace Services.General.Entities
+namespace Services.General.Entities.StoredEntities
 {
     public class StoredParams
     {

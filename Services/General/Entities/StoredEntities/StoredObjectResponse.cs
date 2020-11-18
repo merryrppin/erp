@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Services.General.Entities
+namespace Services.General.Entities.StoredEntities
 {
     public class StoredObjectResponse
     {

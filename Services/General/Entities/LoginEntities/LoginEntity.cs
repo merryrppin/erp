@@ -1,6 +1,6 @@
-﻿namespace Services.General.Entities
+﻿namespace Services.General.Entities.LoginEntities
 {
-    public class Login
+    public class LoginEntity
     {
         public int UserId { get; set; }
         public string UserFirstName { get; set; }
