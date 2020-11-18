@@ -7,7 +7,7 @@
     [Price] FLOAT NOT NULL, 
     [UnitMeasureCode] VARCHAR(50) NOT NULL, 
     [QuantityUnitMeasure] FLOAT NULL, 
-    [WarehouseCode] VARCHAR(50) NOT NULL, 
+    [WarehouseCode] VARCHAR(10) NOT NULL, 
     [Available] FLOAT NOT NULL, 
     [SubLineCode] VARCHAR(50) NOT NULL, 
     [LineCode] VARCHAR(50) NOT NULL, 
