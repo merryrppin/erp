@@ -14,7 +14,7 @@
 GO
 
 ALTER TABLE [dbo].[tblInventory]  WITH CHECK ADD  CONSTRAINT [FK_tblInventory_tblProduct_ProductCode] FOREIGN KEY([ProductCode])
-REFERENCES [dbo].[tblpriceList] ([PriceListCode])
+REFERENCES [dbo].[tblProduct] ([ProductCode])
 GO
 
 ALTER TABLE [dbo].[tblInventory]  WITH CHECK ADD  CONSTRAINT [FK_tblInventory_tblWarehouse_WarehouseCode] FOREIGN KEY([WarehouseCode])
