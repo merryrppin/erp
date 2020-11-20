@@ -399,4 +399,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="SessionCreatedUTC" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="bc4164ac-b503-43fe-8bd2-d17137c0d4f4" ChangeDateTime="11/20/2020 16:21:26">
+    <Property Name="ElementName" Value="[dbo].[tblProductImages].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblProductImages]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ProductImageId" />
+  </Operation>
 </Operations>
