@@ -14,13 +14,13 @@ var KTApp = function() {
         var triggerValue = el.data('trigger') ? el.data('trigger') : 'hover';
         var placement = el.data('placement') ? el.data('placement') : 'left';
 
-        el.tooltip({
-            trigger: triggerValue,
-            template: '<div class="tooltip ' + skin + ' ' + width + '" role="tooltip">\
-                <div class="arrow"></div>\
-                <div class="tooltip-inner"></div>\
-            </div>'
-        });
+        // el.tooltip({
+            // trigger: triggerValue,
+            // template: '<div class="tooltip ' + skin + ' ' + width + '" role="tooltip">\
+                // <div class="arrow"></div>\
+                // <div class="tooltip-inner"></div>\
+            // </div>'
+        // });
     }
 
     var initTooltips = function() {
@@ -1811,35 +1811,35 @@ var KTUtil = function() {
                 if (ps = KTUtil.data(element).get('ps')) {
                     ps.update();
                 } else {
-                    KTUtil.addClass(element, 'kt-scroll');
-                    ps = new PerfectScrollbar(element, {
-                        wheelSpeed: 0.5,
-                        swipeEasing: true,
-                        wheelPropagation: (options.windowScroll === false ? false : true),
-                        minScrollbarLength: 40,
-                        maxScrollbarLength: 300, 
-                        suppressScrollX: KTUtil.attr(element, 'data-scroll-x') != 'true' ? true : false
-                    });
+                    // KTUtil.addClass(element, 'kt-scroll');
+                    // ps = new PerfectScrollbar(element, {
+                        // wheelSpeed: 0.5,
+                        // swipeEasing: true,
+                        // wheelPropagation: (options.windowScroll === false ? false : true),
+                        // minScrollbarLength: 40,
+                        // maxScrollbarLength: 300, 
+                        // suppressScrollX: KTUtil.attr(element, 'data-scroll-x') != 'true' ? true : false
+                    // });
 
-                    KTUtil.data(element).set('ps', ps);
+                    // KTUtil.data(element).set('ps', ps);
                 }
 
                 // Remember scroll position in cookie
                 var uid = KTUtil.attr(element, 'id');
 
-                if (options.rememberPosition === true && Cookies && uid) {
-                    if (Cookies.get(uid)) {
-                        var pos = parseInt(Cookies.get(uid));
+                // if (options.rememberPosition === true && Cookies && uid) {
+                    // if (Cookies.get(uid)) {
+                        // var pos = parseInt(Cookies.get(uid));
 
-                        if (pos > 0) {
-                            element.scrollTop = pos;
-                        }
-                    } 
+                        // if (pos > 0) {
+                            // element.scrollTop = pos;
+                        // }
+                    // } 
 
-                    element.addEventListener('ps-scroll-y', function() {
-                        Cookies.set(uid, element.scrollTop);
-                    });                                      
-                }
+                    // element.addEventListener('ps-scroll-y', function() {
+                        // Cookies.set(uid, element.scrollTop);
+                    // });                                      
+                // }
             }
 
             // Init

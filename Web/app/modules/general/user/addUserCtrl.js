@@ -1,5 +1,8 @@
-﻿angular.module(aLanguage.appName).controller('addUserController', ["$scope", "$location", "GeneralService", addUserController]);
-function addUserController($scope, $location, GeneralService) {
+﻿angular.module(aLanguage.appName).controller('addUserController', ["$scope", '$rootScope', "$location", "GeneralService", addUserController]);
+function addUserController($scope, $rootScope, $location, GeneralService) {
+
+    GeneralService.hideGeneralButtons();
+    $rootScope.showSaveButton = true;
     $scope.aLanguage = aLanguage;
     $scope.userIdSelected = typeof GeneralService.userId !== 'undefined' ? GeneralService.userId : -1;
 
@@ -29,6 +32,14 @@ function addUserController($scope, $location, GeneralService) {
             }
         });
     };
+    $rootScope.saveBtnFunction = function () {
+        if ($("#frmUser").valid()) {
+            $scope.saveUser();
+        }
+        //if ($("#frmUser")[0].checkValidity()) {
+        //    $("#frmUser").submit();
+        //}
+    }
 
     $scope.returnToList = function () {
         $location.path('/listUsers');
@@ -40,4 +51,31 @@ function addUserController($scope, $location, GeneralService) {
         if ($scope.userIdSelected !== -1)
             $scope.loadUser();
     }
+
+    $(document).ready(function () {
+        $scope.validator = $("#frmUser").validate({
+            rules: {
+                userFirstName: {
+                    required: true
+                },
+                userLastName: {
+                    required: true
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                login: {
+                    required: true
+                },
+                password1: {
+                    required: true
+                },
+                password2: {
+                    required: true,
+                    equalTo: "#password1"
+                }
+            }
+        });
+    });
 }

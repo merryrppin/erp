@@ -1,10 +1,13 @@
-﻿angular.module(aLanguage.appName).controller('generalController', ["$scope", "$timeout", "$filter", "$location", "SessionService", "GeneralService", generalController]);
-function generalController($scope, $timeout, $filter, $location, SessionService, GeneralService) {
+﻿angular.module(aLanguage.appName).controller('generalController', ["$scope", '$rootScope', "$timeout", "$filter", "$location", "SessionService", "GeneralService", generalController]);
+function generalController($scope, $rootScope, $timeout, $filter, $location, SessionService, GeneralService) {
     var ctrl = this;
     ctrl.aLanguage = aLanguage;
     ctrl.allLevels = [];
     ctrl.menusByLevel = [];
     ctrl.menus = [];
+
+    ctrl.showSaveButton = $rootScope.showSaveButton;
+    ctrl.saveBtnFunction = $rootScope.saveBtnFunction;
 
     ctrl.user = SessionService;
 

@@ -120,48 +120,48 @@ var KTDashboard = function() {
             }]
         };
 
-        var chart = new Chart(chartContainer, {
-            type: 'bar',
-            data: chartData,
-            options: {
-                title: {
-                    display: false,
-                },
-                tooltips: {
-                    intersect: false,
-                    mode: 'nearest',
-                    xPadding: 10,
-                    yPadding: 10,
-                    caretPadding: 10
-                },
-                legend: {
-                    display: false
-                },
-                responsive: true,
-                maintainAspectRatio: false,
-                barRadius: 4,
-                scales: {
-                    xAxes: [{
-                        display: false,
-                        gridLines: false,
-                        stacked: true
-                    }],
-                    yAxes: [{
-                        display: false,
-                        stacked: true,
-                        gridLines: false
-                    }]
-                },
-                layout: {
-                    padding: {
-                        left: 0,
-                        right: 0,
-                        top: 0,
-                        bottom: 0
-                    }
-                }
-            }
-        });
+        // var chart = new Chart(chartContainer, {
+            // type: 'bar',
+            // data: chartData,
+            // options: {
+                // title: {
+                    // display: false,
+                // },
+                // tooltips: {
+                    // intersect: false,
+                    // mode: 'nearest',
+                    // xPadding: 10,
+                    // yPadding: 10,
+                    // caretPadding: 10
+                // },
+                // legend: {
+                    // display: false
+                // },
+                // responsive: true,
+                // maintainAspectRatio: false,
+                // barRadius: 4,
+                // scales: {
+                    // xAxes: [{
+                        // display: false,
+                        // gridLines: false,
+                        // stacked: true
+                    // }],
+                    // yAxes: [{
+                        // display: false,
+                        // stacked: true,
+                        // gridLines: false
+                    // }]
+                // },
+                // layout: {
+                    // padding: {
+                        // left: 0,
+                        // right: 0,
+                        // top: 0,
+                        // bottom: 0
+                    // }
+                // }
+            // }
+        // });
     }
 
     // Profit Share Chart.
@@ -229,7 +229,7 @@ var KTDashboard = function() {
         };
 
         var ctx = KTUtil.getByID('kt_chart_profit_share').getContext('2d');
-        var myDoughnut = new Chart(ctx, config);
+        // var myDoughnut = new Chart(ctx, config);
     }
 
     // Sales Stats.
@@ -2124,5 +2124,5 @@ var KTDashboard = function() {
 
 // Class initialization on page load
 jQuery(document).ready(function() {
-    KTDashboard.init();
+    // KTDashboard.init();
 });

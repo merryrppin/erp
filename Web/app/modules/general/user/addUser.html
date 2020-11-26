@@ -8,58 +8,34 @@
 <form class="kt-form kt-form--label-right" autocomplete="no" ng-submit="saveUser()" id="frmUser">
     <div class="kt-portlet__body">
         <div class="form-group row">
-            <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group validated">
                 <label>{{aLanguage.name}}*:</label>
-                <input data-ng-model="currentUser.UserFirstName" type="text" required class="form-control" placeholder="{{aLanguage.enterName}}">
-                <span class="form-text text-muted">{{aLanguage.pleaseEnterName}}</span>
+                <input data-ng-model="currentUser.UserFirstName" id="userFirstName" name="userFirstName" type="text" class="form-control" placeholder="{{aLanguage.enterName}}">
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group validated">
                 <label>{{aLanguage.surnames}}*:</label>
-                <input data-ng-model="currentUser.UserLastName" type="text" required class="form-control" placeholder="{{aLanguage.enterSurnames}}">
-                <span class="form-text text-muted">{{aLanguage.pleaseEnterSurnames}}</span>
+                <input data-ng-model="currentUser.UserLastName" type="text" id="userLastName" name="userLastName" class="form-control" placeholder="{{aLanguage.enterSurnames}}">
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group validated">
                 <label>{{aLanguage.email}}*:</label>
-                <input data-ng-model="currentUser.UserEmail" type="email" required class="form-control" placeholder="{{aLanguage.enterEmail}}">
-                <span class="form-text text-muted">{{aLanguage.pleaseEnterEmail}}</span>
+                <input data-ng-model="currentUser.UserEmail" type="email" id="email" name="email" class="form-control" placeholder="{{aLanguage.enterEmail}}">
             </div>
-        </div>
-
-        <div class="kt-separator kt-separator--border-dashed kt-separator--space-lg kt-separator--portlet-fit"></div>
-
-        <div class="form-group row">
-            <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group validated">
                 <label>{{aLanguage.username}}*:</label>
                 <div class="input-group">
                     <div class="input-group-prepend"><span class="input-group-text"><i class="la la-user"></i></span></div>
-                    <input data-ng-model="currentUser.Login" type="text" required class="form-control" placeholder="">
+                    <input data-ng-model="currentUser.Login" type="text" id="login" name="login" class="form-control" placeholder="">
                 </div>
-                <span class="form-text text-muted">{{aLanguage.pleaseEnterUsername}}</span>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group validated">
                 <label class="">{{aLanguage.password}}*:</label>
-                <input data-ng-model="currentUser.Password" type="password" required class="form-control" placeholder="{{aLanguage.enterPassword}}">
-                <span class="form-text text-muted">{{aLanguage.pleaseEnterPassword}}</span>
+                <input data-ng-model="currentUser.Password" type="password" id="password1" name="password1" class="form-control" placeholder="{{aLanguage.enterPassword}}">
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group validated">
                 <label class="">{{aLanguage.repeatPassword}}*:</label>
-                <input data-ng-model="currentUser.Password2" type="password" required class="form-control" placeholder="{{aLanguage.enterRepeatPassword}}">
-                <span class="form-text text-muted">{{aLanguage.pleaseEnterRepeatPassword}}</span>
+                <input data-ng-model="currentUser.Password2" type="password" id="password2" name="password2" class="form-control" placeholder="{{aLanguage.enterRepeatPassword}}">
             </div>
-        </div>
-    </div>
-    <div class="kt-portlet__foot">
-        <div class="kt-form__actions">
-            <div class="row">
-                <div class="col-lg-4"></div>
-                <div class="col-lg-8">
-                    <button type="submit" class="btn btn-primary">{{aLanguage.save}}</button>
-                    <button type="reset" class="btn btn-secondary">{{aLanguage.clean}}</button>
-                    <button type="button" class="btn btn-secondary" data-ng-click="returnToList()">{{aLanguage.cancel}}</button>
-                </div>
-            </div>
+
         </div>
     </div>
 </form>
-
-currentId:{{userIdSelected}}

@@ -2,6 +2,9 @@
 var module = angular.module(aLanguage.appName, ["agGrid"]);
 module.controller('listUsersController', ["$scope", "$location", "GeneralService", listUsersController]);
 function listUsersController($scope, $location, GeneralService) {
+
+    GeneralService.hideGeneralButtons();
+
     $scope.aLanguage = aLanguage;
     $scope.userIdSelected = typeof GeneralService.userId !== 'undefined' ? GeneralService.userId : -1;
 

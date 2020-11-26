@@ -1,5 +1,5 @@
-﻿angular.module(aLanguage.appName).factory('GeneralService', ['$http', GeneralService]);
-function GeneralService($http) {
+﻿angular.module(aLanguage.appName).factory('GeneralService', ['$http', '$rootScope', GeneralService]);
+function GeneralService($http, $rootScope) {
     var generalService = {};
 
     generalService.autentication = { isAuthenticated: false, showPanel: false };
@@ -118,5 +118,13 @@ function GeneralService($http) {
     generalService.showPanels = function () {
         generalService.autentication.showPanel = true;
     };
+
+
+    generalService.hideGeneralButtons = function () {
+        $rootScope.showSaveButton = false;
+    };
+
+    generalService.hideGeneralButtons();
+
     return generalService;
 }
