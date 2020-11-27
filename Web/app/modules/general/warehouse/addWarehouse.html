@@ -1,0 +1,29 @@
+﻿<div class="kt-portlet__head">
+    <div class="kt-portlet__head-label">
+        <h3 class="kt-portlet__head-title">{{warehouseIdSelected == -1 ? aLanguage.addWarehouse : aLanguage.editWarehouse}}</h3>
+    </div>
+</div>
+
+<form class="kt-form kt-form--label-right" autocomplete="off" ng-submit="saveWarehouse()" id="frmWarehouse">
+    <div class="kt-portlet__body">
+        <div class="form-group row">
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group validated">
+                <label>{{aLanguage.warehouseCode}}*:</label>
+                <input data-ng-model="currentWarehouse.warehouseCode" id="warehouseCode" name="warehouseCode" type="text" class="form-control" placeholder="{{aLanguage.enterName}}">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group validated">
+                <label>{{aLanguage.description}}*:</label>
+                <input data-ng-model="currentWarehouse.description" type="text" id="description" name="description" class="form-control" placeholder="{{aLanguage.enterSurnames}}">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group validated">
+                <label>{{aLanguage.default}}*:</label>
+                <input data-ng-model="currentWarehouse.default" type="email" id="default" name="default" class="form-control" placeholder="{{aLanguage.enterEmail}}">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group validated">
+                <label>{{aLanguage.inactive}}*:</label>
+                <input data-ng-model="currentWarehouse.inactive" type="checkbox" id="inactive" name="inactive" class="form-control" placeholder="">
+            </div>
+
+        </div>
+    </div>
+</form>

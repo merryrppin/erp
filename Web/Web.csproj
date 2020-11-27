@@ -146,6 +146,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\modules\general\warehouse\addWarehouse.html" />
+    <Content Include="app\modules\general\warehouse\addWarehouseCtrl.js" />
+    <Content Include="app\modules\general\warehouse\listWarehouse.html" />
+    <Content Include="app\modules\general\warehouse\listWarehouseCtrl.js" />
     <Content Include="Libs\General\fonts.googleapis.css" />
     <Content Include="Libs\General\InitializePlugins.js" />
     <Content Include="Libs\General\LoadLanguageGeneral.js" />
@@ -1786,6 +1790,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\modules\administration\products\" />
     <Folder Include="Libs\awdl\" />
     <Folder Include="Libs\metronic_v6.0.9\assets\plugins\general\ion-rangeslider\img\" />
     <Folder Include="Views\General\" />

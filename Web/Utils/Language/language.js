@@ -38,7 +38,15 @@
     'saveSuccessful': 'Registro guardado exitosamente',
     'fatalError': 'Ha ocurrido un error',
     'generalError': 'Ha ocurrido un error',
-    
+
+    //Warehouse
+    'warehouseCode': 'Codigo Bodega',
+    'description': 'Descripcion',
+    'default': 'Por Defecto',
+    'inactive': 'Inactivo',
+    'addWarehouse': 'Agregar Bodega',
+    'editWarehouse': 'Editar Bodega',
+
     
     'localeTextAgGrid': {
         // for filter panel

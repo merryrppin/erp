@@ -66,6 +66,36 @@
                 }]
             }
         })
+        .state('listWarehouse', {
+            url: "/listWarehouse",
+            templateUrl: "app/modules/general/warehouse/listWarehouse.html",
+            controller: "listWarehouseController",
+            resolve: {
+                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: aLanguage.appName,
+                        files: [
+                            'app/modules/general/warehouse/listWarehouseCtrl.js'
+                        ]
+                    });
+                }]
+            }
+        })
+        .state('addWarehouse', {
+            url: "/addWarehouse",
+            templateUrl: "app/modules/general/Warehouse/addWarehouse.html",
+            controller: "addWarehouseController",
+            resolve: {
+                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: aLanguage.appName,
+                        files: [
+                            'app/modules/general/warehouse/addWarehouseCtrl.js'
+                        ]
+                    });
+                }]
+            }
+        })
         .state('404', {
             url: "/404",
             templateUrl: "app/modules/general/error/404.html",
