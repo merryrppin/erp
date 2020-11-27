@@ -7,7 +7,12 @@ function generalController($scope, $rootScope, $timeout, $filter, $location, Ses
     ctrl.menus = [];
 
     ctrl.showSaveButton = $rootScope.showSaveButton;
+    ctrl.showClearButton = $rootScope.showClearButton;
+    ctrl.showCancelButton = $rootScope.showCancelButton;
+
     ctrl.saveBtnFunction = $rootScope.saveBtnFunction;
+    ctrl.saveBtnFunction = $rootScope.clearBtnFunction;
+    ctrl.saveBtnFunction = $rootScope.cancelBtnFunction;
 
     ctrl.user = SessionService;
 

@@ -119,9 +119,10 @@ function GeneralService($http, $rootScope) {
         generalService.autentication.showPanel = true;
     };
 
-
     generalService.hideGeneralButtons = function () {
         $rootScope.showSaveButton = false;
+        $rootScope.showClearButton = false;
+        $rootScope.showCancelButton = false;
     };
 
     generalService.hideGeneralButtons();
