@@ -5,7 +5,7 @@
     </div>
 </div>
 
-<form class="kt-form kt-form--label-right" autocomplete="no" ng-submit="saveUser()" id="frmUser">
+<form class="kt-form kt-form--label-right" autocomplete="off" ng-submit="saveUser()" id="frmUser">
     <div class="kt-portlet__body">
         <div class="form-group row">
             <div class="col-lg-6 col-md-6 col-sm-12 form-group validated">
@@ -29,7 +29,7 @@
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 form-group validated">
                 <label class="">{{aLanguage.password}}*:</label>
-                <input data-ng-model="currentUser.Password" type="password" id="password1" name="password1" class="form-control" placeholder="{{aLanguage.enterPassword}}">
+                <input data-ng-model="currentUser.Password" type="password" id="password1" name="password1" class="form-control" placeholder="{{aLanguage.enterPassword}}" autocomplete="new-password">
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 form-group validated">
                 <label class="">{{aLanguage.repeatPassword}}*:</label>
