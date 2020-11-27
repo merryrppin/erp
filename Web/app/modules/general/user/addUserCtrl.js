@@ -36,9 +36,6 @@ function addUserController($scope, $rootScope, $location, GeneralService) {
         if ($("#frmUser").valid()) {
             $scope.saveUser();
         }
-        //if ($("#frmUser")[0].checkValidity()) {
-        //    $("#frmUser").submit();
-        //}
     }
 
     $scope.returnToList = function () {
@@ -53,7 +50,7 @@ function addUserController($scope, $rootScope, $location, GeneralService) {
     }
 
     $(document).ready(function () {
-        $scope.validator = $("#frmUser").validate({
+        $("#frmUser").validate({
             rules: {
                 userFirstName: {
                     required: true
