@@ -19,12 +19,5 @@ namespace Web.Controllers
         {
             return _administrationService.Login(loginEntity.login, loginEntity.password);
         }
-
-        [HttpPost]
-        [Route("api/logout")]
-        public bool Logout(User user)
-        {
-            return _administrationService.UpdateUser(user);
-        }
     }
 }

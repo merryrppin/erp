@@ -1,30 +1,27 @@
-﻿using Data.General.Context;
-using Data.General.Entities;
-using Newtonsoft.Json;
-using Services.General.Entities;
-using Services.General.Entities.LoginEntities;
+﻿using Services.General.Entities.LoginEntities;
 using Services.General.Entities.StoredEntities;
 using Services.Secure;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
-using System.Data.Entity.Core.Objects;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Threading.Tasks;
 using static Services.General.Enums.Enums;
 
 namespace Services.General
 {
     public class AdministrationService
     {
-        public GeneralContext _administrationContext;
         private ManageExceptions ManageExceptions;
+        private string ConnString;
 
         public AdministrationService()
         {
-            _administrationContext = new GeneralContext();
             ManageExceptions = new ManageExceptions();
+            ConnString = ConfigurationManager.ConnectionStrings["ConnString"].ConnectionString;
+
+            
         }
 
         #region Stored Procedure
@@ -32,7 +29,7 @@ namespace Services.General
         {
             StoredObjectResponse StoredObjectResponse = new StoredObjectResponse();
             DataSet ds = new DataSet();
-            using (SqlConnection con = new SqlConnection(_administrationContext.Database.Connection.ConnectionString))
+            using (SqlConnection con = new SqlConnection(ConnString))
             {
                 using (SqlCommand cmd = new SqlCommand(StoredObjectParams.StoredProcedureName, con))
                 {
@@ -101,7 +98,7 @@ namespace Services.General
             LoginEntity loginResp = new LoginEntity();
             string passwordEncrypted = Encode_Decode.Encrypt(password);
             DataTable dt = new DataTable();
-            using (SqlConnection con = new SqlConnection(_administrationContext.Database.Connection.ConnectionString))
+            using (SqlConnection con = new SqlConnection(ConnString))
             {
                 string queryLogin = "SELECT [UserId], [UserFirstName], [UserLastName] FROM [dbo].[tblUser] WHERE [Login] = @login AND [Password] = @password";
                 using (SqlCommand cmd = new SqlCommand(queryLogin, con))
@@ -139,91 +136,6 @@ namespace Services.General
         /// Este metodo devuelve todos los usuarios activos
         /// </summary>
         /// <returns></returns>
-        public List<User> GetActiveUsers()
-        {
-            return _administrationContext.Users.Where(u => u.Active == true).ToList();
-        }
-
-        public List<User> GetAllUsers()
-        {
-            try
-            {
-                return _administrationContext.Users.ToList();
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }
-
-        public User GetUser(int id)
-        {
-            try
-            {
-                return _administrationContext.Users.Where(IdObject => IdObject.UserId == id).FirstOrDefault();
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }
-
-        public GeneralResponse AddUser(User user)
-        {
-            GeneralResponse GeneralResponse = new GeneralResponse { BooleanResponse = true, GeneralError = null };
-            try
-            {
-                User userDb = _administrationContext.Users.Where(u => u.Login == user.Login).FirstOrDefault();
-                if (userDb != null)
-                {
-                    GeneralResponse.BooleanResponse = false;
-                    GeneralResponse.GeneralError = Constants.Constants.ListErrors[(int)EnumGeneralErrors.UserExist];
-                }
-                else
-                {
-                    User userInsert = _administrationContext.Users.Add(user);
-                    _administrationContext.SaveChanges();
-                }
-                return GeneralResponse;
-            }
-            catch (Exception ex)
-            {
-                ManageExceptions.SaveLogException(ex, GeneralResponse);
-                return GeneralResponse;
-            }
-        }
-
-        public bool UpdateUser(User user)
-        {
-            try
-            {
-                User userUpdate = _administrationContext.Users.Find(user);
-                //Mapper.Map(viewModel, patient);
-                //AutoMapper.Mapper.CreateMap<userUpdate, user>();
-                userUpdate.UserEmail = user.UserEmail;
-                userUpdate.UserFirstName = user.UserFirstName;
-                userUpdate.UserLastName = user.UserLastName;
-                userUpdate.Active = user.Active;
-                _administrationContext.SaveChanges();
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
-
-        //public ClientViewModel GetById(int id)
-        //{
-        //    //Get the client
-        //    var client = clients[0];
-        //    //Define the mapping
-        //    AutoMapper.Mapper.CreateMap<Client, ClientViewModel>();
-        //    //Execute the mapping
-        //    var clientViewModel = AutoMapper.Mapper.Map<Client, ClientViewModel>(client);
-        //    //Return a viewmodel
-        //    return clientViewModel;
-        //}
         #endregion
     }
 }
