@@ -6,12 +6,13 @@ function listWarehouseController($scope, $location, GeneralService) {
     GeneralService.hideGeneralButtons();
     $scope.aLanguage = aLanguage;
     $scope.warehouseIdSelected = typeof GeneralService.warehouseId !== 'undefined' ? GeneralService.warehouseId : -1;
-
+    $scope.checkClass = 'la la-check-circle';
+    $scope.uncheckClass = 'la la-circle';
     $scope.columnDefs = [
         { headerName: aLanguage.warehouseCode, field: "WarehouseCode" },
         { headerName: aLanguage.description, field: "Description" },
-        { headerName: aLanguage.default, field: "Default" },
-        { headerName: aLanguage.inactive, field: "Inactive" }
+        { headerName: aLanguage.default, field: "Default", cellRenderer: params => { return '<span><i class="'+(params.data.Default ? $scope.checkClass : $scope.uncheckClass) +'"></i></span>'}},
+        { headerName: aLanguage.inactive, field: "Inactive", cellRenderer: params => { return '<span><i class="' + (params.data.Inactive ? $scope.checkClass : $scope.uncheckClass) + '"></i></span>'}}
     ];
 
     $scope.rowData = [];
@@ -31,11 +32,22 @@ function listWarehouseController($scope, $location, GeneralService) {
     };
 
     $scope.loadWarehouse = function () {
+        var dataSP = {
+            "StoredProcedureName": "GetActiveWarehouses",
+            "StoredParams": []
+        };
         GeneralService.executeAjax({
-            url: 'api/getAllWarehouse',
+            url: 'api/executeStoredProcedure',
+            data: dataSP,
             success: function (response) {
-                if (response.Exception !== null) {
-                    $scope.listWarehouseGrid.api.setRowData(response);
+                if (response.Exception === null) {
+                    var warehouserows = response.Value[0].DataMapped.map(function (obj) {   
+                        obj.Default = obj.Default.toLowerCase() == 'true'; 
+                        obj.Inactive = obj.Inactive.toLowerCase() == 'true';  
+                        return obj;
+                    });
+                    $scope.listWarehouseGrid.api.setRowData(warehouserows);
+                    $scope.rowData = warehouserows;
                 }
             }
         });

@@ -12,22 +12,16 @@ function addWarehouseController($scope, $rootScope, $location, GeneralService) {
     };
 
     $scope.saveWarehouse = function () {
-        var apiMethod = $scope.warehouseIdSelected === -1 ? 'addWarehouse' : 'editWarehouse';
+        var dataSP = {
+            "StoredProcedureName": "SaveWarehouses",
+            "StoredParams": [{ name: 'warehouses', value: JSON.stringify($scope.currentWarehouse)}]
+        };
         GeneralService.executeAjax({
-            url: 'api/' + apiMethod,
-            data: $scope.currentUser,
+            url: 'api/executeStoredProcedure',
+            data: dataSP,
             success: function (response) {
-                if (response.BooleanResponse) {
-                    GeneralService.showToastR({
-                        body: aLanguage.saveSuccessful,
-                        type: 'success'
-                    });
-                    $scope.currentUser = {};
-                } else {
-                    GeneralService.showToastR({
-                        body: aLanguage[response.GeneralError],
-                        type: 'error'
-                    });
+                if (response.Exception === null) {
+                    ctrl.orderMenus(response.Value[0].DataMapped);
                 }
             }
         });
