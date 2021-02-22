@@ -83,7 +83,7 @@
         })
         .state('addWarehouse', {
             url: "/addWarehouse",
-            templateUrl: "app/modules/general/Warehouse/addWarehouse.html",
+            templateUrl: "app/modules/general/warehouse/addWarehouse.html",
             controller: "addWarehouseController",
             resolve: {
                 deps: ['$ocLazyLoad', function ($ocLazyLoad) {
@@ -91,6 +91,21 @@
                         name: aLanguage.appName,
                         files: [
                             'app/modules/general/warehouse/addWarehouseCtrl.js'
+                        ]
+                    });
+                }]
+            }
+        })
+        .state('addSaleInvoice', {
+            url: "/addSaleInvoice",
+            templateUrl: "app/modules/sales/saleInvoice/addSaleInvoice.html",
+            controller: "saleInvoiceController",
+            resolve: {
+                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: aLanguage.appName,
+                        files: [
+                            'app/modules/sales/saleInvoice/saleInvoiceCtrl.js'
                         ]
                     });
                 }]

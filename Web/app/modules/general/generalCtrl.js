@@ -23,7 +23,6 @@ function generalController($scope, $rootScope, $timeout, $filter, $location, Ses
     };
 
     ctrl.verificarAutenticacion = function () {
-
         GeneralService.autentication.isAuthenticated = true;
         GeneralService.showPanels();
         //GeneralService.executeAjax({

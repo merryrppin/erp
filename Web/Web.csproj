@@ -143,6 +143,9 @@
     <Content Include="app\modules\general\warehouse\addWarehouseCtrl.js" />
     <Content Include="app\modules\general\warehouse\listWarehouse.html" />
     <Content Include="app\modules\general\warehouse\listWarehouseCtrl.js" />
+    <Content Include="app\modules\sales\saleInvoice\addSaleInvoice.html" />
+    <Content Include="app\modules\sales\saleInvoice\saleInvoiceCtrl.js" />
+    <Content Include="app\modules\sales\salesSvc.js" />
     <Content Include="Libs\General\fonts.googleapis.css" />
     <Content Include="Libs\General\InitializePlugins.js" />
     <Content Include="Libs\General\LoadLanguageGeneral.js" />
