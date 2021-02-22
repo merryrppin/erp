@@ -10,10 +10,6 @@ function generalController($scope, $rootScope, $timeout, $filter, $location, Ses
     ctrl.showClearButton = $rootScope.showClearButton;
     ctrl.showCancelButton = $rootScope.showCancelButton;
 
-    ctrl.saveBtnFunction = $rootScope.saveBtnFunction;
-    ctrl.saveBtnFunction = $rootScope.clearBtnFunction;
-    ctrl.saveBtnFunction = $rootScope.cancelBtnFunction;
-
     ctrl.user = SessionService;
 
     ctrl.autentication = GeneralService.autentication;//false por defecto
@@ -110,6 +106,12 @@ function generalController($scope, $rootScope, $timeout, $filter, $location, Ses
             ctrl.recursiveMenus(objMenu);
         }
     };
+
+    //BEGIN General Buttons
+    ctrl.saveBtnFunction = $rootScope.saveBtnFunction;
+    ctrl.saveBtnFunction = $rootScope.clearBtnFunction;
+    ctrl.saveBtnFunction = $rootScope.cancelBtnFunction;
+    //END General Buttons
 
     angular.element(document).ready(init);
 

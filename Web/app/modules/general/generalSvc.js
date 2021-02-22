@@ -1,5 +1,5 @@
-﻿angular.module(aLanguage.appName).factory('GeneralService', ['$http', '$rootScope', GeneralService]);
-function GeneralService($http, $rootScope) {
+﻿angular.module(aLanguage.appName).factory('GeneralService', ['$http', '$rootScope', '$window', GeneralService]);
+function GeneralService($http, $rootScope, $window) {
     var generalService = {};
 
     generalService.autentication = { isAuthenticated: false, showPanel: false };
@@ -119,11 +119,18 @@ function GeneralService($http, $rootScope) {
         generalService.autentication.showPanel = true;
     };
 
+    //BEGIN General Buttons
     generalService.hideGeneralButtons = function () {
         $rootScope.showSaveButton = false;
         $rootScope.showClearButton = false;
         $rootScope.showCancelButton = false;
+        $rootScope.cancelBtnFunction = function (validateForm) {
+            if (typeof validateForm === 'undefined' || (typeof validateForm !== 'undefined' && validateForm())) {
+                $window.history.back();
+            }
+        };
     };
+    //END General Buttons
 
     generalService.hideGeneralButtons();
 
