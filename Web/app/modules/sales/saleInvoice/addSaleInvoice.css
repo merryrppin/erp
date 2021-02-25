@@ -1,0 +1,12 @@
+﻿#addSaleInvoiceDiv #tableControls td {
+    vertical-align: middle;
+}
+
+#addSaleInvoiceDiv .btnAmount {
+    padding: 7px;
+}
+
+#addSaleInvoiceDiv #productsGrid {
+    height: 50vh !important;
+    width: 100% !important
+}

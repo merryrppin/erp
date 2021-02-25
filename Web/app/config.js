@@ -99,13 +99,14 @@
         .state('addSaleInvoice', {
             url: "/addSaleInvoice",
             templateUrl: "app/modules/sales/saleInvoice/addSaleInvoice.html",
-            controller: "saleInvoiceController",
+            controller: "addSaleInvoiceController",
             resolve: {
                 deps: ['$ocLazyLoad', function ($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         name: aLanguage.appName,
                         files: [
-                            'app/modules/sales/saleInvoice/saleInvoiceCtrl.js'
+                            'app/modules/sales/saleInvoice/addSaleInvoiceCtrl.js',
+                            'app/modules/sales/saleInvoice/addSaleInvoice.css'
                         ]
                     });
                 }]

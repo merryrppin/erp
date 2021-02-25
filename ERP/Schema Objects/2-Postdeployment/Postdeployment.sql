@@ -11,6 +11,6 @@ INSERT INTO [erp].[param].[tblMenu]([MenuId],[Name],[Description],[Icon],[Parent
 INSERT INTO [erp].[param].[tblMenu]([MenuId],[Name],[Description],[Icon],[ParentMenuId],[Order],[Active],[Url],[Level]) VALUES(7,'Listar Bodegas','','',6,100,1,'#!/listWarehouse',2);
 
 INSERT INTO [erp].[param].[tblMenu]([MenuId],[Name],[Description],[Icon],[ParentMenuId],[Order],[Active],[Url],[Level]) VALUES(8,'Ventas','','flaticon2-shopping-cart-1',NULL,200,1,'',0);
-INSERT INTO [erp].[param].[tblMenu]([MenuId],[Name],[Description],[Icon],[ParentMenuId],[Order],[Active],[Url],[Level]) VALUES(9,'Factura Ventas','','',8,100,1,'#!/salesInvoice',1);
+INSERT INTO [erp].[param].[tblMenu]([MenuId],[Name],[Description],[Icon],[ParentMenuId],[Order],[Active],[Url],[Level]) VALUES(9,'Factura Ventas','','',8,100,1,'#!/addSaleInvoice',1);
 
 SET IDENTITY_INSERT [erp].[param].[tblMenu] OFF

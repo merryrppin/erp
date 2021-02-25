@@ -1,3 +1,73 @@
-﻿<div class="row">
+﻿<div id="addSaleInvoiceDiv" class="row">
+    <table class="table table-bordered">
+        <tr>
+            <td style="width:20%">!!Venta mostrador</td>
+            <td style="width:62%">
+                <table id="tableControls" class="table table-bordered">
+                    <tr>
+                        <td style="width:15%;">!!Codigo articulo</td>
+                        <td style="width:25%;">
+                            <input type="text" class="form-control">
+                        </td>
+                        <td style="width:15%;">!!Descuento</td>
+                        <td style="width:20%;">
+                            <input type="text" class="form-control">
+                        </td>
+                        <td style="width:25%;">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-primary btn-sm btnAmount" type="button">+</button>
+                                </div>
+                                <input type="text" class="form-control">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary btn-sm btnAmount" type="button">-</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="width: 17%; vertical-align: bottom;" rowspan="4">
+                <table class="table table-bordered">
+                    <tr><td>!!Total sin iva</td><td>9999</td></tr>
+                    <tr><td>!!IVA</td><td>9999</td></tr>
+                    <tr><td>!!Descuento</td><td>9999</td></tr>
+                    <tr><td>!!Total Neto</td><td>9999</td></tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td rowspan="2">
 
+                <table id="tableOptions">
+                    <tr>
+                        <td>
+                            <center>
+                                <label class="kt-checkbox">
+                                    <input data-ng-model="chkInfoSale" type="checkbox">
+                                    <span></span>
+                                </label>
+                            </center>
+                        </td>
+                    </tr>
+                    <tr><td><input data-ng-disabled="!chkInfoSale" type="text" class="form-control"></td></tr>
+                    <tr><td><input data-ng-disabled="!chkInfoSale" type="text" class="form-control"></td></tr>
+                    <tr><td><center>!!Info Vendedor</center></td></tr>
+                </table>
+
+
+
+            </td>
+            <td rowspan="2">
+                <div data-ag-grid="productsGrid" id="productsGrid" class="ag-theme-fresh"></div>
+            </td>
+        </tr>
+        <tr>
+            <td rowspan="2" style="vertical-align:bottom;">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">!!Almacen las gorras...</td>
+        </tr>
+    </table>
 </div>

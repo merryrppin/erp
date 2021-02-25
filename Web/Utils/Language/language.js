@@ -40,14 +40,19 @@
     'generalError': 'Ha ocurrido un error',
 
     //Warehouse
-    'warehouseCode': 'Codigo Bodega',
-    'description': 'Descripcion',
+    'warehouseCode': 'Código Bodega',
+    'description': 'Descripción',
     'default': 'Por Defecto',
     'inactive': 'Inactivo',
     'addWarehouse': 'Agregar Bodega',
     'editWarehouse': 'Editar Bodega',
 
-    
+    //SaleInvoice
+    'code':'Código',
+    'productName': 'Nombre del producto',
+    'amount': 'Cantidad',
+    'price': 'Precio',
+
     'localeTextAgGrid': {
         // for filter panel
         page: 'Página',
