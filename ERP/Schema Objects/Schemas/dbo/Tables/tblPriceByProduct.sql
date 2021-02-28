@@ -12,15 +12,8 @@
     [ValidityStartDate] DATE NULL, 
     [ValidityEndDate] DATE NULL, 
     [Inactive] BIT NOT NULL, 
-    [UserCode] VARCHAR(50) NULL
+    [UserCode] VARCHAR(50) NULL,
+    CONSTRAINT [FK_tblPriceByProduct_tblpriceList_PriceListCod] FOREIGN KEY([PriceListCode]) REFERENCES [dbo].[tblpriceList] ([PriceListCode]),
+    CONSTRAINT [FK_tblPriceByProduct_tblProdut_Productcode] FOREIGN KEY([ProductCode]) REFERENCES [dbo].[tblProduct] ([ProductCode])
 
 )
-GO
-
-ALTER TABLE [dbo].[tblPriceByProduct]  WITH CHECK ADD  CONSTRAINT [FK_tblPriceByProduct_tblpriceList_PriceListCod] FOREIGN KEY([PriceListCode])
-REFERENCES [dbo].[tblpriceList] ([PriceListCode])
-GO
-
-ALTER TABLE [dbo].[tblPriceByProduct]  WITH CHECK ADD  CONSTRAINT [FK_tblPriceByProduct_tblProdut_Productcode] FOREIGN KEY([ProductCode])
-REFERENCES [dbo].[tblProduct] ([ProductCode])
-GO
