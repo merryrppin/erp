@@ -9,6 +9,21 @@ function addSaleInvoiceController($scope, $rootScope, $location, GeneralService)
     $scope.aLanguage = aLanguage;
     $scope.userIdSelected = typeof GeneralService.userId !== 'undefined' ? GeneralService.userId : -1;
 
+    $scope.totalWithoutIva = 0;
+    $scope.IVA = 0;
+    $scope.totalDiscount = 0;
+    $scope.netTotal = 0;
+
+    $scope.clientDocument = '';
+    $scope.clientName = '';
+
+    $scope.productAmount = 1;
+
+    $scope.addRemoveAmount = function (Amount) {
+        var currentAmountAfterUpdate = $scope.productAmount + Amount;
+        $scope.productAmount = currentAmountAfterUpdate < 1 ? $scope.productAmount : currentAmountAfterUpdate;
+    };
+
     $scope.chkInfoSale = false;
 
     $scope.columnDefs = [
@@ -18,12 +33,12 @@ function addSaleInvoiceController($scope, $rootScope, $location, GeneralService)
         { headerName: aLanguage.price, field: "Price" }
     ];
 
-    $scope.rowData = [];
+    $scope.rowDataProducts = [];
 
     $scope.productsGrid = {
         localeText: $scope.aLanguage.localeTextAgGrid,
         columnDefs: $scope.columnDefs,
-        rowData: $scope.rowData,
+        rowData: $scope.rowDataProducts,
         suppressRowClickSelection: true,
         enableColResize: true,
         defaultColDef: {
@@ -32,4 +47,28 @@ function addSaleInvoiceController($scope, $rootScope, $location, GeneralService)
             resize: true
         }
     };
+
+    $scope.productsWithPrice = [];
+
+    $scope.loadProductsWithPrice = function () {
+        var dataSP = {
+            "StoredProcedureName": "GetActiveProductsWithPrice",
+            "StoredParams": []
+        };
+        GeneralService.executeAjax({
+            url: 'api/executeStoredProcedure',
+            data: dataSP,
+            success: function (response) {
+                if (response.Exception === null) {
+                    $scope.productsWithPrice = angular.copy(response.Value[0].DataMapped);
+                }
+            }
+        });
+    };
+
+    angular.element(document).ready(init);
+
+    function init() {
+        $scope.loadProductsWithPrice();
+    }
 }

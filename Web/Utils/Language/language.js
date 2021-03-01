@@ -52,6 +52,16 @@
     'productName': 'Nombre del producto',
     'amount': 'Cantidad',
     'price': 'Precio',
+    'totalWithoutIVA': 'Total sin IVA',
+    'IVA': 'IVA',
+    'discount': 'Descuento',
+    'totalDiscount': 'Descuento total',
+    'price': 'Precio',
+    'netTotal': 'Total Neto',
+    'document': 'Documento',
+    'clientName': 'Nombre del cliente',
+    'clientInfo': 'Información del cliente',
+    'articleCode': 'Código articulo',
 
     'localeTextAgGrid': {
         // for filter panel
