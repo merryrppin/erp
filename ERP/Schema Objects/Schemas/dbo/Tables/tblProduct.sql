@@ -4,7 +4,6 @@
     [ProductCode] VARCHAR(50) NOT NULL, 
     [Reference] VARCHAR(50) NOT NULL, 
     [ProductDescription] VARCHAR(MAX) NOT NULL, 
-    [Price] FLOAT NOT NULL, 
     [UnitMeasureCode] VARCHAR(50) NOT NULL, 
     [QuantityUnitMeasure] FLOAT NULL, 
     [WarehouseCode] VARCHAR(10) NOT NULL, 
@@ -14,7 +13,8 @@
     [Provider] VARCHAR(500) NOT NULL, 
     [DuttyCode] VARCHAR(50) NOT NULL, 
     [TariffDutty] FLOAT NOT NULL, 
-    [Discount] FLOAT NOT NULL
+    [Discount] FLOAT NOT NULL, 
+    [Inactive] BIT NOT NULL
 )
 
 GO
