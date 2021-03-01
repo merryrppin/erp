@@ -100,6 +100,8 @@
     <Build Include="Schema Objects\Schemas\dbo\Tables\tblProductImages.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\GetActiveWarehouses.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\GetActiveProductsWithPrice.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\tblCompanies.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\tblVendors.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="ERP.refactorlog" />
