@@ -7,9 +7,14 @@
                     <tr>
                         <td style="width:15%;">{{aLanguage.articleCode}}</td>
                         <td style="width:25%;">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" data-ng-model="currentProductCode">
                         </td>
-                        <td style="width:15%;">{{aLanguage.discount}}</td>
+                        <td style="width:15%;">
+                            <center>
+                                <button type="button" class="btn btn-primary btn-sm" data-ng-click="addProduct()" data-ng-disabled="currentProductCode == ''">!!Añadir producto</button>
+                            </center>
+                        </td>
+                        <!-- <td style="width:15%;">{{aLanguage.discount}}</td>
                         <td style="width:20%;">
                             <input type="text" class="form-control">
                         </td>
@@ -23,7 +28,7 @@
                                     <button class="btn btn-primary btn-sm btnAmount" type="button" data-ng-click="addRemoveAmount(-1)">-</button>
                                 </div>
                             </div>
-                        </td>
+                        </td> -->
                     </tr>
                 </table>
             </td>

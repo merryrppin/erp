@@ -62,6 +62,7 @@
     'clientName': 'Nombre del cliente',
     'clientInfo': 'Información del cliente',
     'articleCode': 'Código articulo',
+    'notProductFound' : 'No se encontró el producto',
 
     'localeTextAgGrid': {
         // for filter panel
