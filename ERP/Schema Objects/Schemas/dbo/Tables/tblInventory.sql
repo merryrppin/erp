@@ -9,14 +9,7 @@
     [Stock] DECIMAL(18, 8) NOT NULL, 
     [StockMin] DECIMAL(18, 8) NULL, 
     [StockMax] DECIMAL(18, 8) NULL, 
-    [AverageCost] DECIMAL(18, 8) NULL
+    [AverageCost] DECIMAL(18, 8) NULL,
+    CONSTRAINT [FK_tblInventory_tblProduct_ProductCode] FOREIGN KEY([ProductCode]) REFERENCES [dbo].[tblProduct] ([ProductCode]),
+    CONSTRAINT [FK_tblInventory_tblWarehouse_WarehouseCode] FOREIGN KEY([WarehouseCode]) REFERENCES [dbo].[tblWarehouse] ([WarehouseCode])
 )
-GO
-
-ALTER TABLE [dbo].[tblInventory]  WITH CHECK ADD  CONSTRAINT [FK_tblInventory_tblProduct_ProductCode] FOREIGN KEY([ProductCode])
-REFERENCES [dbo].[tblProduct] ([ProductCode])
-GO
-
-ALTER TABLE [dbo].[tblInventory]  WITH CHECK ADD  CONSTRAINT [FK_tblInventory_tblWarehouse_WarehouseCode] FOREIGN KEY([WarehouseCode])
-REFERENCES [dbo].[tblWarehouse] ([WarehouseCode])
-GO

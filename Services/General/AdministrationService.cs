@@ -100,7 +100,7 @@ namespace Services.General
             DataTable dt = new DataTable();
             using (SqlConnection con = new SqlConnection(ConnString))
             {
-                string queryLogin = "SELECT [UserId], [UserFirstName], [UserLastName] FROM [dbo].[tblUser] WHERE [Login] = @login AND [Password] = @password";
+                string queryLogin = "SELECT [UserId], [UserFirstName], [UserLastName] FROM [dbo].[tblUsers] WHERE [Login] = @login AND [Password] = @password";
                 using (SqlCommand cmd = new SqlCommand(queryLogin, con))
                 {
                     try

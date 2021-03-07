@@ -81,7 +81,6 @@
     <Build Include="Schema Objects\Schemas\param\Tables\tblGeneralList.sql" />
     <Build Include="Schema Objects\Schemas\param\Tables\tblGeneralListOption.sql" />
     <Build Include="Schema Objects\Schemas\param\Tables\tblMenu.sql" />
-    <Build Include="Schema Objects\Schemas\param\Tables\tblUser.sql" />
     <Build Include="Schema Objects\Schemas\param\Tables\tblUserGroup.sql" />
     <Build Include="Schema Objects\Schemas\param\Tables\tblUserGroup_User.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\tblProduct.sql" />
@@ -102,6 +101,7 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\GetActiveProductsWithPrice.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\tblCompanies.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\tblVendors.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\tblUsers.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="ERP.refactorlog" />

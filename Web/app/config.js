@@ -6,18 +6,16 @@
     $stateProvider
         .state('login', {
             url: "/login",
-            templateUrl: "app/modules/general/login/Login.html",
+            //templateUrl: "app/modules/general/login/Login.html",
             controller: "loginController",
             resolve: {
                 deps: ['$ocLazyLoad', function ($ocLazyLoad) {
-                    url = "Pages/Login.html";
-                    window.location.replace(url);
-                    //return $ocLazyLoad.load({
-                    //    name: aLanguage.appName,
-                    //    files: [
-                    //        'app/modules/general/login/loginCtrl.js'
-                    //    ]
-                    //});
+                    return $ocLazyLoad.load({
+                        name: aLanguage.appName,
+                        files: [
+                            'app/modules/general/login/loginCtrl.js'
+                        ]
+                    });
                 }]
             }
         })
@@ -118,14 +116,8 @@
             controller: "errorController",
             resolve: {
                 deps: ['$ocLazyLoad', function ($ocLazyLoad) {
-                    url = "Pages/Error/404.html";
+                    var url = "Pages/Error/404.html";
                     window.location.replace(url);
-                    //return $ocLazyLoad.load({
-                    //    name: aLanguage.appName,
-                    //    files: [
-                    //        'app/modules/general/error/errorCtrl.js'
-                    //    ]
-                    //});
                 }]
             }
         });

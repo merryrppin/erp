@@ -14,3 +14,6 @@ INSERT INTO [erp].[param].[tblMenu]([MenuId],[Name],[Description],[Icon],[Parent
 INSERT INTO [erp].[param].[tblMenu]([MenuId],[Name],[Description],[Icon],[ParentMenuId],[Order],[Active],[Url],[Level]) VALUES(9,'Factura Ventas','','',8,100,1,'#!/addSaleInvoice',1);
 
 SET IDENTITY_INSERT [erp].[param].[tblMenu] OFF
+
+--[erp].[dbo].[tblUser]
+INSERT INTO [erp].[dbo].[tblUsers](UserFirstName, UserLastName, UserEmail, Login, Password) VALUES('Wilmar', 'González', 'wilmar.gonzalez.franco@hotmail.com', 'wgonzalez', 'd2dvbnphbGV6');

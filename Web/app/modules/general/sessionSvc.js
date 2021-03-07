@@ -6,7 +6,8 @@ function SessionService($rootScope) {
         model: {
             name: '',
             email: '',
-            userSession: ''
+            userSession: '',
+            company : {}
         },
 
         SaveState: function () {
@@ -14,12 +15,17 @@ function SessionService($rootScope) {
         },
 
         RestoreState: function () {
-            service.model = angular.fromJson(sessionStorage.sessionService);
+            sessionService.model = angular.fromJson(sessionStorage.sessionService);
+        },
+
+        ClearState: function () {
+            sessionStorage.sessionService = null;
         }
     }
 
     $rootScope.$on("savestate", sessionService.SaveState);
     $rootScope.$on("restorestate", sessionService.RestoreState);
+    $rootScope.$on("clearState", sessionService.ClearState);
 
     return sessionService;
 }

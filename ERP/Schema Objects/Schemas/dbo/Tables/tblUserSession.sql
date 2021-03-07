@@ -7,5 +7,5 @@
     [SessionExpire] DATETIME NULL, 
     [SessionActive] BIT NOT NULL DEFAULT 1, 
     [Ip] VARCHAR(50) NULL, 
-    CONSTRAINT [FK_tblUserSession_tblUser] FOREIGN KEY ([UserId]) REFERENCES [param].[tblUser]([UserId])
+    CONSTRAINT [FK_tblUserSession_tblUser] FOREIGN KEY ([UserId]) REFERENCES [dbo].[tblUsers]([UserId])
 )

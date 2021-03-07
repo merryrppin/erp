@@ -10,7 +10,8 @@ function generalController($scope, $rootScope, $timeout, $filter, $location, Ses
     ctrl.showClearButton = $rootScope.showClearButton;
     ctrl.showCancelButton = $rootScope.showCancelButton;
 
-    ctrl.user = SessionService;
+    $rootScope.$broadcast('restorestate');
+    ctrl.user = SessionService.model;
 
     ctrl.autentication = GeneralService.autentication;//false por defecto
 
@@ -23,25 +24,14 @@ function generalController($scope, $rootScope, $timeout, $filter, $location, Ses
     };
 
     ctrl.verificarAutenticacion = function () {
-        GeneralService.autentication.isAuthenticated = true;
-        GeneralService.showPanels();
-        //GeneralService.executeAjax({
-        //    method: 'GET',
-        //    url: 'api/pingToServer',
-        //    confirmation: false,
-        //    success: function (response) {
-        //        if (response) {
-        //            GeneralService.autentication.isAuthenticated = true;
-        //            GeneralService.showPanels('Home');//test
-        //            $scope.loadDataFromGeneralService();//test   
-        //        } else {
-        //            GeneralService.autentication.isAuthenticated = false;
-        //            GeneralService.hidePanels();//test     
-        //            $scope.loadDataFromGeneralService();    //test              
-        //            $location.path("/login");
-        //        }
-        //    }
-        //});
+        if (typeof ctrl.user !== 'undefined' && typeof ctrl.user.UserId !== 'undefined' && ctrl.user.UserId !== null) {
+            GeneralService.autentication.isAuthenticated = true;
+            GeneralService.showPanels();
+        } else {
+            //TODO: Funcionalidad comentada, para no redireccionar al login, hasta no tener los usuarios definidos
+            //window.location.hash = "#!/login";
+            //window.location.pathname = "Login.html";
+        }
     };
 
     ctrl.loadMenus = function () {

@@ -1,4 +1,4 @@
-﻿CREATE TABLE [param].[tblUser]
+﻿CREATE TABLE [dbo].[tblUsers]
 (
 	[UserId] INT NOT NULL PRIMARY KEY IDENTITY, 
     [UserFirstName] VARCHAR(200) NOT NULL, 
