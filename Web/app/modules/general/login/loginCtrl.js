@@ -14,12 +14,16 @@ function loginController($scope, $rootScope, GeneralService, SessionService) {
                 url: 'api/login',
                 data: $scope.LoginEntity,
                 success: function (response) {
-                    $rootScope.$broadcast('clearState');
-                    SessionService.model = angular.copy(response);
-                    $rootScope.$broadcast('savestate');
-                    $rootScope.$broadcast('restorestate');
-                    window.location.hash = "#!/home";
-                    window.location.pathname = "General.html";
+                    if (typeof response !== 'undefined' && typeof response.UserId !== 'undefined' && response.UserId !== 0) {
+                        $rootScope.$broadcast('clearState');
+                        SessionService.model = angular.copy(response);
+                        $rootScope.$broadcast('savestate');
+                        $rootScope.$broadcast('restorestate');
+                        window.location.hash = "#!/home";
+                        window.location.pathname = "General.html";
+                    } else {
+                        //TODO: Usuario y/o contraseña no válidas
+                    }
                 }
             });
 

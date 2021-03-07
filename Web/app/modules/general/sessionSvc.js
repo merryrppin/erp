@@ -7,19 +7,22 @@ function SessionService($rootScope) {
             name: '',
             email: '',
             userSession: '',
-            company : {}
+            company: {}
         },
 
         SaveState: function () {
-            sessionStorage.sessionService = angular.toJson(sessionService.model);
+            if (typeof sessionService.model !== 'undefined' && sessionService.model != null)
+                sessionStorage.sessionService = angular.toJson(sessionService.model);
         },
 
         RestoreState: function () {
-            sessionService.model = angular.fromJson(sessionStorage.sessionService);
+            if (typeof sessionStorage.sessionService !== 'undefined')
+                sessionService.model = angular.fromJson(sessionStorage.sessionService);
         },
 
         ClearState: function () {
             sessionStorage.sessionService = null;
+            sessionService.model = null;
         }
     }
 

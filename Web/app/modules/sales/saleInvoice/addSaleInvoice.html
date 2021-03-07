@@ -2,7 +2,7 @@
     <table class="table table-bordered">
         <tr>
             <td style="width:20%">!!Venta mostrador 2222222</td>
-            <td style="width:62%">
+            <td style="width:60%">
                 <table id="tableControls" class="table table-bordered">
                     <tr>
                         <td style="width:15%;">{{aLanguage.articleCode}}</td>
@@ -32,12 +32,12 @@
                     </tr>
                 </table>
             </td>
-            <td style="width: 17%; vertical-align: bottom;" rowspan="4">
+            <td style="width: 20%; vertical-align: bottom;" rowspan="4">
                 <table class="table table-bordered">
-                    <tr><td>{{aLanguage.totalWithoutIVA}}</td><td>$ {{totalWithoutIva}}</td></tr>
-                    <tr><td>{{aLanguage.IVA}}</td><td>$ {{IVA}}</td></tr>
-                    <tr><td>{{aLanguage.totalDiscount}}</td><td>$ {{totalDiscount}}</td></tr>
-                    <tr><td>{{aLanguage.netTotal}}</td><td>$ {{netTotal}}</td></tr>
+                    <tr><td>{{aLanguage.totalWithoutIVA}}</td><td>$ {{totalWithoutIvaValue}}</td></tr>
+                    <tr><td>{{aLanguage.IVA}}</td><td>$ {{IVAValue}}</td></tr>
+                    <tr><td>{{aLanguage.totalDiscount}}</td><td>$ {{totalDiscountValue}}</td></tr>
+                    <tr><td>{{aLanguage.netTotal}}</td><td>$ {{netTotalValue}}</td></tr>
                 </table>
             </td>
         </tr>
@@ -49,18 +49,28 @@
                         <td>
                             <center>
                                 <label class="kt-checkbox">
-                                    <input data-ng-model="chkInfoSale" type="checkbox">
+                                    <input data-ng-model="invoiceSale.chkInfoSale" type="checkbox">
                                     <span></span>
                                 </label>
                             </center>
                         </td>
                     </tr>
-                    <tr><td><input data-ng-disabled="!chkInfoSale" type="text" class="form-control" placeholder="{{aLanguage.document}}" data-ng-model="clientDocument"></td></tr>
-                    <tr><td><input data-ng-disabled="!chkInfoSale" type="text" class="form-control" placeholder="{{aLanguage.clientName}}" data-ng-model="clientName"></td></tr>
                     <tr><td><center>{{aLanguage.clientInfo}}</center></td></tr>
-                </table>
+                    <tr><td><input data-ng-disabled="!invoiceSale.chkInfoSale" type="text" class="form-control" placeholder="{{aLanguage.document}}" data-ng-model="invoiceSale.clientDocument"></td></tr>
+                    <tr><td><input data-ng-disabled="!invoiceSale.chkInfoSale" type="text" class="form-control" placeholder="{{aLanguage.clientName}}" data-ng-model="invoiceSale.clientName"></td></tr>
 
-                !!Nombre del vendedor - combo donde seleccionen cual de tblVendors
+                    <tr><td><br /></td></tr>
+                    <tr><td><center>{{aLanguage.vendorInfo}}</center></td></tr>
+                    <tr>
+                        <td>
+                            <center>
+                                <select class="form-control" id="selectVendors">
+                                    <option></option>
+                                </select>
+                            </center>
+                        </td>
+                    </tr>
+                </table>
             </td>
             <td rowspan="2">
                 <div data-ag-grid="productsGrid" id="productsGrid" class="ag-theme-fresh"></div>
@@ -71,7 +81,9 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2">!!Almacen las gorras...(tblCompanies - un único registro para cargar por sesión)</td>
+            <td colspan="2">{{userLogin.CompanyName
+                                }}
+</td>
         </tr>
     </table>
 </div>

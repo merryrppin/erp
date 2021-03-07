@@ -2,6 +2,9 @@
     'appName': 'erpApp',
     'sign_in_app': 'Ingresar a ERP',
 
+    'english': 'Inglés',
+    'spanish': 'Español',
+    'german': 'Alemán',
 
 
     'actions': 'Acciones',
@@ -12,12 +15,13 @@
     'sign_in': 'Ingresar',
     'dont_have_account_yet': '¿No tiene cuenta aún?',
     'sign_up': 'Registrarse',
+    'sign_out': 'Cerrar sesión',
     'name': 'Nombre',
     'surnames': 'Apellidos',
     'add': 'Agregar',
     'addUser': 'Agregar usuario',
     'editUser': 'Editar usuario',
-    'enterName' : 'Ingrese el nombre',
+    'enterName': 'Ingrese el nombre',
     'PleaseEnterName': 'Por favor ingrese el nombre',
     'enterSurnames': 'Ingrese los apellidos',
     'PleaseEnterSurnames': 'Por favor ingrese los apellidos',
@@ -38,6 +42,7 @@
     'saveSuccessful': 'Registro guardado exitosamente',
     'fatalError': 'Ha ocurrido un error',
     'generalError': 'Ha ocurrido un error',
+    'hi': 'Hola',
 
     //Warehouse
     'warehouseCode': 'Código Bodega',
@@ -48,7 +53,7 @@
     'editWarehouse': 'Editar Bodega',
 
     //SaleInvoice
-    'code':'Código',
+    'code': 'Código',
     'productName': 'Nombre del producto',
     'amount': 'Cantidad',
     'price': 'Precio',
@@ -62,8 +67,11 @@
     'clientName': 'Nombre del cliente',
     'clientInfo': 'Información del cliente',
     'articleCode': 'Código articulo',
-    'notProductFound' : 'No se encontró el producto',
-
+    'notProductFound': 'No se encontró el producto',
+    'selectOption': 'Seleccione una opción',
+    'selectVendor': 'Seleccione un vendedor',
+    'vendorInfo': 'Información del vendedor',
+    
     'localeTextAgGrid': {
         // for filter panel
         page: 'Página',

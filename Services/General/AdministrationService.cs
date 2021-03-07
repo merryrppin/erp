@@ -21,7 +21,7 @@ namespace Services.General
             ManageExceptions = new ManageExceptions();
             ConnString = ConfigurationManager.ConnectionStrings["ConnString"].ConnectionString;
 
-            
+
         }
 
         #region Stored Procedure
@@ -97,35 +97,41 @@ namespace Services.General
         {
             LoginEntity loginResp = new LoginEntity();
             string passwordEncrypted = Encode_Decode.Encrypt(password);
-            DataTable dt = new DataTable();
+
             using (SqlConnection con = new SqlConnection(ConnString))
             {
-                string queryLogin = "SELECT [UserId], [UserFirstName], [UserLastName] FROM [dbo].[tblUsers] WHERE [Login] = @login AND [Password] = @password";
-                using (SqlCommand cmd = new SqlCommand(queryLogin, con))
+                using (SqlCommand cmd = new SqlCommand("GetLoginData", con))
                 {
-                    try
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@login", SqlDbType.VarChar).Value = login;
+                    cmd.Parameters.Add("@password", SqlDbType.VarChar).Value = passwordEncrypted;
+                    using (SqlDataAdapter sda = new SqlDataAdapter())
                     {
-                        cmd.CommandType = CommandType.Text;
-                        cmd.Parameters.Add("@login", SqlDbType.VarChar).Value = login;
-                        cmd.Parameters.Add("@password", SqlDbType.VarChar).Value = passwordEncrypted;
-
-                        con.Open();
-                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                        adapter.Fill(dt);
-                        if(dt.Rows.Count > 0)
+                        cmd.Connection = con;
+                        sda.SelectCommand = cmd;
+                        using (DataSet ds = new DataSet())
                         {
-                            loginResp = new LoginEntity
+                            sda.Fill(ds);
+                            DataTable dtUser = ds.Tables[0];
+                            DataTable dtCompany = ds.Tables[1];
+                            if (dtUser.Rows.Count > 0)
                             {
-                                UserId = Convert.ToInt32(dt.Rows[0].ItemArray[dt.Columns.IndexOf("UserId")].ToString()),
-                                UserFirstName = dt.Rows[0].ItemArray[dt.Columns.IndexOf("UserFirstName")].ToString(),
-                                UserLastName = dt.Rows[0].ItemArray[dt.Columns.IndexOf("UserLastName")].ToString()
-                            };
+                                DataRow firstRowUser = dtUser.Rows[0];
+                                DataRow firstRowCompany = dtCompany.Rows[0];
+                                loginResp = new LoginEntity
+                                {
+                                    UserId = Convert.ToInt32(firstRowUser.ItemArray[dtUser.Columns.IndexOf("UserId")].ToString()),
+                                    UserFirstName = firstRowUser.ItemArray[dtUser.Columns.IndexOf("UserFirstName")].ToString(),
+                                    UserLastName = firstRowUser.ItemArray[dtUser.Columns.IndexOf("UserLastName")].ToString(),
+                                    UserCompleteName = firstRowUser.ItemArray[dtUser.Columns.IndexOf("UserCompleteName")].ToString(),                                    
+                                    //Info tblCompanies
+                                    CompanyId = Convert.ToInt32(firstRowCompany.ItemArray[dtCompany.Columns.IndexOf("CompanyId")].ToString()),
+                                    CompanyName = firstRowCompany.ItemArray[dtCompany.Columns.IndexOf("CompanyName")].ToString(),
+                                    Country = firstRowCompany.ItemArray[dtCompany.Columns.IndexOf("Country")].ToString(),
+                                    NIT = firstRowCompany.ItemArray[dtCompany.Columns.IndexOf("NIT")].ToString(),
+                                };
+                            }
                         }
-                    }
-                    finally
-                    {
-                        con.Dispose();
-                        cmd.Dispose();
                     }
                 }
             }

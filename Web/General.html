@@ -180,19 +180,19 @@
                                 <li class="kt-nav__item kt-nav__item--active">
                                     <a href="#" class="kt-nav__link">
                                         <span class="kt-nav__link-icon"><img src="/Libs/metronic_v6.0.9/assets/media/flags/020-flag.svg" alt="" /></span>
-                                        <span class="kt-nav__link-text">English</span>
+                                        <span class="kt-nav__link-text">{{ctrl.aLanguage.english}}</span>
                                     </a>
                                 </li>
                                 <li class="kt-nav__item">
                                     <a href="#" class="kt-nav__link">
                                         <span class="kt-nav__link-icon"><img src="/Libs/metronic_v6.0.9/assets/media/flags/016-spain.svg" alt="" /></span>
-                                        <span class="kt-nav__link-text">Spanish</span>
+                                        <span class="kt-nav__link-text">{{ctrl.aLanguage.spanish}}</span>
                                     </a>
                                 </li>
                                 <li class="kt-nav__item">
                                     <a href="#" class="kt-nav__link">
                                         <span class="kt-nav__link-icon"><img src="/Libs/metronic_v6.0.9/assets/media/flags/017-germany.svg" alt="" /></span>
-                                        <span class="kt-nav__link-text">German</span>
+                                        <span class="kt-nav__link-text">{{ctrl.aLanguage.german}}</span>
                                     </a>
                                 </li>
                             </ul>
@@ -203,7 +203,7 @@
                     <div class="kt-header__topbar-item kt-header__topbar-item--user">
                         <div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="0px,0px">
                             <div class="kt-header__topbar-user">
-                                <span class="kt-header__topbar-welcome kt-hidden-mobile">Hi,</span>
+                                <span class="kt-header__topbar-welcome kt-hidden-mobile">{{ctrl.aLanguage.hi}}, {{ctrl.userLogin.UserCompleteName}}</span>
                                 <span class="kt-header__topbar-username kt-hidden-mobile">{{ctrl.user.model.name}}</span>
                                 <img alt="Pic" class="kt-radius-100" src="/Libs/metronic_v6.0.9/assets/media/users/300_25.jpg" />
                                 <!--use below badge element instead the user avatar to display username's first letter(remove kt-hidden class to display it) -->
@@ -294,7 +294,7 @@
                                     </div>
                                 </a>
                                 <div class="kt-notification__custom kt-space-between">
-                                    <a href="custom/user/login-v2.html" target="_blank" class="btn btn-label btn-label-brand btn-sm btn-bold">Sign Out</a>
+                                    <a href="custom/user/login-v2.html" target="_blank" class="btn btn-label btn-label-brand btn-sm btn-bold" data-ng-click="ctrl.signOut()">{{ctrl.aLanguage.sign_out}}</a>
                                     <a href="custom/user/login-v2.html" target="_blank" class="btn btn-clean btn-sm btn-bold">Upgrade Plan</a>
                                 </div>
                             </div>
@@ -509,6 +509,9 @@
     <script src="Libs/jquery-validation-1.19.2/additional-methods.min.js"></script>
     <!--end:: Another plugins -->
     <!--begin::Initialize plugins -->
+    <script>
+        var sDefaultLanguage = "es";
+    </script>
     <script src="Libs/General/InitializePlugins.js"></script>
     <script src="Libs/General/LoadLanguageGeneral.js"></script>
     <!--end:: Initialize plugins -->

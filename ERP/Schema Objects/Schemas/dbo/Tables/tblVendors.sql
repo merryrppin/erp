@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[tblVendors]
 (
-	[VendorsId] INT NOT NULL IDENTITY(1,1) PRIMARY KEY, 
+	[VendorId] INT NOT NULL IDENTITY(1,1) PRIMARY KEY, 
     [VendorName] VARCHAR(100) NOT NULL, 
     [WarehouseCode] VARCHAR(10) NOT NULL, 
     [VendorCode] VARCHAR(10) NOT NULL

@@ -278,6 +278,9 @@
     <Content Include="Libs\jquery-validation-1.19.2\localization\methods_nl.min.js" />
     <Content Include="Libs\jquery-validation-1.19.2\localization\methods_pt.js" />
     <Content Include="Libs\jquery-validation-1.19.2\localization\methods_pt.min.js" />
+    <Content Include="Libs\metronic_v6.0.9\assets\plugins\general\select2\dist\Localization\de.js" />
+    <Content Include="Libs\metronic_v6.0.9\assets\plugins\general\select2\dist\Localization\en.js" />
+    <Content Include="Libs\metronic_v6.0.9\assets\plugins\general\select2\dist\Localization\es.js" />
     <Content Include="Pages\Error\404.html" />
     <Content Include="app\app.js" />
     <Content Include="app\config.js" />

@@ -1,6 +1,7 @@
 ﻿angular.module(aLanguage.appName).controller('generalController', ["$scope", '$rootScope', "$timeout", "$filter", "$location", "SessionService", "GeneralService", generalController]);
 function generalController($scope, $rootScope, $timeout, $filter, $location, SessionService, GeneralService) {
     var ctrl = this;
+    ctrl.selectedLanguage = GeneralService.selectedLanguage;
     ctrl.aLanguage = aLanguage;
     ctrl.allLevels = [];
     ctrl.menusByLevel = [];
@@ -11,7 +12,8 @@ function generalController($scope, $rootScope, $timeout, $filter, $location, Ses
     ctrl.showCancelButton = $rootScope.showCancelButton;
 
     $rootScope.$broadcast('restorestate');
-    ctrl.user = SessionService.model;
+    GeneralService.userLogin = SessionService.model;
+    ctrl.userLogin = GeneralService.userLogin;
 
     ctrl.autentication = GeneralService.autentication;//false por defecto
 
@@ -24,7 +26,12 @@ function generalController($scope, $rootScope, $timeout, $filter, $location, Ses
     };
 
     ctrl.verificarAutenticacion = function () {
-        if (typeof ctrl.user !== 'undefined' && typeof ctrl.user.UserId !== 'undefined' && ctrl.user.UserId !== null) {
+        //TODO seteo de variable a true hasta terminar de tener los usuarios definidos
+        GeneralService.autentication.isAuthenticated = true;
+        GeneralService.showPanels();
+        //Fin seteo variables
+
+        if (typeof GeneralService.userLogin !== 'undefined' && typeof GeneralService.userLogin.UserId !== 'undefined' && GeneralService.userLogin.UserId !== null) {
             GeneralService.autentication.isAuthenticated = true;
             GeneralService.showPanels();
         } else {
@@ -94,6 +101,12 @@ function generalController($scope, $rootScope, $timeout, $filter, $location, Ses
         } else {
             ctrl.recursiveMenus(objMenu);
         }
+    };
+
+    ctrl.signOut = function () {
+        $rootScope.$broadcast('clearState');
+        window.location.hash = "#!/login";
+        window.location.pathname = "Login.html";
     };
 
     //BEGIN General Buttons

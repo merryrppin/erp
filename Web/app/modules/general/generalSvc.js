@@ -3,6 +3,8 @@ function GeneralService($http, $rootScope, $window) {
     var generalService = {};
 
     generalService.autentication = { isAuthenticated: false, showPanel: false };
+    generalService.userLogin = null;
+    generalService.selectedLanguage = "es";//TODO: Valor por defecto
 
     generalService.executeAjax = function (data) {
         var options = angular.extend({}, {
@@ -26,11 +28,13 @@ function GeneralService($http, $rootScope, $window) {
             params: options.params,
             data: options.data
         }).then(function (response) {
-            if (typeof response.data.Exception !== 'undefined' && response.data.Exception !== null) {
+            if (typeof response === 'undefined' || (typeof response.data.Exception !== 'undefined' && response.data.Exception !== null)) {
+                var errorMessage = typeof response === 'undefined' ? aLanguage.generalError : response.data.Exception.Message;
                 generalService.showToastR({
-                    body: response.data.Exception.Message,
+                    body: errorMessage,
                     type: 'error'
                 });
+                return;
             } else {
                 if (options.confirmation) {
                     if (response.data === true) {
@@ -69,6 +73,7 @@ function GeneralService($http, $rootScope, $window) {
             }
             options.success(response.data);
         }), function (response) {
+            debugger;
             generalService.showToastR({
                 body: aLanguage.fatalError,
                 type: 'error'
@@ -133,6 +138,10 @@ function GeneralService($http, $rootScope, $window) {
     //END General Buttons
 
     generalService.hideGeneralButtons();
+
+    generalService.selectedLanguage = function () {
+        return generalService.selectedLanguage;
+    };
 
     return generalService;
 }
