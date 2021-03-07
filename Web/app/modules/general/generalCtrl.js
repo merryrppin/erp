@@ -89,9 +89,8 @@ function generalController($scope, $rootScope, $timeout, $filter, $location, Ses
                     ctrl.menus.push(objMenu);
                 }
             });
-
-
         });
+        GeneralService.userLogin.Menus = angular.copy(ctrl.menus);
     };
 
     ctrl.recursiveMenus = function (objMenu) {
@@ -121,7 +120,10 @@ function generalController($scope, $rootScope, $timeout, $filter, $location, Ses
         ctrl.verificarAutenticacion();
         if (ctrl.autentication.isAuthenticated) {
             ctrl.loadDataFromGeneralService();
-            ctrl.loadMenus();
+            if (typeof GeneralService.userLogin.Menus === 'undefined')
+                ctrl.loadMenus();
+            else if (ctrl.menus.length === 0)
+                ctrl.menus = angular.copy(GeneralService.userLogin.Menus);
         }
     }
 }

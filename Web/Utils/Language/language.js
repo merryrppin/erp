@@ -71,6 +71,7 @@
     'selectOption': 'Seleccione una opción',
     'selectVendor': 'Seleccione un vendedor',
     'vendorInfo': 'Información del vendedor',
+    'addProduct': 'Añadir producto',
     
     'localeTextAgGrid': {
         // for filter panel

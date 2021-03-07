@@ -73,7 +73,6 @@ function GeneralService($http, $rootScope, $window) {
             }
             options.success(response.data);
         }), function (response) {
-            debugger;
             generalService.showToastR({
                 body: aLanguage.fatalError,
                 type: 'error'
