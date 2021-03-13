@@ -8,4 +8,4 @@
 
 GO
 
-CREATE INDEX [IX_TblDocuments_DocumentCode] ON [dbo].[TblDocuments] (DocumentCode)
+CREATE UNIQUE INDEX [IX_TblDocuments_DocumentCode] ON [dbo].[TblDocuments] (DocumentCode)

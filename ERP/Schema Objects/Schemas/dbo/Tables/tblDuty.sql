@@ -9,4 +9,4 @@
 
 GO
 
-CREATE INDEX [IX_tblDuty_DutyCode] ON [dbo].[tblDuty] (DutyCode)
+CREATE UNIQUE INDEX [IX_tblDuty_DutyCode] ON [dbo].[tblDuty] (DutyCode)

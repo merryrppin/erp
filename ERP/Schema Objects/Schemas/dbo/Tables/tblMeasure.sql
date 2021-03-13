@@ -7,4 +7,4 @@
 
 GO
 
-CREATE INDEX [IX_tblMeasure_MeasureCode] ON [dbo].[tblMeasure] (MeasureCode)
+CREATE UNIQUE INDEX [IX_tblMeasure_MeasureCode] ON [dbo].[tblMeasure] (MeasureCode)

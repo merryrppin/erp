@@ -26,4 +26,4 @@
 
 GO
 
-CREATE INDEX [IX_TblSeries_SerieCode] ON [dbo].[TblSeries] (SerieCode)
+CREATE UNIQUE INDEX [IX_TblSeries_SerieCode] ON [dbo].[TblSeries] (SerieCode)
