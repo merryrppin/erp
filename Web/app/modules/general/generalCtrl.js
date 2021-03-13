@@ -1,11 +1,15 @@
 ﻿angular.module(aLanguage.appName).controller('generalController', ["$scope", '$rootScope', "$timeout", "$filter", "$location", "SessionService", "GeneralService", generalController]);
 function generalController($scope, $rootScope, $timeout, $filter, $location, SessionService, GeneralService) {
+    console.log('generalController');
     var ctrl = this;
     ctrl.selectedLanguage = GeneralService.selectedLanguage;
     ctrl.aLanguage = aLanguage;
     ctrl.allLevels = [];
     ctrl.menusByLevel = [];
     ctrl.menus = [];
+    ctrl.allMenus = [];
+    ctrl.currentMenuIdByLevel = [];
+    ctrl.currentUrl = "-";
 
     ctrl.showSaveButton = $rootScope.showSaveButton;
     ctrl.showClearButton = $rootScope.showClearButton;
@@ -35,9 +39,8 @@ function generalController($scope, $rootScope, $timeout, $filter, $location, Ses
             GeneralService.autentication.isAuthenticated = true;
             GeneralService.showPanels();
         } else {
-            //TODO: Funcionalidad comentada, para no redireccionar al login, hasta no tener los usuarios definidos
-            //window.location.hash = "#!/login";
-            //window.location.pathname = "Login.html";
+            window.location.hash = "#!/login";
+            window.location.pathname = "Login.html";
         }
     };
 
@@ -57,25 +60,26 @@ function generalController($scope, $rootScope, $timeout, $filter, $location, Ses
         });
     };
 
-    ctrl.loadAllLevels = function (data) {
-        ctrl.allLevels = data.map(function (menuData) {
+    ctrl.loadAllLevels = function () {
+        ctrl.allLevels = ctrl.allMenus.map(function (menuData) {
             return {
                 Level: menuData.Level
             };
         }).unique("Level");
     };
 
-    ctrl.loadMenusByLevels = function (data) {
+    ctrl.loadMenusByLevels = function () {
         ctrl.menusByLevel = [];
         $.each(ctrl.allLevels, function (i, levelMenu) {
-            var objMenu = { 'Level': levelMenu.Level, 'Menus': $filter('filter')(data, { 'Level': levelMenu.Level }) };
+            var objMenu = { 'Level': levelMenu.Level, 'Menus': $filter('filter')(ctrl.allMenus, { 'Level': levelMenu.Level }) };
             ctrl.menusByLevel.push(objMenu);
         });
     };
 
     ctrl.orderMenus = function (data) {
-        ctrl.loadAllLevels(data);
-        ctrl.loadMenusByLevels(data);
+        ctrl.allMenus = angular.copy(data);
+        ctrl.loadAllLevels();
+        ctrl.loadMenusByLevels();
         $.each(ctrl.menusByLevel, function (i, menuByLevel) {
             var nextLevel = i + 1;
             $.each(menuByLevel.Menus, function (j, objMenu) {
@@ -91,6 +95,8 @@ function generalController($scope, $rootScope, $timeout, $filter, $location, Ses
             });
         });
         GeneralService.userLogin.Menus = angular.copy(ctrl.menus);
+        GeneralService.userLogin.menusByLevel = angular.copy(ctrl.menusByLevel);
+        GeneralService.userLogin.allMenus = angular.copy(ctrl.allMenus);
     };
 
     ctrl.recursiveMenus = function (objMenu) {
@@ -114,6 +120,41 @@ function generalController($scope, $rootScope, $timeout, $filter, $location, Ses
     ctrl.saveBtnFunction = $rootScope.cancelBtnFunction;
     //END General Buttons
 
+    ctrl.changeMenu = function () {
+        console.log('changeMenu');
+        $timeout(function () {
+            ctrl.extractFromUrl();
+        }, 500);
+    };
+
+    ctrl.extractFromUrl = function () {
+        ctrl.currentMenuIdByLevel = [];
+        ctrl.loadAllLevels();
+        $.each(ctrl.allLevels, function (i, obj) {
+            ctrl.currentMenuIdByLevel[parseInt(obj.Level)] = -1;
+        });
+        ctrl.currentUrl = window.location.hash;
+        var aCurrentMenu = $filter('filter')(ctrl.allMenus, { 'Url': ctrl.currentUrl }, true);
+        if (aCurrentMenu.length > 0) {
+            var objCurrentMenu = angular.copy(aCurrentMenu[0]);
+            ctrl.currentMenuIdByLevel[parseInt(objCurrentMenu.Level)] = objCurrentMenu.MenuId;
+            if (objCurrentMenu.ParentMenuId !== "") {
+                var aCurrentParentMenu = $filter('filter')(ctrl.allMenus, { 'MenuId': objCurrentMenu.ParentMenuId }, true);
+                if (aCurrentParentMenu.length > 0) {
+                    var objCurrentParentMenu = angular.copy(aCurrentParentMenu[0]);
+                    ctrl.currentMenuIdByLevel[parseInt(objCurrentParentMenu.Level)] = objCurrentParentMenu.MenuId;
+                    if (objCurrentParentMenu.ParentMenuId !== "") {
+                        var aCurrentLastParentMenu = $filter('filter')(ctrl.allMenus, { 'MenuId': objCurrentParentMenu.ParentMenuId }, true);
+                        if (aCurrentLastParentMenu.length > 0) {
+                            var objCurrentLastParentMenu = angular.copy(aCurrentLastParentMenu[0]);
+                            ctrl.currentMenuIdByLevel[parseInt(objCurrentLastParentMenu.Level)] = objCurrentLastParentMenu.MenuId;
+                        }
+                    }
+                }
+            }
+        }
+    };
+
     angular.element(document).ready(init);
 
     function init() {
@@ -122,8 +163,13 @@ function generalController($scope, $rootScope, $timeout, $filter, $location, Ses
             ctrl.loadDataFromGeneralService();
             if (typeof GeneralService.userLogin.Menus === 'undefined')
                 ctrl.loadMenus();
-            else if (ctrl.menus.length === 0)
+            else if (ctrl.menus.length === 0) {
                 ctrl.menus = angular.copy(GeneralService.userLogin.Menus);
+                ctrl.menusByLevel = angular.copy(GeneralService.userLogin.menusByLevel);
+                ctrl.allMenus = angular.copy(GeneralService.userLogin.allMenus);
+                ctrl.extractFromUrl();
+            }
+            ctrl.changeMenu();
         }
     }
 }
