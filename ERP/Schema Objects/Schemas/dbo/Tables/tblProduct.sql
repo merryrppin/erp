@@ -14,7 +14,7 @@
     [DuttyCode] VARCHAR(50) NOT NULL, 
     [TariffDutty] FLOAT NOT NULL, 
     [Discount] FLOAT NOT NULL, 
-    [Inactive] BIT NOT NULL,
+    [Active] BIT NOT NULL,
     CONSTRAINT [FK_tblProduct_tblWarehouse_WarehouseCode] FOREIGN KEY([WarehouseCode]) REFERENCES [dbo].[tblWarehouse] ([WarehouseCode]),
     CONSTRAINT [FK_tblProduct_tblProductLines_CodLine] FOREIGN KEY([LineCode]) REFERENCES [dbo].[tblProductLines] ([LineCode]),
     CONSTRAINT [FK_tblProduct_tblProductSubLine_SubLineCode] FOREIGN KEY([SubLineCode]) REFERENCES [dbo].[tblProductSubLine] ([SubLineCode])

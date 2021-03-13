@@ -4,7 +4,7 @@
     [WarehouseCode] VARCHAR(10) NOT NULL, 
     [Description] VARCHAR(100) NOT NULL, 
     [Default] BIT NOT NULL, 
-    [Inactive] BIT NOT NULL, 
+    [Active] BIT NOT NULL, 
     [UserCode] VARCHAR(50) NULL
 )
 

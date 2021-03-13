@@ -427,4 +427,39 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="VendorId" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="abaa8bee-3dd0-448b-af56-c174fd3b9b5b" ChangeDateTime="03/13/2021 19:23:15">
+    <Property Name="ElementName" Value="[dbo].[tblProduct].[Inactive]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblProduct]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Active" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="571dc4dd-0d3a-47b4-8a53-4dcf9695490a" ChangeDateTime="03/13/2021 19:23:40">
+    <Property Name="ElementName" Value="[dbo].[tblWarehouse].[Inactive]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblWarehouse]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Active" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="10e9d312-9e02-47ba-b84b-31eb394e5f63" ChangeDateTime="03/13/2021 19:24:04">
+    <Property Name="ElementName" Value="[dbo].[tblPriceByProduct].[Inactive]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblPriceByProduct]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Active" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1df756bf-bd25-4b3e-9855-ebed3bf4dfd2" ChangeDateTime="03/13/2021 19:24:38">
+    <Property Name="ElementName" Value="[dbo].[tblProductLines].[Inactive]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblProductLines]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Active" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1a086470-310a-4985-bc4d-9b572cf46ec0" ChangeDateTime="03/13/2021 19:24:45">
+    <Property Name="ElementName" Value="[dbo].[tblProductSubLine].[Inactive]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblProductSubLine]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Active" />
+  </Operation>
 </Operations>
