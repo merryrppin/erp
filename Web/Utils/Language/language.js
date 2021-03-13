@@ -7,6 +7,7 @@
     'german': 'Alemán',
 
 
+    'home': 'Inicio',
     'actions': 'Acciones',
     'email': 'Email',
     'password': 'Contraseña',
