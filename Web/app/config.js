@@ -110,6 +110,36 @@
                 }]
             }
         })
+        .state('listSeries', {
+            url: "/listSeries",
+            templateUrl: "app/modules/general/Series/listSeries.html",
+            controller: "listSeriesController",
+            resolve: {
+                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: aLanguage.appName,
+                        files: [
+                            'app/modules/general/Series/listSeriesCtrl.js'
+                        ]
+                    });
+                }]
+            }
+        })
+        .state('addSeries', {
+            url: "/addSeries",
+            templateUrl: "app/modules/general/Series/addSeries.html",
+            controller: "addSerieController",
+            resolve: {
+                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: aLanguage.appName,
+                        files: [
+                            'app/modules/general/Series/addSeriesCtrl.js'
+                        ]
+                    });
+                }]
+            }
+        })
         .state('404', {
             url: "/404",
             templateUrl: "app/modules/general/error/404.html",

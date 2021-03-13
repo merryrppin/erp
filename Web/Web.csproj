@@ -139,6 +139,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\modules\general\series\addSeries.html" />
+    <Content Include="app\modules\general\series\addSeriesCtrl.js" />
+    <Content Include="app\modules\general\series\listSeries.html" />
+    <Content Include="app\modules\general\series\listSeriesCtrl.js" />
     <Content Include="app\modules\general\warehouse\addWarehouse.html" />
     <Content Include="app\modules\general\warehouse\addWarehouseCtrl.js" />
     <Content Include="app\modules\general\warehouse\listWarehouse.html" />

@@ -1,0 +1,97 @@
+﻿<div class="kt-portlet__head">
+    <div class="kt-portlet__head-label">
+        <h3 class="kt-portlet__head-title">{{serieIdSelected == -1 ? aLanguage.addSeries : aLanguage.editSeries}}</h3>
+    </div>
+</div>
+
+<form class="kt-form kt-form--label-right" autocomplete="off" ng-submit="saveSerie()" id="frmSerie">
+    <div class="kt-portlet__body">
+        <div class="form-group row">
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group validated">
+                <label>{{aLanguage.SerieCode}}*:</label>
+                <input data-ng-model="currentSerie.SerieCode" id="SerieCode" name="SerieCode" type="text" class="form-control" placeholder="{{aLanguage.enterName}}">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group validated">
+                <label>{{aLanguage.description}}*:</label>
+                <input data-ng-model="currentSerie.description" type="text" id="description" name="description" class="form-control" placeholder="{{aLanguage.description}}">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group validated">
+                <label>{{aLanguage.InitialNumber}}*:</label>
+                <input data-ng-model="currentSerie.InitialNumber" id="InitialNumber" name="InitialNumber" type="text" class="form-control" placeholder="{{aLanguage.InitialNumber}}">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group validated">
+                <label>{{aLanguage.CurrentNumber}}*:</label>
+                <input data-ng-model="currentSerie.CurrentNumber" type="text" id="CurrentNumber" name="CurrentNumber" class="form-control" placeholder="{{aLanguage.CurrentNumber}}">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group validated">
+                <label>{{aLanguage.FinalNumber}}*:</label>
+                <input data-ng-model="currentSerie.FinalNumber" id="FinalNumber" name="FinalNumber" type="text" class="form-control" placeholder="{{aLanguage.FinalNumber}}">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group validated">
+                <label>{{aLanguage.Prefix}}:</label>
+                <input data-ng-model="currentSerie.Prefix" type="text" id="Prefix" name="Prefix" class="form-control" placeholder="{{aLanguage.Prefix}}">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group validated">
+                <label>{{aLanguage.Suffix}}:</label>
+                <input data-ng-model="currentSerie.Suffix" id="Suffix" name="Suffix" type="text" class="form-control" placeholder="{{aLanguage.Suffix}}">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group validated">
+                <label>{{aLanguage.Title}}:</label>
+                <input data-ng-model="currentSerie.Title" type="text" id="Title" name="Title" class="form-control" placeholder="{{aLanguage.Title}}">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group validated">
+                <label>{{aLanguage.SubTitle}}:</label>
+                <input data-ng-model="currentSerie.SubTitle" id="SubTitle" name="SubTitle" type="text" class="form-control" placeholder="{{aLanguage.SubTitle}}">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group validated">
+                <label>{{aLanguage.Legend1}}:</label>
+                <input data-ng-model="currentSerie.Legend1" type="text" id="Legend1" name="Legend1" class="form-control" placeholder="{{aLanguage.Legend1}}">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group validated">
+                <label>{{aLanguage.Legend2}}:</label>
+                <input data-ng-model="currentSerie.Legend2" id="Legend2" name="Legend2" type="text" class="form-control" placeholder="{{aLanguage.Legend2}}">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group validated">
+                <label>{{aLanguage.Legend3}}:</label>
+                <input data-ng-model="currentSerie.Legend3" type="text" id="Legend3" name="Legend3" class="form-control" placeholder="{{aLanguage.Legend3}}">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group validated">
+                <label>{{aLanguage.Legend4}}:</label>
+                <input data-ng-model="currentSerie.Legend4" id="Legend4" name="Legend4" type="text" class="form-control" placeholder="{{aLanguage.Legend4}}">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group validated">
+                <label>{{aLanguage.Legend5}}:</label>
+                <input data-ng-model="currentSerie.Legend5" type="text" id="Legend5" name="Legend5" class="form-control" placeholder="{{aLanguage.Legend5}}">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group validated">
+                <label>{{aLanguage.Legend6}}:</label>
+                <input data-ng-model="currentSerie.Legend6" id="Legend6" name="Legend6" type="text" class="form-control" placeholder="{{aLanguage.Legend6}}">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group validated">
+                <label>{{aLanguage.Legend7}}:</label>
+                <input data-ng-model="currentSerie.Legend7" type="text" id="Legend7" name="Legend7" class="form-control" placeholder="{{aLanguage.Legend7}}">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group validated">
+                <label>{{aLanguage.Legend8}}:</label>
+                <input data-ng-model="currentSerie.Legend8" id="Legend8" name="Legend8" type="text" class="form-control" placeholder="{{aLanguage.Legend8}}">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group validated">
+                <label>{{aLanguage.Legend9}}:</label>
+                <input data-ng-model="currentSerie.Legend9" type="text" id="Legend9" name="Legend9" class="form-control" placeholder="{{aLanguage.Legend9}}">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group validated">
+                <label>{{aLanguage.Legend10}}:</label>
+                <input data-ng-model="currentSerie.Legend10" type="text" id="Legend10" name="Legend10" class="form-control" placeholder="{{aLanguage.Legend10}}">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group validated">
+                <label>{{aLanguage.default}}*:</label>
+                <input data-ng-model="currentSerie.default" type="checkbox" id="default" name="default" class="form-control" placeholder="">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group validated">
+                <label>{{aLanguage.Active}}*:</label>
+                <input data-ng-model="currentSerie.Active" type="checkbox" id="Active" name="Active" class="form-control" placeholder="">
+            </div>
+
+        </div>
+    </div>
+</form>

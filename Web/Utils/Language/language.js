@@ -52,6 +52,32 @@
     'inactive': 'Inactivo',
     'addWarehouse': 'Agregar Bodega',
     'editWarehouse': 'Editar Bodega',
+    
+    //Series
+    'SerieCode': 'Código serie',
+    'InitialNumber': 'Numero Inicial',
+    'CurrentNumber': 'Numero Actual',
+    'FinalNumber': 'Numero Final',
+    'Prefix': 'Prefijo',
+    'Suffix': 'Sufijo',
+    'Title': 'Titulo',
+    'SubTitle': 'Subtitulo',
+    'Legend1': 'Leyenda 1',
+    'Legend2': 'Leyenda 2',
+    'Legend3': 'Leyenda 3',
+    'Legend4': 'Leyenda 4',
+    'Legend5': 'Leyenda 5',
+    'Legend6': 'Leyenda 6',
+    'Legend7': 'Leyenda 7',
+    'Legend8': 'Leyenda 8',
+    'Legend9': 'Leyenda 9',
+    'Legend10':'Leyenda 10',
+    'Default': 'Por Defecto',
+    'Active': 'Activo',
+    'addSerie': 'Agregar Serie',
+    'editSerie': 'Editar Serie',
+
+
 
     //SaleInvoice
     'code': 'Código',
