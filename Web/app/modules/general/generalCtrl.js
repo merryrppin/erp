@@ -121,7 +121,6 @@ function generalController($scope, $rootScope, $timeout, $filter, $location, Ses
     //END General Buttons
 
     ctrl.changeMenu = function () {
-        console.log('changeMenu');
         $timeout(function () {
             ctrl.extractFromUrl();
         }, 500);

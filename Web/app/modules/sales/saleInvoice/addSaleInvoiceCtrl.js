@@ -91,16 +91,19 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
     $scope.columnDefs = [
         {
             headerName: aLanguage.code,
+            lockPosition: true,
             field: "ProductCode",
             width: 10
         },
         {
             headerName: aLanguage.productName,
+            lockPosition: true,
             field: "ProductDescription",
             width: 35
         },
         {
             headerName: aLanguage.discount,
+            lockPosition: true,
             field: "Discount",
             width: 10,
             editable: true,
@@ -108,6 +111,7 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
         },
         {
             headerName: aLanguage.amount,
+            lockPosition: true,
             field: "Amount",
             width: 10,
             editable: true,
@@ -115,6 +119,7 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
         },
         {
             headerName: aLanguage.price,
+            lockPosition: true,
             field: "Price",
             width: 15,
             valueFormatter: function (params) {
@@ -128,11 +133,12 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
         columnDefs: $scope.columnDefs,
         rowData: $scope.rowDataProducts,
         suppressRowClickSelection: true,
-        enableColResize: true,
+        enableColResize: false,
+        suppressDragLeaveHidesColumns: true,
         defaultColDef: {
-            sortable: true,
+            sortable: false,
             filter: false,
-            resize: true
+            resize: false
         },
         onGridReady(params) {
             params.api.sizeColumnsToFit();
