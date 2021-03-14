@@ -129,7 +129,7 @@
                                 <span class="kt-menu__arrow"></span>
                                 <ul class="kt-menu__subnav">
                                     <li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">{{categoryObj.Name}}</span></span></li>
-                                    <li data-ng-class="{'kt-menu__item--active kt-menu__item--open' : ctrl.currentMenuIdByLevel[categoryObj.Level] == categoryObj.MenuId}" data-ng-repeat="menuObj in categoryObj.MenusByLevel" class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
+                                    <li data-ng-class="{'kt-menu__item--active kt-menu__item--open' : ctrl.currentMenuIdByLevel[menuObj.Level] == menuObj.MenuId}" data-ng-repeat="menuObj in categoryObj.MenusByLevel" class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
                                         <a ng-if="menuObj.Url !== ''" data-ng-click="ctrl.changeMenu()" data-ng-href="{{menuObj.Url}}" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">{{menuObj.Name}}</span></a>
                                         <a ng-if="menuObj.Url === ''" href="javascript:;" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">{{menuObj.Name}}</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
                                         <div ng-if="menuObj.Url === ''" class="kt-menu__submenu ">
@@ -337,7 +337,7 @@
                 <!-- end:: Subheader -->
                 <!-- begin:: Content -->
                 <div class="kt-container kt-container--fluid  kt-grid__item kt-grid__item--fluid">
-                    <div class="row kt-portlet" style="height:71vh">
+                    <div class="row kt-portlet" style="min-height:71vh">
                         <div class="col-md-12 paddingDivNgView">
                             <ng-view ui-view></ng-view>
                         </div>
