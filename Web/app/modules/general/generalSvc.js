@@ -115,6 +115,44 @@ function GeneralService($http, $rootScope, $window) {
         }
     };
 
+    generalService.showSweetAlert = function (data) {
+        var options = angular.extend({}, {
+            'icon': 'success',
+            'title': '',
+            'text': aLanguage.generalSuccess,
+            'showConfirmButton': true,
+            'showCancelButton': false,
+            'confirmButtonColor': '#3085d6',
+            'cancelButtonColor': '#d33',
+            'confirmButtonText': aLanguage.yes,
+            'cancelButtonText': aLanguage.no,
+            'footer': '',
+            'funcIsConfirmed': function () { },
+            'funcCancel': function () { },
+            'funcTimer': function () { },
+        }, data);
+        Swal.fire({
+            icon: options.icon,
+            title: options.title,
+            text: options.text,
+            showConfirmButton: options.showConfirmButton,
+            showCancelButton: options.showCancelButton,
+            confirmButtonColor: options.confirmButtonColor,
+            cancelButtonColor: options.cancelButtonColor,
+            confirmButtonText: options.confirmButtonText,
+            cancelButtonText: options.cancelButtonText,
+            footer: options.footer
+        }).then((result) => {
+            if (result.isConfirmed) {
+                options.funcIsConfirmed();
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                options.funcCancel();
+            } else if (result.dismiss === Swal.DismissReason.timer) {
+                options.funcTimer();
+            }
+        });
+    };
+
     generalService.hidePanels = function () {
         generalService.autentication.showPanel = false;
     };
@@ -125,9 +163,11 @@ function GeneralService($http, $rootScope, $window) {
 
     //BEGIN General Buttons
     generalService.hideGeneralButtons = function () {
+        $rootScope.showNewButton = false;
         $rootScope.showSaveButton = false;
         $rootScope.showClearButton = false;
         $rootScope.showCancelButton = false;
+        $rootScope.showPrintButton = false;        
         $rootScope.cancelBtnFunction = function (validateForm) {
             if (typeof validateForm === 'undefined' || (typeof validateForm !== 'undefined' && validateForm())) {
                 $window.history.back();

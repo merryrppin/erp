@@ -4,32 +4,40 @@ angular.module(aLanguage.appName).controller('addSaleInvoiceController', ["$scop
 function addSaleInvoiceController($scope, $rootScope, $location, $filter, GeneralService) {
 
     GeneralService.hideGeneralButtons();
+    $rootScope.showNewButton = true;
     $rootScope.showSaveButton = true;
     $rootScope.showCancelButton = true;
+
+    $scope.clearForm = function () {
+        $scope.IVAValue = 0;
+        $scope.netTotalValue = 0;
+        $scope.totalDiscountValue = 0;
+        $scope.totalWithoutIvaValue = 0;
+        $scope.currentProductCode = '';
+        $scope.productAmount = 1;
+        $scope.productsWithPrice = [];
+        $scope.rowDataProducts = [];
+        $scope.vendors = [];
+        $scope.savedInvoice = false;
+        $scope.invoiceSale = {
+            clientDocument: '',
+            clientName: '',
+            chkInfoSale: false,
+            selectedVendor: null
+        };
+        $('#selectVendors').val(null).trigger('change');
+        if (typeof $scope.productsGrid !== 'undefined')
+            $scope.productsGrid.api.setRowData([]);
+        $rootScope.showSaveButton = true;
+        $rootScope.showPrintButton = false;
+    };
+
+    $scope.clearForm();
+
     $scope.aLanguage = aLanguage;
     $scope.userIdSelected = typeof GeneralService.userId !== 'undefined' ? GeneralService.userId : -1;
 
     $scope.userLogin = GeneralService.userLogin;
-
-    $scope.IVAValue = 0;
-    $scope.netTotalValue = 0;
-    $scope.totalDiscountValue = 0;
-    $scope.totalWithoutIvaValue = 0; 
-
-    $scope.currentProductCode = '';
-
-    $scope.productAmount = 1;
-
-    $scope.productsWithPrice = [];
-    $scope.rowDataProducts = [];
-    $scope.vendors = [];
-
-    $scope.invoiceSale = {
-        clientDocument: '',
-        clientName: '',
-        chkInfoSale: false,
-        selectedVendor: null
-    };
 
     $scope.addRemoveAmount = function (Amount) {
         var currentAmountAfterUpdate = $scope.productAmount + Amount;
@@ -79,7 +87,6 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
         $scope.currentProductCode = '';
         $scope.totalDiscountValue = $scope.totalDiscount();
         $scope.totalWithoutIvaValue = $scope.totalWithoutIva();
-        console.log($scope.rowDataProducts);
     }
 
     $scope.currencyFormatter = function (currency, sign) {
@@ -146,6 +153,9 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
         components: {
             numericCellEditor: NumericEditor
         },
+        onCellEditingStarted: function (event) {
+            if ($scope.savedInvoice) $scope.productsGrid.api.stopEditing();;
+        }
     };
 
     $scope.loadProductsWithPrice = function (funcProduct) {
@@ -207,6 +217,13 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
     };
 
     $rootScope.saveBtnFunction = function () {
+        if ($scope.productsGrid.rowData.length === 0) {
+            GeneralService.showToastR({
+                body: aLanguage.addAtLeastOneItem,
+                type: 'error'
+            });
+            return;
+        }
         var vendorSelected = $("#selectVendors").val();
         if (vendorSelected !== null && vendorSelected !== "") {
             $scope.invoiceSale.selectedVendor = vendorSelected;
@@ -219,8 +236,27 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
         }
     }
 
+    $rootScope.newBtnFunction = function () {
+        if (!$scope.savedInvoice) {
+            GeneralService.showSweetAlert({
+                title: aLanguage.NotSavedSaleInvoice,
+                text: aLanguage.AreYouSureContinue,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: aLanguage.accept,
+                cancelButtonText: aLanguage.cancel,
+                funcIsConfirmed: $scope.clearForm
+            });
+        } else {
+            $scope.clearForm();
+        }
+    }
+
     $scope.saveInvoice = function () {
         //TODO: Guardar despues de realizar las validaciones
+        $scope.savedInvoice = true;
+        $rootScope.showSaveButton = false;
+        $rootScope.showPrintButton = true;
     };
 
     angular.element(document).ready(init);

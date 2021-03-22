@@ -11,24 +11,9 @@
                         </td>
                         <td style="width:15%;">
                             <center>
-                                <button type="button" class="btn btn-primary btn-sm" data-ng-click="addProduct()" data-ng-disabled="currentProductCode == ''">{{aLanguage.addProduct}}</button>
+                                <button type="button" class="btn btn-primary btn-sm" data-ng-click="addProduct()" data-ng-disabled="currentProductCode == '' || savedInvoice">{{aLanguage.addProduct}}</button>
                             </center>
                         </td>
-                        <!-- <td style="width:15%;">{{aLanguage.discount}}</td>
-                        <td style="width:20%;">
-                            <input type="text" class="form-control">
-                        </td>
-                        <td style="width:25%;">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <button class="btn btn-primary btn-sm btnAmount" type="button" data-ng-click="addRemoveAmount(1)">+</button>
-                                </div>
-                                <input type="text" class="form-control" data-ng-model="productAmount">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary btn-sm btnAmount" type="button" data-ng-click="addRemoveAmount(-1)">-</button>
-                                </div>
-                            </div>
-                        </td> -->
                     </tr>
                 </table>
             </td>
@@ -49,22 +34,22 @@
                         <td>
                             <center>
                                 <label class="kt-checkbox">
-                                    <input data-ng-model="invoiceSale.chkInfoSale" type="checkbox">
+                                    <input data-ng-model="invoiceSale.chkInfoSale" data-ng-disabled="savedInvoice" type="checkbox">
                                     <span></span>
                                 </label>
                             </center>
                         </td>
                     </tr>
                     <tr><td><center>{{aLanguage.clientInfo}}</center></td></tr>
-                    <tr><td><input data-ng-disabled="!invoiceSale.chkInfoSale" type="text" class="form-control" placeholder="{{aLanguage.document}}" data-ng-model="invoiceSale.clientDocument"></td></tr>
-                    <tr><td><input data-ng-disabled="!invoiceSale.chkInfoSale" type="text" class="form-control" placeholder="{{aLanguage.clientName}}" data-ng-model="invoiceSale.clientName"></td></tr>
+                    <tr><td><input data-ng-disabled="!invoiceSale.chkInfoSale || savedInvoice" type="text" class="form-control" placeholder="{{aLanguage.document}}" data-ng-model="invoiceSale.clientDocument"></td></tr>
+                    <tr><td><input data-ng-disabled="!invoiceSale.chkInfoSale || savedInvoice" type="text" class="form-control" placeholder="{{aLanguage.clientName}}" data-ng-model="invoiceSale.clientName"></td></tr>
 
                     <tr><td><br /></td></tr>
                     <tr><td><center>{{aLanguage.vendorInfo}}</center></td></tr>
                     <tr>
                         <td>
                             <center>
-                                <select class="form-control" id="selectVendors">
+                                <select class="form-control" id="selectVendors" data-ng-disabled="savedInvoice">
                                     <option></option>
                                 </select>
                             </center>
@@ -77,13 +62,9 @@
             </td>
         </tr>
         <tr>
-            <td rowspan="2" style="vertical-align:bottom;">
-            </td>
         </tr>
         <tr>
-            <td colspan="2">{{userLogin.CompanyName
-                                }}
-</td>
+            <td colspan="2">{{userLogin.CompanyName}}</td>
         </tr>
     </table>
 </div>

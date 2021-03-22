@@ -1,6 +1,5 @@
 ﻿angular.module(aLanguage.appName).controller('generalController', ["$scope", '$rootScope', "$timeout", "$filter", "$location", "SessionService", "GeneralService", generalController]);
 function generalController($scope, $rootScope, $timeout, $filter, $location, SessionService, GeneralService) {
-    console.log('generalController');
     var ctrl = this;
     ctrl.selectedLanguage = GeneralService.selectedLanguage;
     ctrl.aLanguage = aLanguage;
@@ -10,11 +9,13 @@ function generalController($scope, $rootScope, $timeout, $filter, $location, Ses
     ctrl.allMenus = [];
     ctrl.currentMenuIdByLevel = [];
     ctrl.currentUrl = "-";
-
+    
+    ctrl.showNewButton = $rootScope.showNewButton;
     ctrl.showSaveButton = $rootScope.showSaveButton;
     ctrl.showClearButton = $rootScope.showClearButton;
     ctrl.showCancelButton = $rootScope.showCancelButton;
-
+    ctrl.showPrintButton = $rootScope.showPrintButton;
+    
     $rootScope.$broadcast('restorestate');
     GeneralService.userLogin = SessionService.model;
     ctrl.userLogin = GeneralService.userLogin;

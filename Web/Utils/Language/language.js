@@ -39,6 +39,7 @@
     'errorUserExist': 'El usuario ya existe',
     'save': 'Guardar',
     'cancel': 'Cancelar',
+    'accept': 'Aceptar',
     'clean': 'Limpiar',
     'saveSuccessful': 'Registro guardado exitosamente',
     'fatalError': 'Ha ocurrido un error',
@@ -52,7 +53,7 @@
     'inactive': 'Inactivo',
     'addWarehouse': 'Agregar Bodega',
     'editWarehouse': 'Editar Bodega',
-    
+
     //Series
     'SerieCode': 'Código serie',
     'InitialNumber': 'Numero Inicial',
@@ -71,7 +72,7 @@
     'Legend7': 'Leyenda 7',
     'Legend8': 'Leyenda 8',
     'Legend9': 'Leyenda 9',
-    'Legend10':'Leyenda 10',
+    'Legend10': 'Leyenda 10',
     'Default': 'Por Defecto',
     'Active': 'Activo',
     'addSerie': 'Agregar Serie',
@@ -99,6 +100,12 @@
     'selectVendor': 'Seleccione un vendedor',
     'vendorInfo': 'Información del vendedor',
     'addProduct': 'Añadir producto',
+    'yes': 'Si',
+    'no': 'No',
+    'AreYouSure': '¿Está seguro?',
+    'AreYouSureContinue': '¿Está seguro que desea continuar?',
+    'NotSavedSaleInvoice': 'La factura de venta no se ha guardado, si genera una nueva perderá todos los cambios',
+    'addAtLeastOneItem':'Debe agregar por lo menos un producto a la factura',
     
     'localeTextAgGrid': {
         // for filter panel
