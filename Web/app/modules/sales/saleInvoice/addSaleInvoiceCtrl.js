@@ -30,6 +30,11 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
             $scope.productsGrid.api.setRowData([]);
         $rootScope.showSaveButton = true;
         $rootScope.showPrintButton = false;
+
+        if (typeof $scope.productsGrid !== 'undefined') {
+            $scope.productsGrid.api.setColumnDefs($scope.getColumnDefs());
+            $scope.productsGrid.api.sizeColumnsToFit();
+        }
     };
 
     $scope.clearForm();
@@ -95,49 +100,51 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
         return sign + `${formatted}`;
     }
 
-    $scope.columnDefs = [
-        {
-            headerName: aLanguage.code,
-            lockPosition: true,
-            field: "ProductCode",
-            width: 10
-        },
-        {
-            headerName: aLanguage.productName,
-            lockPosition: true,
-            field: "ProductDescription",
-            width: 35
-        },
-        {
-            headerName: aLanguage.discount,
-            lockPosition: true,
-            field: "Discount",
-            width: 10,
-            editable: true,
-            cellEditor: 'numericCellEditor'
-        },
-        {
-            headerName: aLanguage.amount,
-            lockPosition: true,
-            field: "Amount",
-            width: 10,
-            editable: true,
-            cellEditor: 'numericCellEditor'
-        },
-        {
-            headerName: aLanguage.price,
-            lockPosition: true,
-            field: "Price",
-            width: 15,
-            valueFormatter: function (params) {
-                return $scope.currencyFormatter(params.data.Price, '$');
+    $scope.getColumnDefs = function () {
+        return [
+            {
+                headerName: aLanguage.code,
+                lockPosition: true,
+                field: "ProductCode",
+                width: 10
+            },
+            {
+                headerName: aLanguage.productName,
+                lockPosition: true,
+                field: "ProductDescription",
+                width: 35
+            },
+            {
+                headerName: aLanguage.discount,
+                lockPosition: true,
+                field: "Discount",
+                width: 10,
+                editable: !$scope.savedInvoice,
+                cellEditor: 'numericCellEditor'
+            },
+            {
+                headerName: aLanguage.amount,
+                lockPosition: true,
+                field: "Amount",
+                width: 10,
+                editable: !$scope.savedInvoice,
+                cellEditor: 'numericCellEditor'
+            },
+            {
+                headerName: aLanguage.price,
+                lockPosition: true,
+                field: "Price",
+                width: 15,
+                valueFormatter: function (params) {
+                    return $scope.currencyFormatter(params.data.Price, '$');
+                }
             }
-        }
-    ];
+        ]
+    };
 
     $scope.productsGrid = {
         localeText: $scope.aLanguage.localeTextAgGrid,
-        columnDefs: $scope.columnDefs,
+        columnDefs: $scope.getColumnDefs(),
         rowData: $scope.rowDataProducts,
         suppressRowClickSelection: true,
         enableColResize: false,
@@ -152,9 +159,6 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
         },
         components: {
             numericCellEditor: NumericEditor
-        },
-        onCellEditingStarted: function (event) {
-            if ($scope.savedInvoice) $scope.productsGrid.api.stopEditing();;
         }
     };
 
@@ -255,6 +259,8 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
     $scope.saveInvoice = function () {
         //TODO: Guardar despues de realizar las validaciones
         $scope.savedInvoice = true;
+        $scope.productsGrid.api.setColumnDefs($scope.getColumnDefs());
+        $scope.productsGrid.api.sizeColumnsToFit();
         $rootScope.showSaveButton = false;
         $rootScope.showPrintButton = true;
     };
