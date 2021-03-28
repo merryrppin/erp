@@ -4,7 +4,7 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT WarehouseCode,[Description],[Default],Inactive
+	SELECT WarehouseCode,[Description],[Default],Active
 	FROM tblWarehouse
 END
 GO

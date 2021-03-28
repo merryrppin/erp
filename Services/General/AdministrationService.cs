@@ -20,8 +20,6 @@ namespace Services.General
         {
             ManageExceptions = new ManageExceptions();
             ConnString = ConfigurationManager.ConnectionStrings["ConnString"].ConnectionString;
-
-
         }
 
         #region Stored Procedure

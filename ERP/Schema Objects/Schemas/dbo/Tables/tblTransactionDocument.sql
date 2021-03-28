@@ -58,8 +58,8 @@
     [IPAdrress] VARCHAR(50) NULL, 
     [Sync] BIT NOT NULL DEFAULT 0, 
     [SyncDate] DATETIME NULL, 
-    CONSTRAINT [FK_tblTransactionDocument_TblDocuments] FOREIGN KEY (DocumentCode) REFERENCES [dbo].[TblDocuments](DocumentCode), 
-    CONSTRAINT [FK_tblTransactionDocument_TblSeries] FOREIGN KEY (SerieCode) REFERENCES [dbo].[TblSeries](SerieCode), 
-    CONSTRAINT [FK_tblTransactionDocument_TblPriceList] FOREIGN KEY (PriceListCode) REFERENCES [dbo].[tblPriceList](PriceListCode)
+    CONSTRAINT [FK_tblTransactionDocument_tblDocuments] FOREIGN KEY (DocumentCode) REFERENCES [dbo].[tblDocuments](DocumentCode), 
+    CONSTRAINT [FK_tblTransactionDocument_tblSeries] FOREIGN KEY (SerieCode) REFERENCES [dbo].[tblSeries](SerieCode), 
+    CONSTRAINT [FK_tblTransactionDocument_tblPriceList] FOREIGN KEY (PriceListCode) REFERENCES [dbo].[tblPriceList](PriceListCode)
 
 )

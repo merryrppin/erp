@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[TblDocuments]
+﻿CREATE TABLE [dbo].[tblDocuments]
 (
 	[DocumentId] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
     [DocumentCode] VARCHAR(10) NOT NULL, 
@@ -8,4 +8,4 @@
 
 GO
 
-CREATE UNIQUE INDEX [IX_TblDocuments_DocumentCode] ON [dbo].[TblDocuments] (DocumentCode)
+CREATE UNIQUE INDEX [IX_TblDocuments_DocumentCode] ON [dbo].[tblDocuments] (DocumentCode)

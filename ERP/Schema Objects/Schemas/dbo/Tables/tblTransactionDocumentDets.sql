@@ -6,7 +6,7 @@
     [SerieCode] VARCHAR(10) NOT NULL, 
     [NumDocument] VARCHAR(50) NOT NULL, 
     [Item] BIGINT NOT NULL, 
-    [WareHouseCode] VARCHAR(10) NOT NULL, 
+    [WarehouseCode] VARCHAR(10) NOT NULL, 
     [ProductCode] VARCHAR(50) NOT NULL, 
     [Description] VARCHAR(500) NOT NULL, 
     [PriceListCode] VARCHAR(10) NOT NULL, 
@@ -44,11 +44,11 @@
     [UserCode] VARCHAR(50) NULL, 
     [AdrressIp] VARCHAR(500) NULL, 
     CONSTRAINT [FK_tblTransactionDocumentDets_tblTransactionDocument] FOREIGN KEY ([IdTransactionDocument]) REFERENCES [tblTransactionDocument]([TransactionDocumentId]), 
-    CONSTRAINT [FK_tblTransactionDocumentDets_TblDocuments] FOREIGN KEY (DocumentCode) REFERENCES [TblDocuments](DocumentCode),
-    CONSTRAINT [FK_tblTransactionDocumentDets_TblSeries] FOREIGN KEY (SerieCode) REFERENCES [TblSeries](SerieCode),
-    CONSTRAINT [FK_tblTransactionDocumentDets_TblProduct] FOREIGN KEY (ProductCode) REFERENCES [TblProduct](ProductCode),
-    CONSTRAINT [FK_tblTransactionDocumentDets_TblWarehouse] FOREIGN KEY (WarehouseCode) REFERENCES [TblWarehouse](WarehouseCode),
-    CONSTRAINT [FK_tblTransactionDocumentDets_TblPriceList] FOREIGN KEY (PriceListCode) REFERENCES [dbo].[tblPriceList](PriceListCode),
-    CONSTRAINT [FK_tblTransactionDocumentDets_TblDuty] FOREIGN KEY ([DutyCode]) REFERENCES [dbo].[TblDuty](DutyCode), 
-    CONSTRAINT [FK_tblTransactionDocumentDets_TblMeasure] FOREIGN KEY (UnitMeasureCode) REFERENCES [TblMeasure](Measurecode)
+    CONSTRAINT [FK_tblTransactionDocumentDets_tblDocuments] FOREIGN KEY (DocumentCode) REFERENCES [tblDocuments](DocumentCode),
+    CONSTRAINT [FK_tblTransactionDocumentDets_tblSeries] FOREIGN KEY (SerieCode) REFERENCES [tblSeries](SerieCode),
+    CONSTRAINT [FK_tblTransactionDocumentDets_tblProduct] FOREIGN KEY (ProductCode) REFERENCES [tblProduct](ProductCode),
+    CONSTRAINT [FK_tblTransactionDocumentDets_tblWarehouse] FOREIGN KEY (WarehouseCode) REFERENCES [tblWarehouse](WarehouseCode),
+    CONSTRAINT [FK_tblTransactionDocumentDets_tblPriceList] FOREIGN KEY (PriceListCode) REFERENCES [dbo].[tblPriceList](PriceListCode),
+    CONSTRAINT [FK_tblTransactionDocumentDets_tblDuty] FOREIGN KEY ([DutyCode]) REFERENCES [dbo].[tblDuty](DutyCode), 
+    CONSTRAINT [FK_tblTransactionDocumentDets_tblMeasure] FOREIGN KEY (UnitMeasureCode) REFERENCES [tblMeasure](MeasureCode)
 )

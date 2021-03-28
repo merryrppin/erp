@@ -9,22 +9,22 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
     $rootScope.showCancelButton = true;
 
     $scope.clearForm = function () {
-        $scope.IVAValue = 0;
-        $scope.netTotalValue = 0;
-        $scope.totalDiscountValue = 0;
-        $scope.totalWithoutIvaValue = 0;
-        $scope.currentProductCode = '';
-        $scope.productAmount = 1;
-        $scope.productsWithPrice = [];
-        $scope.rowDataProducts = [];
-        $scope.vendors = [];
-        $scope.savedInvoice = false;
         $scope.invoiceSale = {
             clientDocument: '',
             clientName: '',
             chkInfoSale: false,
             selectedVendor: null
         };
+        $scope.invoiceSale.IVAValue = 0;
+        $scope.invoiceSale.netTotalValue = 0;
+        $scope.invoiceSale.totalDiscountValue = 0;
+        $scope.invoiceSale.totalWithoutIvaValue = 0;
+        $scope.currentProductCode = '';
+        $scope.productAmount = 1;
+        $scope.productsWithPrice = [];
+        $scope.rowDataProducts = [];
+        $scope.vendors = [];
+        $scope.savedInvoice = false;
         $('#selectVendors').val(null).trigger('change');
         if (typeof $scope.productsGrid !== 'undefined')
             $scope.productsGrid.api.setRowData([]);
@@ -79,9 +79,36 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
     $scope.totalDiscount = function () {
         var sumTotalDiscount = 0;
         $.each($scope.rowDataProducts, function (i, objProduct) {
-            sumTotalDiscount += parseFloat(objProduct.Discount);
+            sumTotalDiscount += parseFloat(objProduct.Discount) * parseInt(objProduct.Amount);
         });
         return sumTotalDiscount;
+    };
+
+    $scope.totalIVA = function () {
+        var sumTotalIVA = 0;
+        $.each($scope.rowDataProducts, function (i, objProduct) {
+            sumTotalIVA += (parseFloat(objProduct.Price) * parseInt(objProduct.Amount)) * (objProduct.TariffDutty / 100);
+        });
+        return sumTotalIVA;
+    };
+
+    $scope.reloadValues = function () {
+        $scope.invoiceSale.totalDiscountValue = $scope.totalDiscount();
+        $scope.invoiceSale.totalWithoutIvaValue = $scope.totalWithoutIva();
+        $scope.invoiceSale.IVAValue = $scope.totalIVA();
+        $scope.invoiceSale.netTotalValue = $scope.invoiceSale.totalWithoutIvaValue + $scope.invoiceSale.IVAValue - $scope.invoiceSale.totalDiscountValue;
+        $scope.safeApply();
+    };
+
+    $scope.safeApply = function (fn) {
+        var phase = this.$root.$$phase;
+        if (phase == '$apply' || phase == '$digest') {
+            if (fn && (typeof (fn) === 'function')) {
+                fn();
+            }
+        } else {
+            this.$apply(fn);
+        }
     };
 
     $scope.addProductToGrid = function (productSelected) {
@@ -90,8 +117,7 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
         $scope.rowDataProducts.push(productSelected);
         $scope.productsGrid.api.setRowData($scope.rowDataProducts);
         $scope.currentProductCode = '';
-        $scope.totalDiscountValue = $scope.totalDiscount();
-        $scope.totalWithoutIvaValue = $scope.totalWithoutIva();
+        $scope.reloadValues();
     }
 
     $scope.currencyFormatter = function (currency, sign) {
@@ -159,6 +185,9 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
         },
         components: {
             numericCellEditor: NumericEditor
+        },
+        onCellEditingStopped: function (event) {
+            $scope.reloadValues();
         }
     };
 
@@ -230,6 +259,8 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
         }
         var vendorSelected = $("#selectVendors").val();
         if (vendorSelected !== null && vendorSelected !== "") {
+            $scope.productsGrid.api.stopEditing();
+            $scope.reloadValues();
             $scope.invoiceSale.selectedVendor = vendorSelected;
             $scope.saveInvoice();
         } else {
@@ -257,12 +288,24 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
     }
 
     $scope.saveInvoice = function () {
-        //TODO: Guardar despues de realizar las validaciones
-        $scope.savedInvoice = true;
-        $scope.productsGrid.api.setColumnDefs($scope.getColumnDefs());
-        $scope.productsGrid.api.sizeColumnsToFit();
-        $rootScope.showSaveButton = false;
-        $rootScope.showPrintButton = true;
+        var data = {
+            "SaleInvoice": JSON.stringify($scope.invoiceSale),
+            "aProductsCompressed": LZString.compressToUTF16(JSON.stringify($scope.rowDataProducts)),
+            "UserCreatedBy": $scope.userLogin.UserCompleteName
+        };
+        GeneralService.executeAjax({
+            url: 'api/sale/saveSaleInvoice',
+            data: data,
+            success: function (response) {
+                if (response.Exception === null || response === true) {
+                    $scope.savedInvoice = true;
+                    $scope.productsGrid.api.setColumnDefs($scope.getColumnDefs());
+                    $scope.productsGrid.api.sizeColumnsToFit();
+                    $rootScope.showSaveButton = false;
+                    $rootScope.showPrintButton = true;
+                }
+            }
+        });
     };
 
     angular.element(document).ready(init);

@@ -18,8 +18,8 @@
     CONSTRAINT [FK_tblProduct_tblWarehouse_WarehouseCode] FOREIGN KEY([WarehouseCode]) REFERENCES [dbo].[tblWarehouse] ([WarehouseCode]),
     CONSTRAINT [FK_tblProduct_tblProductLines_CodLine] FOREIGN KEY([LineCode]) REFERENCES [dbo].[tblProductLines] ([LineCode]),
     CONSTRAINT [FK_tblProduct_tblProductSubLine_SubLineCode] FOREIGN KEY([SubLineCode]) REFERENCES [dbo].[tblProductSubLine] ([SubLineCode]), 
-    CONSTRAINT [FK_tblProduct_TblDuty] FOREIGN KEY ([DutyCode]) REFERENCES [dbo].[TblDuty](DutyCode), 
-    CONSTRAINT [FK_tblProduct_TblMeasure] FOREIGN KEY (UnitMeasureCode) REFERENCES [TblMeasure](Measurecode)
+    CONSTRAINT [FK_tblProduct_tblDuty] FOREIGN KEY ([DutyCode]) REFERENCES [dbo].[tblDuty](DutyCode), 
+    CONSTRAINT [FK_tblProduct_tblMeasure] FOREIGN KEY (UnitMeasureCode) REFERENCES [tblMeasure](MeasureCode)
 
 )
 GO

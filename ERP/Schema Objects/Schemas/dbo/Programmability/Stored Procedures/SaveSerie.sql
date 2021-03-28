@@ -14,7 +14,7 @@ BEGIN
 	,Legend5 VARCHAR(500) '$.Legend5',Legend6 VARCHAR(500) '$.Legend6',Legend7 VARCHAR(500) '$.Legend7',Legend8 VARCHAR(500) '$.Legend8',Legend9 VARCHAR(500) '$.Legend9',Legend10 VARCHAR(500) '$.Legend10',
 	[Default] BIT '$.default',Active BIT '$.Active')
 
-	MERGE TblSeries AS ts
+	MERGE tblSeries AS ts
 	USING #tmpSerie AS SOURCE
 	ON ts.SerieId = SOURCE.SerieId
 	WHEN MATCHED THEN

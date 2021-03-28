@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[TblSeries]
+﻿CREATE TABLE [dbo].[tblSeries]
 (
 	[SerieId] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
     [SerieCode] VARCHAR(10) NOT NULL, 
@@ -26,4 +26,4 @@
 
 GO
 
-CREATE UNIQUE INDEX [IX_TblSeries_SerieCode] ON [dbo].[TblSeries] (SerieCode)
+CREATE UNIQUE INDEX [IX_tblSeries_SerieCode] ON [dbo].[tblSeries] (SerieCode)
