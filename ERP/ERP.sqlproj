@@ -104,8 +104,8 @@
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\GetActiveVendors.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\tblMeasure.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Tables\tblDuty.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Tables\TblDocuments.sql" />
-    <Build Include="Schema Objects\Schemas\dbo\Tables\TblSeries.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\tblDocuments.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\tblSeries.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\GetActiveSeries.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\SaveSerie.sql" />
     <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\SaveSaleInvoice.sql" />
