@@ -250,7 +250,7 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
     };
 
     $rootScope.saveBtnFunction = function () {
-        if ($scope.productsGrid.rowData.length === 0) {
+        if ($scope.rowDataProducts.length === 0) {
             GeneralService.showToastR({
                 body: aLanguage.addAtLeastOneItem,
                 type: 'error'
