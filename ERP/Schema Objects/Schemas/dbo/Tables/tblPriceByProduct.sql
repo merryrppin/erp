@@ -11,7 +11,7 @@
     [DiscountValue] DECIMAL(18, 8) NOT NULL, 
     [ValidityStartDate] DATE NULL, 
     [ValidityEndDate] DATE NULL, 
-    [Active] BIT NOT NULL, 
+    [Active] BIT NOT NULL DEFAULT 1, 
     [UserCode] VARCHAR(50) NULL,
     CONSTRAINT [FK_tblPriceByProduct_tblpriceList_PriceListCod] FOREIGN KEY([PriceListCode]) REFERENCES [dbo].[tblPriceList] ([PriceListCode]),
     CONSTRAINT [FK_tblPriceByProduct_tblProdut_Productcode] FOREIGN KEY([ProductCode]) REFERENCES [dbo].[tblProduct] ([ProductCode])

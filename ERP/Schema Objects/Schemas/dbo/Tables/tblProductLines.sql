@@ -2,7 +2,7 @@
 	[LineId] [int] IDENTITY(1,1) NOT NULL,
 	[LineCode] [varchar](50) NOT NULL,
 	[Description] [varchar](50) NOT NULL,
-	[Active] [bit] NOT NULL,
+	[Active] [bit] NOT NULL DEFAULT 1,
  CONSTRAINT [PK_tblProductLines] PRIMARY KEY CLUSTERED 
 (
 	[LineId] ASC

@@ -4,7 +4,7 @@
     [DutyCode] VARCHAR(10) NOT NULL, 
     [Description] VARCHAR(20) NOT NULL, 
     [TariffDutty] FLOAT NOT NULL, 
-    [Active] BIT NOT NULL
+    [Active] BIT NOT NULL DEFAULT 1 
 )
 
 GO
