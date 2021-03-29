@@ -20,8 +20,8 @@
     [Legend8] VARCHAR(500) NULL, 
     [Legend9] VARCHAR(500) NULL, 
     [Legend10] VARCHAR(500) NULL, 
-    [Default] BIT NOT NULL, 
-    [Active] BIT NOT NULL
+    [Default] BIT NOT NULL DEFAULT 0, 
+    [Active] BIT NOT NULL DEFAULT 1
 )
 
 GO

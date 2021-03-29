@@ -14,7 +14,7 @@
     [DutyCode] VARCHAR(10) NOT NULL, 
     [TariffDuty] FLOAT NOT NULL, 
     [Discount] FLOAT NOT NULL, 
-    [Active] BIT NOT NULL,
+    [Active] BIT NOT NULL DEFAULT 1,
     CONSTRAINT [FK_tblProduct_tblWarehouse_WarehouseCode] FOREIGN KEY([WarehouseCode]) REFERENCES [dbo].[tblWarehouse] ([WarehouseCode]),
     CONSTRAINT [FK_tblProduct_tblProductLines_CodLine] FOREIGN KEY([LineCode]) REFERENCES [dbo].[tblProductLines] ([LineCode]),
     CONSTRAINT [FK_tblProduct_tblProductSubLine_SubLineCode] FOREIGN KEY([SubLineCode]) REFERENCES [dbo].[tblProductSubLine] ([SubLineCode]), 
