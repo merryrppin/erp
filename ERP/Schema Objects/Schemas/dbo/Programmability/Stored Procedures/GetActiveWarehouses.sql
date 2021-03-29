@@ -1,10 +1,8 @@
 ﻿CREATE PROCEDURE GetActiveWarehouses
+	@Active INT = 1
 AS
 BEGIN
-	SET NOCOUNT ON;
-
-    -- Insert statements for procedure here
-	SELECT WarehouseCode,[Description],[Default],Active
+	SELECT WarehouseCode, [Description], [Default], Active
 	FROM tblWarehouse
+	WHERE Active = @Active
 END
-GO

@@ -8,6 +8,9 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
     $rootScope.showSaveButton = true;
     $rootScope.showCancelButton = true;
 
+    $scope.aWarehouseCodes = [];
+    $scope.selectedWarehouse = null;
+
     $scope.clearForm = function () {
         $scope.invoiceSale = {
             clientDocument: '',
@@ -192,9 +195,19 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
     };
 
     $scope.loadProductsWithPrice = function (funcProduct) {
+        if ($scope.selectedWarehouse === null) {
+            GeneralService.showToastR({
+                body: aLanguage.selectWarehouse,
+                type: 'error'
+            });
+            return;
+        }
+
         var dataSP = {
             "StoredProcedureName": "GetActiveProductsWithPrice",
-            "StoredParams": []
+            "StoredParams": [{
+                "WarehouseCode": $scope.selectedWarehouse.WarehouseCode
+            }]
         };
         GeneralService.executeAjax({
             url: 'api/executeStoredProcedure',
@@ -245,6 +258,22 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
                     allowClear: true,
                     data: aSelectVendors
                 });
+            }
+        });
+    };
+
+    $scope.loadActiveWarehouses = function () {
+        var dataSP = {
+            "StoredProcedureName": "GetActiveWarehouses",
+            "StoredParams": []
+        };
+        GeneralService.executeAjax({
+            url: 'api/executeStoredProcedure',
+            data: dataSP,
+            success: function (response) {
+                if (response.Exception === null) {
+                    $scope.aWarehouseCodes = angular.copy(response.Value[0].DataMapped);
+                }
             }
         });
     };
@@ -311,7 +340,7 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
     angular.element(document).ready(init);
 
     function init() {
-        $scope.loadProductsWithPrice();
         $scope.loadActiveVendors();
+        $scope.loadActiveWarehouses();
     }
 }

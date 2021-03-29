@@ -12,7 +12,7 @@ AS BEGIN
 	SELECT * 
 	INTO #tmpProducts
 	FROM OPENJSON(@Products)
-	WITH (Amount INT '$.Amount', Discount FLOAT '$.Discount', Price DECIMAL(18,8) '$.Price', ProductCode VARCHAR(50) '$.ProductCode', TariffDutty FLOAT '$.TariffDutty');
+	WITH (Amount FLOAT '$.Amount', Discount FLOAT '$.Discount', Price DECIMAL(18,8) '$.Price', ProductCode VARCHAR(50) '$.ProductCode', TariffDutty FLOAT '$.TariffDutty');
 
 	IF OBJECT_ID('tempdb..#tmpSaleInvoice') IS NOT NULL BEGIN DROP TABLE #tmpSaleInvoice END;
 	IF OBJECT_ID('tempdb..#tmpProducts') IS NOT NULL BEGIN DROP TABLE #tmpProducts END;

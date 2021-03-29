@@ -50,7 +50,14 @@
                         <td>
                             <center>
                                 <select class="form-control" id="selectVendors" data-ng-disabled="savedInvoice">
-                                    <option></option>
+                                </select>
+                            </center>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <center>
+                                <select class="form-control" id="selectWarehouse" data-ng-disabled="savedInvoice" data-ng-model="selectedWarehouse" data-ng-options="warehousecode.Description for warehousecode in aWarehouseCodes">
                                 </select>
                             </center>
                         </td>

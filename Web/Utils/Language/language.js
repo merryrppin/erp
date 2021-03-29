@@ -98,6 +98,7 @@
     'notProductFound': 'No se encontró el producto',
     'selectOption': 'Seleccione una opción',
     'selectVendor': 'Seleccione un vendedor',
+    'selectWarehouse': 'Seleccione una bodega',    
     'vendorInfo': 'Información del vendedor',
     'addProduct': 'Añadir producto',
     'yes': 'Si',
