@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[tblInventory]
 (
-	[InventoryId] INT NOT NULL PRIMARY KEY, 
+	[InventoryId] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
     [ProductCode] VARCHAR(50) NOT NULL, 
     [WarehouseCode] VARCHAR(10) NOT NULL, 
     [Requested] DECIMAL(18, 8) NOT NULL, 
