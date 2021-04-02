@@ -1,9 +1,9 @@
 ﻿CREATE TABLE [dbo].[tblDuty]
 (
-	[DutyId] INT NOT NULL PRIMARY KEY, 
+	[DutyId] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
     [DutyCode] VARCHAR(10) NOT NULL, 
     [Description] VARCHAR(20) NOT NULL, 
-    [TariffDutty] FLOAT NOT NULL, 
+    [TariffDuty] FLOAT NOT NULL, 
     [Active] BIT NOT NULL DEFAULT 1 
 )
 
