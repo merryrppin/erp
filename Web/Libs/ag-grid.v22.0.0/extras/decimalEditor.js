@@ -1,4 +1,4 @@
-class NumericEditor {
+class DecimalEditor {
     // gets called once before the renderer is used
     init(params) {
         // create the cell
@@ -55,7 +55,7 @@ class NumericEditor {
 
     // returns the new value after editing
     getValue() {
-        return parseInt(this.eInput.value);
+        return parseFloat(this.eInput.value);
     }
 
     // any cleanup we need to be done here
@@ -74,6 +74,10 @@ class NumericEditor {
         return typeof event.which == 'undefined' ? event.keyCode : event.which;
     }
 
+    isCharDecimal(charStr) {
+        return '.'.indexOf(charStr) === 0;
+    }
+
     isCharNumeric(charStr) {
         return !!/\d/.test(charStr);
     }
@@ -81,6 +85,6 @@ class NumericEditor {
     isKeyPressedNumeric(event) {
         const charCode = this.getCharCodeFromEvent(event);
         const charStr = String.fromCharCode(charCode);
-        return this.isCharNumeric(charStr);
+        return this.isCharNumeric(charStr) || this.isCharDecimal(charStr);
     }
 }

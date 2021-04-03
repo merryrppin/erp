@@ -10,6 +10,7 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
 
     $scope.aWarehouseCodes = [];
     $scope.selectedWarehouse = null;
+    $scope.maxValueToFixed = 3;
 
     $scope.clearForm = function () {
         $scope.invoiceSale = {
@@ -82,7 +83,10 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
     $scope.totalDiscount = function () {
         var sumTotalDiscount = 0;
         $.each($scope.rowDataProducts, function (i, objProduct) {
-            sumTotalDiscount += parseFloat(objProduct.Discount) * parseInt(objProduct.Amount);
+            var currentProductValue = parseFloat(objProduct.Price) * parseInt(objProduct.Amount);
+            var currentDiscountValue = parseFloat(objProduct.Discount) * parseInt(objProduct.Amount);
+            var discountProduct = currentDiscountValue > currentProductValue ? currentProductValue : currentDiscountValue;
+            sumTotalDiscount += discountProduct;
         });
         return sumTotalDiscount;
     };
@@ -90,7 +94,7 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
     $scope.totalIVA = function () {
         var sumTotalIVA = 0;
         $.each($scope.rowDataProducts, function (i, objProduct) {
-            sumTotalIVA += (parseFloat(objProduct.Price) * parseInt(objProduct.Amount)) * (objProduct.TariffDutty / 100);
+            sumTotalIVA += (parseFloat(objProduct.Price) * parseInt(objProduct.Amount)) * (objProduct.TariffDuty / 100);
         });
         return sumTotalIVA;
     };
@@ -123,6 +127,23 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
         $scope.reloadValues();
     }
 
+    $scope.recalculateDiscount = function () {
+        $.each($scope.rowDataProducts, function (i, objProduct) {
+            var currentProductValue = parseFloat(objProduct.Price) * parseInt(objProduct.Amount);
+            var currentDiscountValue = parseFloat(objProduct.Discount) * parseInt(objProduct.Amount);
+            var discountProduct = currentDiscountValue > currentProductValue ? objProduct.Price : objProduct.Discount;
+            var aValues = parseFloat(discountProduct).toString().split(".");
+            var valToFixed = $scope.maxValueToFixed;
+            if (aValues.length > 1) {
+                valToFixed = aValues[1].length > $scope.maxValueToFixed ? $scope.maxValueToFixed : aValues[1].length;
+            } else if (aValues.length === 1) {
+                valToFixed = 0;
+            }
+            objProduct.Discount = parseFloat(discountProduct).toFixed(valToFixed);
+        });
+        $scope.productsGrid.api.refreshCells()
+    };
+
     $scope.currencyFormatter = function (currency, sign) {
         var sansDec = parseFloat(currency).toFixed(2);
         var formatted = sansDec.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -149,7 +170,7 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
                 field: "Discount",
                 width: 10,
                 editable: !$scope.savedInvoice,
-                cellEditor: 'numericCellEditor'
+                cellEditor: 'decimalCellEditor'
             },
             {
                 headerName: aLanguage.amount,
@@ -157,7 +178,7 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
                 field: "Amount",
                 width: 10,
                 editable: !$scope.savedInvoice,
-                cellEditor: 'numericCellEditor'
+                cellEditor: 'decimalCellEditor'
             },
             {
                 headerName: aLanguage.price,
@@ -187,9 +208,10 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
             params.api.sizeColumnsToFit();
         },
         components: {
-            numericCellEditor: NumericEditor
+            decimalCellEditor: DecimalEditor
         },
         onCellEditingStopped: function (event) {
+            $scope.recalculateDiscount();
             $scope.reloadValues();
         }
     };
@@ -205,9 +227,7 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
 
         var dataSP = {
             "StoredProcedureName": "GetActiveProductsWithPrice",
-            "StoredParams": [{
-                "WarehouseCode": $scope.selectedWarehouse.WarehouseCode
-            }]
+            "StoredParams": [{ name: 'WarehouseCode', value: $scope.selectedWarehouse.WarehouseCode }]
         };
         GeneralService.executeAjax({
             url: 'api/executeStoredProcedure',

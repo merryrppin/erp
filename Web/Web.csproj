@@ -207,6 +207,7 @@
     <Content Include="app\modules\sales\saleInvoice\addSaleInvoice.html" />
     <Content Include="app\modules\sales\saleInvoice\addSaleInvoiceCtrl.js" />
     <Content Include="app\modules\sales\salesSvc.js" />
+    <Content Include="Libs\ag-grid.v22.0.0\extras\decimalEditor.js" />
     <Content Include="Libs\ag-grid.v22.0.0\extras\numericEditor.js" />
     <Content Include="Libs\General\fonts.googleapis.css" />
     <Content Include="Libs\General\InitializePlugins.js" />
