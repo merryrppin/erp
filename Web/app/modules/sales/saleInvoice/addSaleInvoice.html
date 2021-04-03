@@ -57,7 +57,15 @@
                     <tr>
                         <td>
                             <center>
-                                <select class="form-control" id="selectWarehouse" data-ng-disabled="savedInvoice" data-ng-model="selectedWarehouse" data-ng-options="warehousecode.Description for warehousecode in aWarehouseCodes">
+                                <select class="form-control" id="selectWarehouse" data-ng-disabled="savedInvoice" data-ng-model="selectedWarehouse" data-ng-change="clearProductList()" data-ng-options="warehousecode.Description for warehousecode in aWarehouseCodes">
+                                </select>
+                            </center>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <center>
+                                <select class="form-control" id="selectPriceList" data-ng-disabled="savedInvoice" data-ng-model="selectedPriceList" data-ng-change="clearProductList()" data-ng-options="priceList.Description for priceList in aPriceList">
                                 </select>
                             </center>
                         </td>

@@ -99,6 +99,7 @@
     'selectOption': 'Seleccione una opción',
     'selectVendor': 'Seleccione un vendedor',
     'selectWarehouse': 'Seleccione una bodega',    
+    'selectPriceList': 'Seleccione una lista de precios',    
     'vendorInfo': 'Información del vendedor',
     'addProduct': 'Añadir producto',
     'yes': 'Si',

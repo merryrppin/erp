@@ -9,8 +9,9 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
     $rootScope.showCancelButton = true;
 
     $scope.aWarehouseCodes = [];
-    $scope.selectedWarehouse = null;
     $scope.maxValueToFixed = 3;
+    $scope.selectedWarehouse = null;
+    $scope.selectedPriceList = null;
 
     $scope.clearForm = function () {
         $scope.invoiceSale = {
@@ -54,12 +55,12 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
     };
 
     $scope.addProduct = function () {
-        var productSelected = $filter('filter')($scope.productsWithPrice, { ProductCode: $scope.currentProductCode }, true);
+        var productSelected = $filter('filter')($scope.productsWithPrice, { ProductCode: $scope.currentProductCode, WarehouseCode: $scope.selectedWarehouse.WarehouseCode, PriceListCode: $scope.selectedPriceList.PriceListCode }, true);
         if (productSelected.length > 0) {
             $scope.addProductToGrid(angular.copy(productSelected[0]));
         } else {
             $scope.loadProductsWithPrice(function () {
-                var productSelectedAfterLoad = $filter('filter')($scope.productsWithPrice, { ProductCode: $scope.currentProductCode }, true);
+                var productSelectedAfterLoad = $filter('filter')($scope.productsWithPrice, { ProductCode: $scope.currentProductCode, WarehouseCode: $scope.selectedWarehouse.WarehouseCode, PriceListCode: $scope.selectedPriceList.PriceListCode }, true);
                 if (productSelectedAfterLoad.length > 0) {
                     $scope.addProductToGrid(productSelectedAfterLoad[0]);
                 } else {
@@ -216,6 +217,10 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
         }
     };
 
+    $scope.clearProductList = function() {
+        $scope.productsWithPrice = [];
+    };
+
     $scope.loadProductsWithPrice = function (funcProduct) {
         if ($scope.selectedWarehouse === null) {
             GeneralService.showToastR({
@@ -225,9 +230,17 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
             return;
         }
 
+        if ($scope.selectedPriceList === null) {
+            GeneralService.showToastR({
+                body: aLanguage.selectPriceList,
+                type: 'error'
+            });
+            return;
+        }
+
         var dataSP = {
             "StoredProcedureName": "GetActiveProductsWithPrice",
-            "StoredParams": [{ name: 'WarehouseCode', value: $scope.selectedWarehouse.WarehouseCode }]
+            "StoredParams": [{ name: 'WarehouseCode', value: $scope.selectedWarehouse.WarehouseCode }, { name: 'PriceListCode', value: $scope.selectedPriceList.PriceListCode }]
         };
         GeneralService.executeAjax({
             url: 'api/executeStoredProcedure',
@@ -298,6 +311,22 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
         });
     };
 
+    $scope.loadActivePriceList = function () {
+        var dataSP = {
+            "StoredProcedureName": "GetActivePriceList",
+            "StoredParams": []
+        };
+        GeneralService.executeAjax({
+            url: 'api/executeStoredProcedure',
+            data: dataSP,
+            success: function (response) {
+                if (response.Exception === null) {
+                    $scope.aPriceList = angular.copy(response.Value[0].DataMapped);
+                }
+            }
+        });
+    };
+    
     $rootScope.saveBtnFunction = function () {
         if ($scope.rowDataProducts.length === 0) {
             GeneralService.showToastR({
@@ -362,5 +391,6 @@ function addSaleInvoiceController($scope, $rootScope, $location, $filter, Genera
     function init() {
         $scope.loadActiveVendors();
         $scope.loadActiveWarehouses();
+        $scope.loadActivePriceList();
     }
 }
