@@ -1,0 +1,101 @@
+﻿<div id="piceListDiv">
+    <form id="priceListFrm">
+        <div class="row">
+            <div class="col-12 row kt-form">
+                <div class="col-2">
+                    <label for="example-text-input" class="col-12 col-form-label">{{aLanguage.codArtFrom}}*</label>
+                    <div class="col-12">
+                        <input id="codArtFrom" data-ng-model="generalFilter.codArtFrom" name="codArtFrom" class="form-control" type="number" step="1" min="1" value="" placeholder="{{aLanguage.codArtFrom}}">
+                    </div>
+                </div>
+
+                <div class="col-2">
+                    <label for="example-text-input" class="col-12 col-form-label">{{aLanguage.codArtTo}}*</label>
+                    <div class="col-12">
+                        <input id="codArtTo" data-ng-model="generalFilter.codArtTo" name="codArtTo" class="form-control" type="number" step="1" min="1" value="" placeholder="{{aLanguage.codArtTo}}">
+                    </div>
+                </div>
+
+                <div class="col-2">
+                    <label for="example-text-input" class="col-12 col-form-label">{{aLanguage.priceList}}*</label>
+                    <div class="col-12">
+                        <select id="selectPriceList" data-ng-model="generalFilter.selectedPriceList" name="selectPriceList" class="form-control" data-ng-options="priceList.Description for priceList in aPriceList">
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-2">
+                    <label for="example-text-input" class="col-12 col-form-label">{{aLanguage.line}}</label>
+                    <div class="col-12">
+                        <select id="selectLine" data-ng-model="generalFilter.selectedLine" name="selectLine" class="form-control" data-ng-options="line.Description for line in aLines">
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-2">
+                    <label for="example-text-input" class="col-12 col-form-label">{{aLanguage.subLine}}</label>
+                    <div class="col-12">
+                        <select id="selectSubLine" data-ng-model="generalFilter.selectedSubLine" name="selectSubLine" class="form-control" data-ng-options="subLine.Description for subLine in aSubLines">
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-2">
+                    <button class="btn btn-secondary btnOptions" type="button" data-ng-click="search()">{{aLanguage.search}}</button>
+                </div>
+            </div>
+
+            <div class="col-12 row kt-form">
+
+                <div class="col-2">
+                    <label for="example-text-input" class="col-12 col-form-label">{{aLanguage.basePrice}}</label>
+                    <div class="col-12">
+                        <input id="basePrice" data-ng-model="generalFilter.basePrice" name="basePrice" class="form-control" value="" placeholder="{{aLanguage.basePrice}}">
+                    </div>
+                </div>
+
+                <div class="col-2">
+                    <label for="example-text-input" class="col-12 col-form-label">{{aLanguage.factor}}</label>
+                    <div class="col-12">
+                        <input id="factor" data-ng-model="generalFilter.factor" name="factor" class="form-control" value="" placeholder="{{aLanguage.factor}}">
+                    </div>
+                </div>
+
+                <div class="col-2">
+                    <label for="example-text-input" class="col-12 col-form-label">{{aLanguage.initialDate}}</label>
+                    <div class="col-12">
+
+                        <div class="input-group date">
+                            <input id="initialDate" data-ng-model="generalFilter.initialDate" name="initialDate" type="text" class="form-control datepickerForm" placeholder="{{aLanguage.initialDate}}">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="la la-calendar-check-o glyphicon-th"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-2">
+                    <label for="example-text-input" class="col-12 col-form-label">{{aLanguage.endDate}}</label>
+                    <div class="col-12">
+                        <div class="input-group date">
+                            <input id="endDate" data-ng-model="generalFilter.endDate" name="endDate" type="text" class="form-control datepickerForm" placeholder="{{aLanguage.endDate}}">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="la la-calendar-check-o glyphicon-th"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <button class="btn btn-primary btnOptions" type="button" data-ng-click="generate()">{{aLanguage.generate}}</button>
+                    <button class="btn btn-success btnOptions" type="button" data-ng-click="clearForm()">{{aLanguage.clearFilter}}</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div data-ag-grid="piceListGrid" id="piceListGrid" class="ag-theme-fresh"></div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -78,7 +78,19 @@
     'addSerie': 'Agregar Serie',
     'editSerie': 'Editar Serie',
 
-
+    //PriceList
+    'codArtFrom': 'Cod Art Desde',
+    'codArtTo': 'Cod Art Hasta',
+    'priceList': 'Lista Precio',
+    'line': 'Linea',
+    'subLine': 'SubLinea',
+    'basePrice': 'Precio Base',
+    'initialDate': 'Fecha Inicial',
+    'endDate': 'Fecha Final',
+    'factor': 'Factor',
+    'generate': 'Generar',
+    'clearFilter': 'Limpiar',
+    'search': 'Buscar', 
 
     //SaleInvoice
     'code': 'Código',

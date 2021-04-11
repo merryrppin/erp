@@ -140,6 +140,22 @@
                 }]
             }
         })
+        .state('priceList', {
+            url: "/priceList",
+            templateUrl: "app/modules/sales/priceList/priceList.html",
+            controller: "priceListController",
+            resolve: {
+                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: aLanguage.appName,
+                        files: [
+                            'app/modules/sales/priceList/priceListCtrl.js',
+                            'app/modules/sales/priceList/priceList.css'
+                        ]
+                    });
+                }]
+            }
+        })
         .state('404', {
             url: "/404",
             templateUrl: "app/modules/general/error/404.html",
